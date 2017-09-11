@@ -15,6 +15,20 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# django_app/templates
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+# django_app/static
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+# django_app/media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 ROOT_DIR = os.path.dirname(BASE_DIR)
 
 CONFIG_SECRET_DIR = os.path.join(ROOT_DIR, '.config_secret')
@@ -23,6 +37,13 @@ CONFIG_SECRET_COMMON_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_common.jso
 config_secret_common = json.loads(open(CONFIG_SECRET_COMMON_FILE).read())
 
 SECRET_KEY = config_secret_common['django']['secret_key']
+
+# 외부 API
+API_SECRET_KEYS_FILE = os.path.join(CONFIG_SECRET_DIR, 'api_secret_keys.json')
+api_secret_keys = json.loads(open(API_SECRET_KEYS_FILE).read())
+
+NAVER_CLIENT_ID = api_secret_keys['naver']['client_id']
+NAVER_CLIENT_SECRET = api_secret_keys['naver']['client_secret']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -56,7 +77,9 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            TEMPLATE_DIR,
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
