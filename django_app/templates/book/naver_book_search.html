@@ -1,25 +1,27 @@
 검색한 책 목록
 {% for result in results %}
 <p class="book_search_result">
-    <input type="checkbox">
-    <img src="{{ result.image }}" alt="">
-    <li>
-        <a href="{{ result.link }}">{{ result.title }}</a>
-    </li>
-    <li>
-        저자 : {{ result.author }}
-    </li>
-    <li>
-        정상가 : {{ result.price }}
-    </li>
-    <li>
-        출판사 : {{ result.publisher }}
-    </li>
-    <li>
-        발행일 : {{ result.pubdate }}
-    </li>
-    <li>
-        isbn : {{ result.isbn }}
-    </li>
+    <input type="checkbox" class="checkbox">
+    <img src="{{ result.image }}" class="book-img">
+    <ul class=book-info>
+      <li>
+        <a href="{{ result.link }}">{{ result.title|safe }}</a>
+      </li>
+      <li>
+          저자 : {{ result.author }}
+      </li>
+      <li>
+          정상가 : {{ result.price }}
+      </li>
+      <li>
+          출판사 : {{ result.publisher }}
+      </li>
+      <li>
+          발행일 : {{ result.pubdate }}
+      </li>
+      <li>
+          isbn : {{ result.isbn }}
+      </li>
+    </ul>
 </p>
 {% endfor %}

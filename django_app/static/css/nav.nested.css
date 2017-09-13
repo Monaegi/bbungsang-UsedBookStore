@@ -1,0 +1,48 @@
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #fafafa;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 40px; }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; }
+  .sidenav .bar-element {
+    margin: 0 20px;
+    border-bottom: 1px solid #ddd; }
+    .sidenav .bar-element:nth-child(7) {
+      border-bottom: 1px solid #fafafa; }
+  .sidenav .signupBtn {
+    padding: 10px 40px;
+    margin: 25px 15px 10px 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #fafafa;
+    background: rgba(95, 206, 192, 0.8);
+    border-radius: 5px;
+    cursor: pointer; }
+  .sidenav .loginBtn {
+    padding: 10px 40px;
+    margin: 10px 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #757081;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer; }
+  .sidenav .closebtn {
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+    margin-left: 50px; }

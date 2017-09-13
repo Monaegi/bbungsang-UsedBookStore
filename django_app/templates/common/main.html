@@ -1,0 +1,146 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<div class="main-bg">
+  <header id="header">
+    <a href="#" class="logo">BongDal<a>
+    <div class="sidebar-toggle-box">
+      <div class="fa-bars" data-placement="right" onclick="openNav()">
+        <span class="glyphicon glyphicon-align-justify"></span>
+      </div>
+      {% include 'include/side-nav.html' %}
+    </div>
+  </header>
+  <section id="">
+    <!-- 이 달의 주제 관련 책 -->
+    <article class="move-books">
+      <a href="#" class="link-book">
+        <li>
+          <img src="/static/images/book_sample1.jpg" width="96px" height="140px">
+        </li>
+        <li class="title">매일 심리학 공부</li>
+        <li class="info">
+          나, 요즘 괜찮은 건가? 세상의 적으로부터 내 마음을 지키는 방법!
+        </li>
+      </a>
+      <a href="#" class="link-book">
+        <li>
+          <img src="/static/images/book_sample2.jpg" width="96px" height="140px">
+        </li>
+        <li class="title">힐빌리의 노래</li>
+        <li class="info">
+          미국 사회를 뒤흔든 한 젊은이의 고백. 빌 게이츠 선정 '2017 휴가 필독서'
+        </li>
+      </a>
+      <a href="#" class="link-book">
+        <li>
+          <img src="/static/images/book_sample1.jpg" width="96px" height="140px">
+        </li>
+        <li class="title">매일 심리학 공부</li>
+        <li class="info">
+          나, 요즘 괜찮은 건가? 세상의 적으로부터 내 마음을 지키는 방법!
+        </li>
+      </a>
+      <a href="#" class="link-book">
+        <li>
+          <img src="/static/images/book_sample2.jpg" width="96px" height="140px">
+        </li>
+        <li class="title">힐빌리의 노래</li>
+        <li class="info">
+          미국 사회를 뒤흔든 한 젊은이의 고백. 빌 게이츠 선정 '2017 휴가 필독서'
+        </li>
+      </a>
+      <a href="#" class="link-book">
+        <li>
+          <img src="/static/images/book_sample1.jpg" width="96px" height="140px">
+        </li>
+        <li class="title">매일 심리학 공부</li>
+        <li class="info">
+          나, 요즘 괜찮은 건가? 세상의 적으로부터 내 마음을 지키는 방법!
+        </li>
+      </a>
+      <a href="#" class="link-book">
+        <li>
+          <img src="/static/images/book_sample2.jpg" width="96px" height="140px">
+        </li>
+        <li class="title">힐빌리의 노래</li>
+        <li class="info">
+          미국 사회를 뒤흔든 한 젊은이의 고백. 빌 게이츠 선정 '2017 휴가 필독서'
+        </li>
+      </a>
+    </article>
+    <div class="inner">
+      <a class="detail">자세히 보기</a>
+      <a class="best-seller">주간 베스트 셀러</a>
+    </div>
+  </section>
+</div>
+
+<!-- 나를 위한 책(추천 알고리즘 적용) -->
+
+  <!-- <div class="for-me"> -->
+    <div class="recommend-book">
+      나를 위한 추천 도서
+    </div>
+    <ul class="book-box">
+      <li class="book-info">
+        <div class="test">
+          <img src="/static/images/book_sample3.jpg" class="book-img">
+          <!-- <a href="#" class="bucket"></a>
+          <a href="#" class="info"></a> -->
+        </div>
+      </li>
+      <li class="title">
+        <a href="#">보노보노처럼 살다니 다행이야</a>
+      </li>
+      <li class="author">
+        <a href="#">김신회</a>
+      </li>
+    </ul>
+    <ul class="book-box">
+      <li class="book-info">
+        <div class="test">
+          <img src="/static/images/book_sample3.jpg" class="book-img">
+          <!-- <a href="#" class="bucket"></a>
+          <a href="#" class="info"></a> -->
+        </div>
+      </li>
+      <li class="title">
+        <a href="#">보노보노처럼 살다니 다행이야</a>
+      </li>
+      <li class="author">
+        <a href="#">김신회</a>
+      </li>
+    </ul>
+    <ul class="book-box">
+      <li class="book-info">
+        <div class="test">
+          <img src="/static/images/book_sample3.jpg" class="book-img">
+          <!-- <a href="#" class="bucket"></a>
+          <a href="#" class="info"></a> -->
+        </div>
+      </li>
+      <li class="title">
+        <a href="#">보노보노처럼 살다니 다행이야</a>
+      </li>
+      <li class="author">
+        <a href="#">김신회</a>
+      </li>
+    </ul>
+    <ul class="book-box">
+      <li class="book-info">
+        <div class="test">
+          <img src="/static/images/book_sample3.jpg" class="book-img">
+          <!-- <a href="#" class="bucket"></a>
+          <a href="#" class="info"></a> -->
+        </div>
+      </li>
+      <li class="title">
+        <a href="#">보노보노처럼 살다니 다행이야</a>
+      </li>
+      <li class="author">
+        <a href="#">김신회</a>
+      </li>
+    </ul>
+  <!-- </div> -->
+{% endblock %}

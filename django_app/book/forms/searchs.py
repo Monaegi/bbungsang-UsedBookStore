@@ -8,7 +8,6 @@ class NaverBooksSearchForm(forms.Form):
             attrs={
                 'type': 'search',
                 'placeholder': 'Search...',
-                'class': 'naver_books_search',
                 'id': 'q',
             }
         )

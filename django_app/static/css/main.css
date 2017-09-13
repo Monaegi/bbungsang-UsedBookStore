@@ -1,0 +1,547 @@
+@charset "UTF-8";
+@media (min-width: 792px) {
+  .main-bg {
+    width: 100%;
+    height: 490px;
+    background: url("/static/images/mac_bg_lg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .main-bg #header {
+    width: 90%;
+    height: 60px;
+    margin: 0 auto;
+    border-bottom: 1px solid #fafafa;
+  }
+  .main-bg #header .logo {
+    color: #fafafa;
+    font-size: 32px;
+    font-family: 'Amatica SC';
+    font-weight: bold;
+    top: 7px;
+    margin-left: 5px;
+    position: absolute;
+    float: left;
+  }
+  .main-bg #header .sidebar-toggle-box {
+    float: right;
+    margin-top: 17px;
+    margin-right: 5px;
+  }
+  .main-bg #header .sidebar-toggle-box .fa-bars {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    border-radius: 3px;
+    padding: 2px 9px;
+  }
+  .main-bg #header .sidebar-toggle-box .fa-bars:hover {
+    border: 1px solid #ddd;
+    color: #ddd;
+  }
+  .main-bg .move-books {
+    width: 100%;
+    margin-top: 30px;
+    height: auto;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+  }
+  .main-bg .move-books .link-book {
+    width: 190px;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .main-bg .move-books .link-book img {
+    width: 145px;
+    height: 185px;
+  }
+  .main-bg .move-books .link-book .title {
+    color: #fafafa;
+    font-size: 18px;
+  }
+  .main-bg .move-books .link-book .info {
+    width: 120px;
+    height: auto;
+    color: #ddd;
+    font-size: 14px;
+    padding: 0 !important;
+    margin-left: 37px;
+  }
+  .main-bg .inner {
+    width: 100%;
+    height: auto;
+    color: #fff;
+    margin-top: 45px;
+    text-align: center;
+    float: left;
+  }
+  .main-bg .inner .detail {
+    margin: 0 30px;
+    padding: 15px 72px;
+    text-decoration: none;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .detail:hover {
+    border: 1px solid #5FCEC0;
+    color: #5FCEC0;
+  }
+  .main-bg .inner .best-seller {
+    padding: 15px 60px;
+    margin: 0 30px;
+    text-decoration: none;
+    color: #fafafa;
+    background: rgba(95, 206, 192, 0.8);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .best-seller:hover {
+    background: #ddd;
+    color: #5FCEC0;
+  }
+}
+
+@media (max-width: 972px) {
+  .main-bg {
+    width: 100%;
+    height: 830px;
+    position: relative;
+    background: url("/static/images/mac_bg_sm.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+  }
+  .main-bg .move-books {
+    width: 100%;
+    height: auto;
+    padding-top: 15px;
+    text-align: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
+  }
+  .main-bg .move-books .link-book {
+    width: 225px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .main-bg .move-books .link-book img {
+    width: 135px;
+    height: 185px;
+  }
+  .main-bg .move-books .link-book .title {
+    color: #fafafa;
+    margin-top: 18px;
+    font-size: 13px;
+  }
+  .main-bg .move-books .link-book .info {
+    width: 100px;
+    height: auto;
+    color: #ddd;
+    font-size: 13px;
+    margin: 0 auto;
+  }
+  .main-bg .inner {
+    width: 100%;
+    height: auto;
+    color: #fff;
+    margin-top: 45px;
+    text-align: center;
+    float: left;
+  }
+  .main-bg .inner .detail {
+    margin: 0 15px;
+    padding: 15px 72px;
+    text-decoration: none;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .detail:hover {
+    border: 1px solid #5FCEC0;
+    color: #5FCEC0;
+  }
+  .main-bg .inner .best-seller {
+    padding: 15px 60px;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fafafa;
+    background: rgba(95, 206, 192, 0.8);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .best-seller:hover {
+    background: #ddd;
+    color: #5FCEC0;
+  }
+}
+
+/* 793px 이하 */
+@media (max-width: 794px) {
+  .main-bg {
+    width: 100%;
+    height: 420px;
+    position: relative;
+    background: url("/static/images/mac_bg_sm.jpg");
+    background-repeat: no-repeat;
+  }
+  .main-bg #header {
+    width: 90%;
+    height: 50px;
+    margin: 0 auto;
+    border-bottom: 1px solid #fafafa;
+  }
+  .main-bg #header .logo {
+    color: #fafafa;
+    font-size: 26px;
+    font-family: 'Amatica SC';
+    font-weight: bold;
+    top: 7px;
+    margin-left: 5px;
+    position: absolute;
+    float: left;
+  }
+  .main-bg #header .sidebar-toggle-box {
+    float: right;
+    margin-top: 13px;
+    margin-right: 5px;
+  }
+  .main-bg #header .sidebar-toggle-box .fa-bars {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    border-radius: 3px;
+    padding: 2px 7px;
+  }
+  .main-bg #header .sidebar-toggle-box .fa-bars:hover {
+    border: 1px solid #ddd;
+    color: #ddd;
+  }
+  .main-bg .move-books {
+    width: 100%;
+    height: auto;
+    padding-top: 25px;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+  }
+  .main-bg .move-books .link-book {
+    width: 105px;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .main-bg .move-books .link-book img {
+    width: 96px;
+    height: 140px;
+  }
+  .main-bg .move-books .link-book .title {
+    color: #fafafa;
+    font-size: 13px;
+  }
+  .main-bg .move-books .link-book .info {
+    width: 95px;
+    height: auto;
+    color: #ddd;
+    font-size: 11px;
+    margin: 0 10px;
+  }
+  /* 나를 위한 책(추천 알고리즘 적용) */
+  .recommend-book {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 15px 15px 0 17px;
+    font-size: 17px;
+    font-family: '맑은 고딕';
+  }
+  ul.book-box {
+    width: 22%;
+    margin: 1.5%;
+    border: 1px solid #ddd;
+    float: left;
+    text-align: center;
+  }
+  ul.book-box:hover {
+    border: 2px solid #726a92;
+  }
+  ul.book-box .book-info {
+    position: relative;
+    padding-top: 10px;
+  }
+  ul.book-box .book-info .test {
+    width: 77%;
+    height: auto;
+    margin: 0 auto;
+    float: center;
+    background: pink;
+  }
+  ul.book-box .book-info .test img {
+    width: 100%;
+    background: pink;
+  }
+  ul.book-box .book-info .test img:hover {
+    opacity: 0.1;
+  }
+  ul.book-box .book-info .test img:hover .bucket {
+    width: 20px;
+    height: 20px;
+    background: url("/static/images/bucket.png");
+  }
+  ul.book-box .book-info .test img:hover .info {
+    background: url("/static/imgaes/bucket.png");
+  }
+  ul.book-box .title {
+    font-size: 13px;
+    padding: 0 5px;
+    margin-top: 5px;
+  }
+  ul.book-box .title a {
+    color: #5d5d5d;
+  }
+  ul.book-box .author {
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+  ul.book-box .author a {
+    color: #a6a6a6;
+  }
+}
+
+/* 672px 이하 */
+@media (max-width: 672px) {
+  .main-bg {
+    width: 100%;
+    height: 390px;
+    position: relative;
+    background: url("/static/images/mac_bg_sm.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+  }
+  .main-bg .move-books {
+    width: 100%;
+    height: auto;
+    padding-top: 25px;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+  }
+  .main-bg .move-books .link-book {
+    width: 92px;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .main-bg .move-books .link-book img {
+    width: 82px;
+    height: 120px;
+  }
+  .main-bg .move-books .link-book .title {
+    color: #fafafa;
+    font-size: 11px;
+    margin-top: 5px;
+  }
+  .main-bg .move-books .link-book .info {
+    width: 95px;
+    height: auto;
+    color: #ddd;
+    font-size: 10px;
+    margin: 0;
+  }
+  .main-bg .inner {
+    width: 100%;
+    height: auto;
+    color: #fff;
+    margin-top: 40px;
+    text-align: center;
+    float: left;
+  }
+  .main-bg .inner .detail {
+    margin: 0 10px;
+    padding: 10px 52px;
+    text-decoration: none;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .detail:hover {
+    border: 1px solid #5FCEC0;
+    color: #5FCEC0;
+  }
+  .main-bg .inner .best-seller {
+    padding: 10px 40px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fafafa;
+    background: rgba(95, 206, 192, 0.8);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .best-seller:hover {
+    background: #ddd;
+    color: #5FCEC0;
+  }
+}
+
+/* 553px 이하 */
+@media (max-width: 553px) {
+  .main-bg {
+    width: 100%;
+    height: 620px;
+    position: relative;
+    background: url("/static/images/mac_bg_sm.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+  }
+  .main-bg .move-books {
+    width: 100%;
+    height: auto;
+    padding-top: 25px;
+    text-align: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
+  }
+  .main-bg .move-books .link-book {
+    width: 139px;
+    margin-top: 5px;
+    text-align: center;
+  }
+  .main-bg .move-books .link-book img {
+    width: 100px;
+    height: 140px;
+  }
+  .main-bg .move-books .link-book .title {
+    color: #fafafa;
+    font-size: 13px;
+  }
+  .main-bg .move-books .link-book .info {
+    width: 100px;
+    height: auto;
+    color: #ddd;
+    font-size: 11px;
+    margin: 0 auto;
+  }
+  .main-bg .inner {
+    width: 100%;
+    height: auto;
+    color: #fff;
+    margin-top: 30px;
+    text-align: center;
+    float: left;
+  }
+  .main-bg .inner .detail {
+    margin: 0 10px;
+    padding: 10px 52px;
+    text-decoration: none;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .detail:hover {
+    border: 1px solid #5FCEC0;
+    color: #5FCEC0;
+  }
+  .main-bg .inner .best-seller {
+    padding: 10px 40px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fafafa;
+    background: rgba(95, 206, 192, 0.8);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .best-seller:hover {
+    background: #ddd;
+    color: #5FCEC0;
+  }
+}
+
+/* 432px 이하 */
+@media (max-width: 432px) {
+  .main-bg {
+    width: 100%;
+    height: 580px;
+    position: relative;
+    background: url("/static/images/mac_bg_sm.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+  }
+  .main-bg .move-books {
+    width: 100%;
+    height: auto;
+    padding-top: 25px;
+    text-align: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
+  }
+  .main-bg .move-books .link-book {
+    width: 108px;
+    margin-top: 5px;
+    text-align: center;
+  }
+  .main-bg .move-books .link-book img {
+    width: 85px;
+    height: 115px;
+  }
+  .main-bg .move-books .link-book .title {
+    color: #fafafa;
+    font-size: 13px;
+  }
+  .main-bg .move-books .link-book .info {
+    width: 100px;
+    height: auto;
+    color: #ddd;
+    font-size: 11px;
+    margin: 0 auto;
+  }
+  .main-bg .inner {
+    width: 100%;
+    height: auto;
+    color: #fff;
+    margin-top: 30px;
+    text-align: center;
+    float: left;
+  }
+  .main-bg .inner .detail {
+    margin: 0 10px;
+    padding: 10px 52px;
+    text-decoration: none;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .detail:hover {
+    border: 1px solid #5FCEC0;
+    color: #5FCEC0;
+  }
+  .main-bg .inner .best-seller {
+    padding: 10px 40px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fafafa;
+    background: rgba(95, 206, 192, 0.8);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-bg .inner .best-seller:hover {
+    background: #ddd;
+    color: #5FCEC0;
+  }
+}
