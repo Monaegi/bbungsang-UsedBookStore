@@ -30,7 +30,7 @@
 @media (max-width: 768px) {
   .input-wrap {
     margin: 0 auto;
-    width: 300px;
+    width: 80%;
     height: 40px;
     line-height: 40px;
     float: center;
@@ -45,8 +45,9 @@
 
     .book-search {
       position: absolute;
-      width: 46px;
+      width: 53px;
       height: 32px;
+      line-height: 32px;
       background: #5FCEC0;
       color: #fff;
       border: none;

@@ -82,12 +82,15 @@
     <div class="recommend-book">
       나를 위한 추천 도서
     </div>
-    <ul class="book-box">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <ul class="book-box" onmouseover="$(this).find('#book-img').hide(); $(this).find('#test').show();" onmouseout="$(this).find('#book-img').show(); $(this).find('#test').hide();"> -->
+    <ul class="book-box" id="book-box">
       <li class="book-info">
-        <div class="test">
-          <img src="/static/images/book_sample3.jpg" class="book-img">
-          <!-- <a href="#" class="bucket"></a>
-          <a href="#" class="info"></a> -->
+        <div class="img-hover-show-box" id="img-hover-show-box">
+          <img src="/static/images/book_sample3.jpg" class="book-img" id="book-img">
+          <img src="/static/images/bucket.png" class="bucket" id="bucket">
+          <img src="/static/images/info.png" class="info" id="info">
+          <!-- <img src="" class="test info"> -->
         </div>
       </li>
       <li class="title">
@@ -97,12 +100,13 @@
         <a href="#">김신회</a>
       </li>
     </ul>
-    <ul class="book-box">
+    <ul class="book-box" id="book-box">
       <li class="book-info">
-        <div class="test">
-          <img src="/static/images/book_sample3.jpg" class="book-img">
-          <!-- <a href="#" class="bucket"></a>
-          <a href="#" class="info"></a> -->
+        <div class="img-hover-show-box" id="img-hover-show-box">
+          <img src="/static/images/book_sample3.jpg" class="book-img" id="book-img">
+          <img src="/static/images/bucket.png" class="bucket" id="bucket">
+          <img src="/static/images/info.png" class="info" id="info">
+          <!-- <img src="" class="test info"> -->
         </div>
       </li>
       <li class="title">
@@ -112,12 +116,13 @@
         <a href="#">김신회</a>
       </li>
     </ul>
-    <ul class="book-box">
+    <ul class="book-box" id="book-box">
       <li class="book-info">
-        <div class="test">
-          <img src="/static/images/book_sample3.jpg" class="book-img">
-          <!-- <a href="#" class="bucket"></a>
-          <a href="#" class="info"></a> -->
+        <div class="img-hover-show-box" id="img-hover-show-box">
+          <img src="/static/images/book_sample3.jpg" class="book-img" id="book-img">
+          <img src="/static/images/bucket.png" class="bucket" id="bucket">
+          <img src="/static/images/info.png" class="info" id="info">
+          <!-- <img src="" class="test info"> -->
         </div>
       </li>
       <li class="title">
@@ -127,12 +132,13 @@
         <a href="#">김신회</a>
       </li>
     </ul>
-    <ul class="book-box">
+    <ul class="book-box" id="book-box">
       <li class="book-info">
-        <div class="test">
-          <img src="/static/images/book_sample3.jpg" class="book-img">
-          <!-- <a href="#" class="bucket"></a>
-          <a href="#" class="info"></a> -->
+        <div class="img-hover-show-box" id="img-hover-show-box">
+          <img src="/static/images/book_sample3.jpg" class="book-img" id="book-img">
+          <img src="/static/images/bucket.png" class="bucket" id="bucket">
+          <img src="/static/images/info.png" class="info" id="info">
+          <!-- <img src="" class="test info"> -->
         </div>
       </li>
       <li class="title">
@@ -143,4 +149,17 @@
       </li>
     </ul>
   <!-- </div> -->
+  <!-- 주간 베스트 셀러 -->
+  <div class="this-week-best-seller">주간 베스트 셀러</div>
+  <script>
+    $(document).ready(function() {
+      $('#book-box, #img-hover-show-box').hover(function() {
+        $(this).find('#book-img').hide();
+        $(this).find('#bucket, #info').show();
+      }, function() {
+        $(this).find('#book-img').show();
+        $(this).find('#bucket, #info').hide();
+      });
+    });
+  </script>
 {% endblock %}

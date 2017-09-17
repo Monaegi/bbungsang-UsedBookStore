@@ -7,7 +7,7 @@ class NaverBooksSearchForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'type': 'search',
-                'placeholder': 'Search...',
+                'placeholder': '등록하실 책을 검색하세요 :D',
                 'id': 'q',
             }
         )

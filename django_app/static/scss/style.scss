@@ -12,37 +12,37 @@
 
   .modal-content {
     background: #fff;
-    margin: 10% auto;
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     border-radius: 10px;
-    width: 80%;
+    width: 85%;
     height: 90%;
 
     /* The Search Form */
     .search-form {
-      width: 90%;
+      width: 80%;
+      margin: 0 10%;
       height: 40px;
       line-height: 40px;
-      text-align: center;
-      // background: aquamarine;
       float: left;
     }
 
     /* The Close Button */
     .close {
-        width: 10%;
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        text-align: right;
-        font-weight: bold;
+      margin: 0 auto;
+      width: 5%;
+      color: #aaa;
+      float: right;
+      font-size: 34px;
+      text-align: center;
+      font-weight: bold;
 
-        &:hover, &:focus {
-          color: black;
-          text-decoration: none;
-          cursor: pointer;
-        }
+      &:hover, &:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
     }
 
     .result {
@@ -56,22 +56,26 @@
 
 /* Naver Book List */
 .result {
-  .book_search_result {
-    width: 100%;
-    height: auto;
+  padding: 10px;
 
-    .checkbox {
-      float: left;
-    }
+  .checkbox {
+    width: 3%;
+    float: left;
+    margin-top: 3px;
+  }
 
-    .book-img {
-      float: left;
-    }
+  .book-img {
+    width: 17%;
+    float: left;
+    border: 1px solid #ddd;
+    margin-top: 3px;
+  }
 
-    .book-info {
-      width: 70%;
-      font-size: 14px;
-      float: left;
-    }
+  .book-info {
+    width: 78%;
+    font-size: 14px;
+    float: left;
+    margin-top: 3px;
+    margin-left: 2%;
   }
 }

@@ -1,6 +1,5 @@
-검색한 책 목록
-{% for result in results %}
-<p class="book_search_result">
+<div class="book-wrap">
+  {% for result in results %}
     <input type="checkbox" class="checkbox">
     <img src="{{ result.image }}" class="book-img">
     <ul class=book-info>
@@ -23,5 +22,21 @@
           isbn : {{ result.isbn }}
       </li>
     </ul>
-</p>
-{% endfor %}
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  <span class="step-links">
+    {% if results.has_previous %}
+      <button id="prev" onClick="prevBtn()">prev</button>
+    {% endif %}
+
+    <span class="current">
+      Page {{ results.number }} of {{ results.paginator.num_pages }}.
+    </span>
+
+    {% if results.has_next %}
+      <button id="next" onClick="nextBtn()">next</button>
+    {% endif %}
+  </span>
+</div>

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* 최대 사이즈 */
 @media (min-width: 792px) {
   .main-bg {
     width: 100%;
@@ -8,7 +9,7 @@
     background-size: cover;
   }
   .main-bg #header {
-    width: 90%;
+    width: 95%;
     height: 60px;
     margin: 0 auto;
     border-bottom: 1px solid #fafafa;
@@ -105,6 +106,109 @@
     background: #ddd;
     color: #5FCEC0;
   }
+  /* 나를 위한 책(추천 알고리즘 적용) */
+  .recommend-book {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 40px 15px 0 17px;
+    font-size: 19px;
+    font-family: '맑은 고딕';
+  }
+  ul.book-box {
+    width: 19%;
+    margin: 3%;
+    border: 1px solid #ddd;
+    float: left;
+    text-align: center;
+  }
+  ul.book-box:hover {
+    border: 2px solid rgba(95, 206, 192, 0.6);
+  }
+  ul.book-box .book-info {
+    position: relative;
+    padding-top: 10px;
+  }
+  ul.book-box .book-info .img-hover-show-box {
+    width: 70%;
+    height: 250px;
+    margin: 0 auto;
+    background: rgba(95, 206, 192, 0.6);
+  }
+  ul.book-box .book-info .img-hover-show-box .book-img {
+    width: 100%;
+    height: 250px;
+  }
+  ul.book-box .book-info .img-hover-show-box .bucket {
+    width: 25%;
+    margin: 52% 5% 0 20%;
+    padding: 5%;
+    border: 1px solid #fafafa;
+    display: none;
+    float: left;
+  }
+  ul.book-box .book-info .img-hover-show-box .bucket:hover {
+    background: #61c0bf;
+  }
+  ul.book-box .book-info .img-hover-show-box .info {
+    width: 25%;
+    margin: 52% 20% 0 5%;
+    padding: 5%;
+    border: 1px solid #fafafa;
+    display: none;
+    float: left;
+  }
+  ul.book-box .book-info .img-hover-show-box .info:hover {
+    background: #61c0bf;
+  }
+  ul.book-box .title {
+    font-size: 13px;
+    padding: 0 5px;
+    margin-top: 5px;
+  }
+  ul.book-box .title a {
+    color: #5d5d5d;
+  }
+  ul.book-box .author {
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+  ul.book-box .author a {
+    color: #a6a6a6;
+  }
+  .this-week-best-seller {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 40px 15px 0 17px;
+    font-size: 19px;
+    font-family: '맑은 고딕';
+    background: #f1f1f1;
+  }
+}
+
+@media (max-width: 1210px) {
+  /* 나를 위한 책(추천 알고리즘 적용) */
+  .recommend-book {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 30px 15px 0 17px;
+    font-size: 19px;
+    font-family: '맑은 고딕';
+  }
+  ul.book-box {
+    width: 20%;
+    margin: 2.5%;
+  }
+  ul.book-box .book-info .img-hover-show-box {
+    width: 70%;
+    height: 210px;
+  }
+  ul.book-box .book-info .img-hover-show-box .book-img {
+    width: 100%;
+    height: 210px;
+  }
 }
 
 @media (max-width: 972px) {
@@ -127,7 +231,7 @@
     display: flex;
   }
   .main-bg .move-books .link-book {
-    width: 225px;
+    width: 240px;
     margin-top: 10px;
     text-align: center;
   }
@@ -181,6 +285,76 @@
     background: #ddd;
     color: #5FCEC0;
   }
+  /* 나를 위한 책(추천 알고리즘 적용) */
+  .recommend-book {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 15px 15px 0 17px;
+    font-size: 17px;
+    font-family: '맑은 고딕';
+  }
+  ul.book-box {
+    width: 22%;
+    margin: 1.5%;
+    border: 1px solid #ddd;
+    float: left;
+    text-align: center;
+  }
+  ul.book-box:hover {
+    border: 2px solid rgba(95, 206, 192, 0.6);
+  }
+  ul.book-box .book-info {
+    position: relative;
+    padding-top: 10px;
+  }
+  ul.book-box .book-info .img-hover-show-box {
+    width: 70%;
+    height: 190px;
+    margin: 0 auto;
+    background: rgba(95, 206, 192, 0.6);
+  }
+  ul.book-box .book-info .img-hover-show-box .book-img {
+    width: 100%;
+    height: 190px;
+  }
+  ul.book-box .book-info .img-hover-show-box .bucket {
+    width: 25%;
+    margin: 52% 5% 0 20%;
+    padding: 5%;
+    border: 1px solid #fafafa;
+    display: none;
+    float: left;
+  }
+  ul.book-box .book-info .img-hover-show-box .bucket:hover {
+    background: #61c0bf;
+  }
+  ul.book-box .book-info .img-hover-show-box .info {
+    width: 25%;
+    margin: 52% 20% 0 5%;
+    padding: 5%;
+    border: 1px solid #fafafa;
+    display: none;
+    float: left;
+  }
+  ul.book-box .book-info .img-hover-show-box .info:hover {
+    background: #61c0bf;
+  }
+  ul.book-box .title {
+    font-size: 13px;
+    padding: 0 5px;
+    margin-top: 5px;
+  }
+  ul.book-box .title a {
+    color: #5d5d5d;
+  }
+  ul.book-box .author {
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+  ul.book-box .author a {
+    color: #a6a6a6;
+  }
 }
 
 /* 793px 이하 */
@@ -193,7 +367,7 @@
     background-repeat: no-repeat;
   }
   .main-bg #header {
-    width: 90%;
+    width: 95%;
     height: 50px;
     margin: 0 auto;
     border-bottom: 1px solid #fafafa;
@@ -260,45 +434,55 @@
     width: 100%;
     height: auto;
     float: left;
-    padding: 15px 15px 0 17px;
+    padding: 15px 15px 10px 17px;
     font-size: 17px;
     font-family: '맑은 고딕';
   }
   ul.book-box {
-    width: 22%;
-    margin: 1.5%;
+    width: 23%;
+    margin: 1%;
     border: 1px solid #ddd;
     float: left;
     text-align: center;
   }
   ul.book-box:hover {
-    border: 2px solid #726a92;
+    border: 2px solid rgba(95, 206, 192, 0.6);
   }
   ul.book-box .book-info {
     position: relative;
     padding-top: 10px;
   }
-  ul.book-box .book-info .test {
-    width: 77%;
-    height: auto;
+  ul.book-box .book-info .img-hover-show-box {
+    width: 90%;
+    height: 190px;
     margin: 0 auto;
-    float: center;
-    background: pink;
+    background: rgba(95, 206, 192, 0.6);
   }
-  ul.book-box .book-info .test img {
+  ul.book-box .book-info .img-hover-show-box .book-img {
     width: 100%;
-    background: pink;
+    height: 190px;
   }
-  ul.book-box .book-info .test img:hover {
-    opacity: 0.1;
+  ul.book-box .book-info .img-hover-show-box .bucket {
+    width: 25%;
+    margin: 52% 5% 0 20%;
+    padding: 5%;
+    border: 1px solid #fafafa;
+    display: none;
+    float: left;
   }
-  ul.book-box .book-info .test img:hover .bucket {
-    width: 20px;
-    height: 20px;
-    background: url("/static/images/bucket.png");
+  ul.book-box .book-info .img-hover-show-box .bucket:hover {
+    background: #61c0bf;
   }
-  ul.book-box .book-info .test img:hover .info {
-    background: url("/static/imgaes/bucket.png");
+  ul.book-box .book-info .img-hover-show-box .info {
+    width: 25%;
+    margin: 52% 20% 0 5%;
+    padding: 5%;
+    border: 1px solid #fafafa;
+    display: none;
+    float: left;
+  }
+  ul.book-box .book-info .img-hover-show-box .info:hover {
+    background: #61c0bf;
   }
   ul.book-box .title {
     font-size: 13px;
@@ -314,6 +498,15 @@
   }
   ul.book-box .author a {
     color: #a6a6a6;
+  }
+  .this-week-best-seller {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 15px 15px 0 17px;
+    font-size: 17px;
+    font-family: '맑은 고딕';
+    background: #f1f1f1;
   }
 }
 
@@ -392,10 +585,17 @@
     background: #ddd;
     color: #5FCEC0;
   }
+  /* 나를 위한 추천 도서 */
+  ul.book-box .book-info .img-hover-show-box {
+    height: 160px;
+  }
+  ul.book-box .book-info .img-hover-show-box .book-img {
+    height: 160px;
+  }
 }
 
 /* 553px 이하 */
-@media (max-width: 553px) {
+@media (max-width: 567px) {
   .main-bg {
     width: 100%;
     height: 620px;
@@ -440,6 +640,7 @@
     color: #fff;
     margin-top: 30px;
     text-align: center;
+    font-size: 12px;
     float: left;
   }
   .main-bg .inner .detail {
@@ -467,6 +668,76 @@
   .main-bg .inner .best-seller:hover {
     background: #ddd;
     color: #5FCEC0;
+  }
+  /* 나를 위한 책(추천 알고리즘 적용) */
+  .recommend-book {
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 15px 15px 0 17px;
+    font-size: 17px;
+    font-family: '맑은 고딕';
+  }
+  ul.book-box {
+    width: 38%;
+    margin: 15px 6%;
+    border: 1px solid #ddd;
+    float: left;
+    text-align: center;
+  }
+  ul.book-box:hover {
+    border: 2px solid rgba(95, 206, 192, 0.6);
+  }
+  ul.book-box .book-info {
+    position: relative;
+    padding-top: 10px;
+  }
+  ul.book-box .book-info .img-hover-show-box {
+    width: 80%;
+    height: 190px;
+    margin: 0 auto;
+    background: rgba(95, 206, 192, 0.6);
+  }
+  ul.book-box .book-info .img-hover-show-box .book-img {
+    width: 100%;
+    height: 190px;
+  }
+  ul.book-box .book-info .img-hover-show-box .bucket {
+    width: 25%;
+    margin: 52% 5% 0 20%;
+    padding: 5%;
+    border: 1px solid #fafafa;
+    display: none;
+    float: left;
+  }
+  ul.book-box .book-info .img-hover-show-box .bucket:hover {
+    background: #61c0bf;
+  }
+  ul.book-box .book-info .img-hover-show-box .info {
+    width: 25%;
+    margin: 52% 20% 0 5%;
+    padding: 5%;
+    border: 1px solid #fafafa;
+    display: none;
+    float: left;
+  }
+  ul.book-box .book-info .img-hover-show-box .info:hover {
+    background: #61c0bf;
+  }
+  ul.book-box .title {
+    font-size: 13px;
+    padding: 0 5px;
+    margin-top: 5px;
+  }
+  ul.book-box .title a {
+    color: #5d5d5d;
+  }
+  ul.book-box .author {
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+  ul.book-box .author a {
+    color: #a6a6a6;
   }
 }
 
@@ -543,5 +814,12 @@
   .main-bg .inner .best-seller:hover {
     background: #ddd;
     color: #5FCEC0;
+  }
+  /* 나를 위한 추천 도서 */
+  ul.book-box .book-info .img-hover-show-box {
+    height: 140px;
+  }
+  ul.book-box .book-info .img-hover-show-box .book-img {
+    height: 140px;
   }
 }
