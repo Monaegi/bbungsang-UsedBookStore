@@ -1,2 +1,2 @@
-from .myuser import *
-from .seller import *
+from .myuser import MyUser
+from .seller import Seller

@@ -53,6 +53,20 @@
         page += 1;
         dataLoad(value, page);
       }
+
+      function checkValue() {
+          var obj = eval("(" + $('input:checkbox:checked').val() + ")");
+          console.log(obj);
+          document.getElementById('cover_img').value = obj.image;
+          document.getElementById('set_img').src = obj.image;
+          document.getElementById('title').value = obj.title;
+          document.getElementById('author').value = obj.author;
+          document.getElementById('publisher').value = obj.publisher;
+          document.getElementById('normal_price').value = obj.price
+          document.getElementById('publication_date').value = obj.pubdate;
+          document.getElementById('isbn').value = obj.isbn;
+          modal.style.display = "none";
+      }
     </script>
   </div>
 </div>

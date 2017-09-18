@@ -45,8 +45,6 @@ api_secret_keys = json.loads(open(API_SECRET_KEYS_FILE).read())
 NAVER_CLIENT_ID = api_secret_keys['naver']['client_id']
 NAVER_CLIENT_SECRET = api_secret_keys['naver']['client_secret']
 
-AUTH_USER_MODEL = 'member.MyUser'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -66,6 +64,8 @@ INSTALLED_APPS = [
     'member',
     'book',
 ]
+
+AUTH_USER_MODEL = 'member.MyUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

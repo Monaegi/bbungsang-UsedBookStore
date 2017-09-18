@@ -10,6 +10,11 @@ class Seller(models.Model):
 
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
-        related_name='my_user',
+        related_name='my_seller',
 
     )
+
+    # sell_book_register = models.ManyToManyField(
+    #     Book,
+    #     through=SellBookRegister,
+    # )

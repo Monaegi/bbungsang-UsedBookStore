@@ -8,6 +8,7 @@ from django.shortcuts import render
 
 from book.forms.book_register import BuyBookRegisterForm
 from book.forms.searchs import NaverBooksSearchForm
+from book.models import BuyBookRegister, Book
 
 
 def naver_search_books(request):
@@ -47,7 +48,13 @@ def naver_search_books(request):
 
 def buy_book_register(request, ):
     if request.method == 'POST':
-        pass
+        form = BuyBookRegisterForm(data=request.POST)
+
+        if form.is_valid():
+            form.save(buyer=request.user)
+
+            return HttpResponse('성공!')
+
     register_form = BuyBookRegisterForm()
     search_form = NaverBooksSearchForm()
     context = {

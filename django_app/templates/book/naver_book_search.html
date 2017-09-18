@@ -1,42 +1,48 @@
-<div class="book-wrap">
-  {% for result in results %}
-    <input type="checkbox" class="checkbox">
-    <img src="{{ result.image }}" class="book-img">
-    <ul class=book-info>
-      <li>
-        <a href="{{ result.link }}">{{ result.title|safe }}</a>
-      </li>
-      <li>
-          저자 : {{ result.author }}
-      </li>
-      <li>
-          정상가 : {{ result.price }}
-      </li>
-      <li>
-          출판사 : {{ result.publisher }}
-      </li>
-      <li>
-          발행일 : {{ result.pubdate }}
-      </li>
-      <li>
-          isbn : {{ result.isbn }}
-      </li>
-    </ul>
-  {% endfor %}
-</div>
+<!--<form action="{% url 'book:buy_book_register' %}" method="POST">-->
+  <!--{% csrf_token %}-->
+  <div class="book-wrap">
+    {% for result in results %}
+      <section>
+        <input type="checkbox" class="checkbox" id="checkBox" value="{{result}}">
+        <img src="{{ result.image }}" class="book-img">
+        <ul class=book-info>
+          <li>
+            <a href="{{ result.link }}">{{ result.title|safe }}</a>
+          </li>
+          <li>
+              저자 : {{ result.author }}
+          </li>
+          <li>
+              정상가 : {{ result.price }}
+          </li>
+          <li>
+              출판사 : {{ result.publisher }}
+          </li>
+          <li>
+              발행일 : {{ result.pubdate }}
+          </li>
+          <li>
+              isbn : {{ result.isbn }}
+          </li>
+        </ul>
+      </section>
+    {% endfor %}
+  </div>
 
-<div class="pagination">
-  <span class="step-links">
-    {% if results.has_previous %}
-      <button id="prev" onClick="prevBtn()">prev</button>
-    {% endif %}
+  <div class="pagination">
+    <span class="step-links">
+      {% if results.has_previous %}
+        <button id="prev" onClick="prevBtn()">prev</button>
+      {% endif %}
 
-    <span class="current">
-      Page {{ results.number }} of {{ results.paginator.num_pages }}.
+      <span class="current">
+        Page {{ results.number }} of {{ results.paginator.num_pages }}.
+      </span>
+
+      {% if results.has_next %}
+        <button id="next" onClick="nextBtn()">next</button>
+      {% endif %}
     </span>
-
-    {% if results.has_next %}
-      <button id="next" onClick="nextBtn()">next</button>
-    {% endif %}
-  </span>
-</div>
+  </div>
+  <button onClick="checkValue()">선택</button>
+<!--</form>-->

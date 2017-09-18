@@ -46,14 +46,9 @@ class MyUser(AbstractUser):
         default=USER_TYPE_DJANGO,
     )
 
-    # groups = models.ForeignKey(
-    #     related_name='test1',
-    #     to='Seller',
-    # )
-    #
-    # user_permissions = models.ManyToManyField(
-    #     Permission,
-    #     related_name='test2',
+    # buy_book_register = models.ManyToManyField(
+    #     Book,
+    #     through='book.BuyBookRegister',
     # )
 
     # objects = MyUserManager()

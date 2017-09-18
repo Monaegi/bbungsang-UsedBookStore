@@ -1,12 +1,36 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
-
-
-
-{% include 'include/search_window.html' %}
-
+<div class="container">
+  <!-- <section class="buy-book-bg">
+    <img src="/static/images/mint-bg.png">
+  </section> -->
+  <section class="input-form">
+    <button id="myBtn" class="my-btn">책 검색하기</button>
+    <form class="buy-book-form" action="" method="POST">
+      {% csrf_token %}
+        <article class="img-wrap">
+            <img src="" id="set_img">
+        </article>
+        <article class="form-wrap">
+            {{ register_form }}
+            <!--<label for="used-price">중고가</label>-->
+            <!--<input type="text" class="used-price" id="used-price" name="used-price">-->
+            <!-- <label for="category">카테고리</label>
+            <select name="" class="category" id="category">
+                <option value="lang">언어</option>
+                <option value="os">운영체제</option>
+                <option value="algorithm">자료구조/알고리즘</option>
+                <option value="network">네트워크</option>
+                <option value="db">데이터베이스</option>
+                <option value="etc">etc(소프트웨어공학 등)</option>
+            </select> -->
+            <!--<label for="etc">기타 요구사항</label>-->
+            <!--<textarea class="etc" id="etc" name="etc-requirements"></textarea>-->
+        </article>
+        <button type="submit" class="my-btn">등록하기</button>
+    </form>
+  {% include 'include/search_window.html' %}
+  </section>
+</div>
 {% endblock %}
