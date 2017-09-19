@@ -46,9 +46,4 @@ class MyUser(AbstractUser):
         default=USER_TYPE_DJANGO,
     )
 
-    # buy_book_register = models.ManyToManyField(
-    #     Book,
-    #     through='book.BuyBookRegister',
-    # )
-
     # objects = MyUserManager()

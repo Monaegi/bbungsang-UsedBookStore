@@ -1,0 +1,29 @@
+{% extends 'common/base.html' %}
+{% block content %}
+
+<section class="major">
+  <article class="left-space">Page 11 of 55</article>
+  <article class="right-space">77 results found</article>
+</section>
+<div class="book-container">
+    {% for book in books %}
+    <section class="book-wrap">
+        <article class="book-img">
+          <img src="{{ book.book_info.cover_img }}">
+        </article>
+        <ul class="book-info">
+            <li>
+                책 제목: {{ book.book_info.title|striptags }}
+            </li>
+            <li>
+                중고가: {{ book.used_price }}원
+            </li>
+            <li>
+                <a href="#">자세히 보기</a>
+            </li>
+        </ul>
+    </section>
+    {% endfor %}
+</div>
+
+{% endblock %}

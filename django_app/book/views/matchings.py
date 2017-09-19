@@ -62,3 +62,23 @@ def buy_book_register(request, ):
         'search_form': search_form,
     }
     return render(request, 'book/buy_book_register.html', context)
+
+
+def buy_book_list(request, ):
+    books = BuyBookRegister.objects.all()
+
+    context = {
+        'books': books,
+    }
+
+    return render(request, 'book/buy_book_list.html', context)
+
+
+def buy_book_detail(request, pk):
+    book = BuyBookRegister.objects.get(pk=pk)
+
+    context = {
+        'book': book,
+    }
+
+    return render(request, 'book/buy_book_detail.html', context)
