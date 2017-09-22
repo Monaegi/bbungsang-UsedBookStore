@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>BongDal LogIn</title>
+</head>
+<body>
+  <form action="" method="POST" id="loginForm">
+    {% csrf_token %}
+    username: <input type="text" name="username" id="username" />
+    password: <input type="password" name="password" id="password" />
+    <button type="submit" class="loginBtn">로그인</button>
+    <button class="signupBtn">회원가입</button>
+  </form>
+
+  <div id="result"></div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+  $("#loginForm").submit(function(event){
+    var username = $("input#username").val();
+    var password = $("input#password").val();
+
+    logIn(username, password);
+  })
+
+  function logIn(username, password) {
+    console.log(username);
+    var token = '';
+    $.ajax({
+      type: "POST",
+      url: "{% url 'member:api_login' %}",
+      data: {'username': username, 'password': password, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+      dataType: "json",
+      success: function (response) {
+        console.log(response);
+        token = response.token;
+        localStorage.setItem('token', token);
+        $("#result").html(
+          "{ token: " + response.token + " }"
+        );
+        // location.href='http://localhost:8000/book/main/';
+      },
+      error: function(request, status, error) {
+        $("#result").html(error);
+      }
+    });
+    event.preventDefault();
+  }
+  </script>
+</body>
+</html>

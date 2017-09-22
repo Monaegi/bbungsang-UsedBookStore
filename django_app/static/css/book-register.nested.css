@@ -3,18 +3,37 @@ html body {
   padding: 0; }
 
 .container {
-  width: 70%;
+  width: 100%;
   height: auto;
-  margin: 5% 15%;
-  padding: 0;
-  background: url("/static/images/mint-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover; }
-  .container .my-btn {
-    background: transparent;
-    border: 2px solid #fafafa;
-    color: #fafafa;
-    margin-top: 10px; }
+  padding: 0 !important;
+  margin: 0; }
+  .container .header {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    background: url("/static/images/book-bg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center; }
+    .container .header h2 {
+      margin: 30px 0;
+      color: #fafafa; }
+    .container .header hr {
+      width: 72px; }
+    .container .header p {
+      color: #fafafa; }
+    .container .header #myBtn {
+      border: 1px solid #fafafa;
+      border-radius: 10px;
+      background: transparent;
+      color: #fafafa;
+      font-size: 16px;
+      margin: 35px 0 20px 0;
+      padding: 7px 35px; }
+    .container .header #myBtn:hover {
+      background: #ddd;
+      color: #8d8d8d; }
   .container .input-form {
     width: 100%;
     height: auto;
@@ -24,11 +43,11 @@ html body {
       margin: 0 10%;
       height: auto; }
       .container .input-form .book-form label {
-        margin-top: 10px;
+        margin-top: 25px;
         padding-left: 5px;
-        height: 30px;
+        height: 23px;
         line-height: 30px;
-        color: #fafafa; }
+        color: #8d8d8d; }
       .container .input-form .book-form .form-wrap {
         width: 100%;
         height: auto;
@@ -37,19 +56,27 @@ html body {
           display: none; }
         .container .input-form .book-form .form-wrap #title, .container .input-form .book-form .form-wrap #author, .container .input-form .book-form .form-wrap #publisher, .container .input-form .book-form .form-wrap #normal_price, .container .input-form .book-form .form-wrap #publication_date, .container .input-form .book-form .form-wrap #isbn {
           width: 100%;
-          border: 1px solid #fafafa;
-          border-radius: 20px;
+          border: none;
+          border-bottom: 1px solid #8d8d8d;
           background: transparent; }
         .container .input-form .book-form .form-wrap .used-price {
           width: 100%;
           height: 25px;
-          border: 1px solid #fafafa;
-          border-radius: 20px;
+          border: none;
+          border-bottom: 1px solid #8d8d8d;
           background: transparent; }
         .container .input-form .book-form .form-wrap .category {
           width: 100%; }
         .container .input-form .book-form .form-wrap .etc {
           width: 100%;
-          border: 1px solid #fafafa;
-          border-radius: 20px;
+          border: none;
+          border-bottom: 1px solid #8d8d8d;
           background: transparent; }
+      .container .input-form .book-form #registerBtn {
+        width: 100%;
+        margin: 30px 0;
+        padding: 7px 30px;
+        border: none;
+        border-radius: 5px;
+        color: #fafafa;
+        background: #5FCEC0; }

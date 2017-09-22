@@ -20,6 +20,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^member/', include('member.urls', namespace="member")),
     url(r'^book/', include('book.urls', namespace="book")),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_DIR)

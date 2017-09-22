@@ -4,12 +4,12 @@
 {% load static %}
 <div class="container">
   <section class="header">
-    <h2> 사는 책 등록하기 </h2>
+    <h2> 파는 책 등록하기 </h2>
     <hr>
     <p>
-      등록하려는 책 검색을 위해 아래 버튼을 눌러주세요 :-)
+      등록하려는 책을 검색하시려면 아래 버튼을 눌러주세요 :-)
     </p>
-    <button id="myBtn">책 검색하기</button>
+    <button id="myBtn" class="my-btn">책 검색하기</button>
   </section>
   <section class="input-form">
     <form class="book-form" action="" method="POST">
@@ -22,7 +22,7 @@
         </article>
         <button type="submit" id="registerBtn">등록하기</button>
     </form>
-  </section>
   {% include 'include/search_window.html' %}
+  </section>
 </div>
 {% endblock %}
