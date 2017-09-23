@@ -1,4 +1,8 @@
 @charset "UTF-8";
+ul li {
+  list-style: none;
+}
+
 /* 최대 사이즈 */
 @media (min-width: 792px) {
   .main-bg {

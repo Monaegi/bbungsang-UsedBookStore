@@ -1,6 +1,4 @@
-html body { margin: 0; padding: 0; }
-
-.container { width: 100%; height: auto; padding: 0 !important; margin: 0; }
+.container { width: 100%; height: auto; padding: 0 !important; margin: 0; font-family: 'NanumBarunpen'; }
 
 .container .header { width: 100%; height: auto; padding: 20px 0; margin-bottom: 20px; background: url("/static/images/book-bg.jpeg"); background-repeat: no-repeat; background-size: cover; text-align: center; }
 

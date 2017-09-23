@@ -1,12 +1,60 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a class="bar-element" href="#">About</a>
+
+  {% if user.is_authenticated %}
+    <ul class="my-info">
+      <li class="my-photo">
+        <img src="{{ user.my_photo.url }}">
+      </li>
+      <li class="my-page">
+        <a href="#">{{ user.nickname }}</a>
+
+        {% if user.my_seller %}
+          <p>책지기</p>
+        {% else %}
+          <p>일반멤버</p>
+        {% endif %}
+
+      </li>
+    </ul>
+
+    <ul class="my-list">
+      <li>
+        <a href="#">
+          <img src="/static/images/message.png">
+          쪽지함
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="/static/images/shopping-cart.png">
+          위시리스트
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="/static/images/list.png">
+          구매목록
+        </a>
+      </li>
+    </ul>
+  {% endif %}
+
+  <a class="bar-element" href="{% url 'book:buy_book_register' %}">사는 책 등록하기</a>
+
+  {% if user.my_seller %}
+    <a class="bar-element" href="{% url 'book:sell_book_register' %}">파는 책 등록하기</a>
+  {% else %}
+    <a class="bar-element" href="#">Seller 등록하기</a>
+  {% endif %}
+
   <a class="bar-element" href="#">Services</a>
   <a class="bar-element" href="#">About</a>
-  <a class="bar-element" href="#">Services</a>
-  <a class="bar-element" href="#">About</a>
-  <a class="bar-element signupBtn" href="#">Sign Up</a>
-  <a class="bar-element loginBtn" href="#">Log In</a>
+
+  {% if not user.is_authenticated %}
+    <a class="bar-element signupBtn" href="#">Sign Up</a>
+    <a class="bar-element loginBtn" href="#">Log In</a>
+  {% endif %}
 </div>
 
 <script>

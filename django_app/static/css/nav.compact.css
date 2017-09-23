@@ -1,0 +1,37 @@
+.sidenav { height: 100%; width: 0; position: fixed; transition: 0.1s; z-index: 1; top: 0; right: 0; background-color: #fafafa; overflow-x: hidden; padding-top: 40px; text-align: left; }
+
+.sidenav .my-info { list-style: none; width: 100%; height: auto; padding: 0; margin: 0; }
+
+.sidenav .my-info .my-photo { width: 35%; text-align: right; margin-bottom: 20px; padding-right: 5%; float: left; }
+
+.sidenav .my-info .my-photo img { width: 50px; border-radius: 100%; }
+
+.sidenav .my-info .my-page { width: 65%; height: 25px; line-height: 25px; margin-bottom: 20px; }
+
+.sidenav .my-info .my-page a { padding: 0; margin: 0; color: #444444; font-size: 16px; font-family: 'NanumBarunpen'; }
+
+.sidenav .my-info .my-page p { font-size: 12px; }
+
+.sidenav .my-list { width: 100%; height: auto; padding: 0 1% 0 1%; float: left; text-align: center; }
+
+.sidenav .my-list li { list-style: none; display: inline-block; width: 32%; margin: 0 0.05%; padding-left: 0; }
+
+.sidenav .my-list li a { width: 100%; padding: 0 20%; font-size: 11px; font-family: 'NanumBarunpen'; color: #bdbdbd; text-decoration: none; }
+
+.sidenav .my-list li a img { width: 60%; margin: 0 20%; }
+
+.sidenav .my-list li a:hover { background: #ddd; color: #fff; }
+
+.sidenav a { padding: 8px 8px 8px 15px; text-decoration: none; font-size: 18px; color: #818181; display: block; transition: 0.3s; }
+
+.sidenav a:hover { color: #5FCEC0; text-decoration: none; }
+
+.sidenav .bar-element { margin: 0 20px; border-bottom: 1px solid #ddd; }
+
+.sidenav .bar-element:nth-child(9) { border-bottom: 1px solid #fafafa; }
+
+.sidenav .signupBtn { padding: 0 40px; margin: 25px 15px 10px 15px; text-align: center; font-size: 14px; color: #fafafa; background: rgba(95, 206, 192, 0.8); border-radius: 5px; cursor: pointer; }
+
+.sidenav .loginBtn { padding: 0 40px; margin: 10px 15px; text-align: center; font-size: 14px; color: #757081; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; }
+
+.sidenav .closebtn { position: absolute; text-decoration: none; top: 0; right: 15px; font-size: 36px; margin-left: 50px; }

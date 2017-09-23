@@ -1,12 +1,9 @@
-html body {
-  margin: 0;
-  padding: 0; }
-
 .container {
   width: 100%;
   height: auto;
   padding: 0 !important;
-  margin: 0; }
+  margin: 0;
+  font-family: 'NanumBarunpen'; }
   .container .header {
     width: 100%;
     height: auto;
