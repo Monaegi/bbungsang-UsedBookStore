@@ -136,16 +136,19 @@ class BuyBookRegisterForm(forms.ModelForm):
 
         buyer = kwargs.pop('buyer', None)
 
-        book_info, book_info_bool = Book.objects.get_or_create(
-            cover_img=cover_img,
-            title=title,
-            author=author,
-            publisher=publisher,
-            normal_price=normal_price,
-            publication_date=publication_date,
-            isbn=isbn,
-            category=category,
-        )
+        if Book.objects.get(isbn=isbn):
+            book_info = Book.objects.get(isbn=isbn)
+        else:
+            book_info = Book.objects.create(
+                cover_img=cover_img,
+                title=title,
+                author=author,
+                publisher=publisher,
+                normal_price=normal_price,
+                publication_date=publication_date,
+                isbn=isbn,
+                category=category,
+            )
 
         instance = BuyBookRegister.objects.create(
             buyer=buyer,
@@ -314,16 +317,19 @@ class SellBookRegisterForm(forms.Form):
 
         seller = kwargs.pop('seller', None)
 
-        book_info, book_info_bool = Book.objects.get_or_create(
-            cover_img=cover_img,
-            title=title,
-            author=author,
-            publisher=publisher,
-            normal_price=normal_price,
-            publication_date=publication_date,
-            isbn=isbn,
-            category=category,
-        )
+        if Book.objects.get(isbn=isbn):
+            book_info = Book.objects.get(isbn=isbn)
+        else:
+            book_info = Book.objects.create(
+                cover_img=cover_img,
+                title=title,
+                author=author,
+                publisher=publisher,
+                normal_price=normal_price,
+                publication_date=publication_date,
+                isbn=isbn,
+                category=category,
+            )
 
         instance = SellBookRegister.objects.create(
             seller=seller,

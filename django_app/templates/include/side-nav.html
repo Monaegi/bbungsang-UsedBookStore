@@ -1,3 +1,4 @@
+
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
@@ -20,9 +21,12 @@
 
     <ul class="my-list">
       <li>
-        <a href="#">
+        <a href="{% url 'messages_inbox'%}">
           <img src="/static/images/message.png">
           쪽지함
+          {% if messages_inbox_count %}
+            new!
+          {% endif %}
         </a>
       </li>
       <li>

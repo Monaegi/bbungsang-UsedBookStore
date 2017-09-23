@@ -60,6 +60,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.sites',
+
     'rest_framework',
     'rest_framework.authtoken',
     'django_messages',
@@ -67,6 +69,8 @@ INSTALLED_APPS = [
     'member',
     'book',
 ]
+
+SITE_ID = 1
 
 AUTH_USER_MODEL = 'member.MyUser'
 
@@ -106,6 +110,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Custom context processors
+                'django_messages.context_processors.inbox',
             ],
         },
     },

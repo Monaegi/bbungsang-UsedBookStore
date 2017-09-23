@@ -22,6 +22,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^member/', include('member.urls', namespace="member")),
     url(r'^book/', include('book.urls', namespace="book")),
+
+    url(r'^messages/', include('django_messages.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_DIR)
 urlpatterns += static('/static/', document_root='project/.static_root')
