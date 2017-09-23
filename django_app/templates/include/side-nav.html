@@ -25,7 +25,7 @@
           <img src="/static/images/message.png">
           쪽지함
           {% if messages_inbox_count %}
-            new!
+            <span>new!</span>
           {% endif %}
         </a>
       </li>
@@ -49,7 +49,7 @@
   {% if user.my_seller %}
     <a class="bar-element" href="{% url 'book:sell_book_register' %}">파는 책 등록하기</a>
   {% else %}
-    <a class="bar-element" href="#">Seller 등록하기</a>
+    <a class="bar-element" href="{% url 'member:seller_register' user.pk %}">Seller 등록하기</a>
   {% endif %}
 
   <a class="bar-element" href="#">Services</a>

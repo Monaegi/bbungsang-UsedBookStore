@@ -1,7 +1,4 @@
 @charset "UTF-8";
-ul li {
-  list-style: none; }
-
 /* 최대 사이즈 */
 @media (min-width: 792px) {
   .main-bg {
@@ -45,7 +42,8 @@ ul li {
       height: auto;
       text-align: center;
       justify-content: space-between;
-      display: flex; }
+      display: flex;
+      list-style: none; }
       .main-bg .move-books .link-book {
         width: 190px;
         float: left;
@@ -106,7 +104,9 @@ ul li {
     margin: 3%;
     border: 1px solid #ddd;
     float: left;
-    text-align: center; }
+    text-align: center;
+    list-style: none;
+    padding: 0; }
     ul.book-box:hover {
       border: 2px solid rgba(95, 206, 192, 0.6); }
     ul.book-box .book-info {
@@ -169,7 +169,9 @@ ul li {
     font-family: '맑은 고딕'; }
   ul.book-box {
     width: 20%;
-    margin: 2.5%; }
+    margin: 2.5%;
+    list-style: none;
+    padding: 0; }
     ul.book-box .book-info .img-hover-show-box {
       width: 70%;
       height: 210px; }
@@ -193,7 +195,8 @@ ul li {
       text-align: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      display: flex; }
+      display: flex;
+      list-style: none; }
       .main-bg .move-books .link-book {
         width: 240px;
         margin-top: 10px;
@@ -342,22 +345,26 @@ ul li {
       justify-content: space-between;
       display: flex; }
       .main-bg .move-books .link-book {
+        display: inline-block;
         width: 105px;
         float: left;
         margin: 0 auto;
         text-align: center; }
         .main-bg .move-books .link-book img {
-          width: 96px;
+          width: 92%;
+          margin: 0 4%;
           height: 140px; }
         .main-bg .move-books .link-book .title {
+          width: 92%;
+          margin: 4% 4%;
           color: #fafafa;
           font-size: 13px; }
         .main-bg .move-books .link-book .info {
-          width: 95px;
+          width: 92%;
+          margin: 3% 4%;
           height: auto;
           color: #ddd;
-          font-size: 11px;
-          margin: 0 10px; }
+          font-size: 11px; }
   /* 나를 위한 책(추천 알고리즘 적용) */
   .recommend-book {
     width: 100%;

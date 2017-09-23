@@ -3,7 +3,7 @@
   width: 0;
   position: fixed;
   transition: 0.1s;
-  z-index: 1;
+  z-index: 5;
   top: 0;
   right: 0;
   background-color: #fafafa;
@@ -21,20 +21,21 @@
 }
 
 .sidenav .my-info .my-photo {
-  width: 35%;
+  width: 31%;
   text-align: right;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   padding-right: 5%;
   float: left;
 }
 
 .sidenav .my-info .my-photo img {
   width: 50px;
+  height: 50px;
   border-radius: 100%;
 }
 
 .sidenav .my-info .my-page {
-  width: 65%;
+  width: 69%;
   height: 25px;
   line-height: 25px;
   margin-bottom: 20px;
@@ -46,6 +47,10 @@
   color: #444444;
   font-size: 16px;
   font-family: 'NanumBarunpen';
+}
+
+.sidenav .my-info .my-page a:hover {
+  color: pink;
 }
 
 .sidenav .my-info .my-page p {
@@ -69,17 +74,24 @@
 }
 
 .sidenav .my-list li a {
+  display: inline-block;
   width: 100%;
-  padding: 0 20%;
+  padding: 0 20% 5px 20%;
+  margin-bottom: 20px;
   font-size: 11px;
   font-family: 'NanumBarunpen';
-  color: #bdbdbd;
+  color: #949494;
   text-decoration: none;
 }
 
 .sidenav .my-list li a img {
   width: 60%;
-  margin: 0 20%;
+  margin: 10px 20% 10px 20%;
+}
+
+.sidenav .my-list li a span {
+  color: #ED4C00;
+  font-size: 12px;
 }
 
 .sidenav .my-list li a:hover {
@@ -88,7 +100,7 @@
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 15px;
+  padding: 10px 10px 10px 15px;
   text-decoration: none;
   font-size: 18px;
   color: #818181;
@@ -106,7 +118,7 @@
   border-bottom: 1px solid #ddd;
 }
 
-.sidenav .bar-element:nth-child(9) {
+.sidenav .bar-element:nth-child(8) {
   border-bottom: 1px solid #fafafa;
 }
 
