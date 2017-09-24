@@ -29,7 +29,7 @@
             </li>
             <li>
               <a class="look-detail" href="{% url 'book:sell_book_detail' book.pk %}">자세히 보기</a>
-              <a class="wish-list" href="#">위시리스트 담기</a>
+              <a class="wish-list" href="{% url 'book:book_wish_list' book.pk %}">위시리스트 담기</a>
             </li>
         </ul>
     </section>
