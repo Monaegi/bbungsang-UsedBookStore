@@ -58,6 +58,7 @@
 }
 
 .container .input-form .book-form label {
+  width: 100%;
   margin-top: 25px;
   padding-left: 5px;
   height: 23px;
@@ -229,7 +230,18 @@
   background: skyblue;
 }
 
-.book-detail {
-  width: 90%;
-  margin: 20px 5%;
+.book-container .book-wrap .book-info .wish-list {
+  display: inline-block;
+  font-size: 15px;
+  font-family: 'Nanumbarunpen';
+  margin-top: 7px;
+  padding: 5px 25px;
+  border: 1px solid #135589;
+  color: #135589;
+  border-radius: 6px;
+}
+
+.book-container .book-wrap .book-info .wish-list:hover {
+  text-decoration: none;
+  background: skyblue;
 }

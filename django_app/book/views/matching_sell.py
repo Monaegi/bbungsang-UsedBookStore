@@ -35,6 +35,7 @@ def sell_book_register(request, ):
                     compose_form.save(sender=sender)
 
                     return HttpResponse('성공!')
+            return HttpResponse('성공!')
 
     register_form = SellBookRegisterForm()
     search_form = NaverBooksSearchForm()

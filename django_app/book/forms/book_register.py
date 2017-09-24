@@ -19,9 +19,6 @@ class BuyBookRegisterForm(forms.ModelForm):
             'publication_date',
             'isbn',
             'category',
-
-            # 'used_price',
-            # 'etc_requirements',
         ]
 
     cover_img = forms.CharField(
@@ -91,12 +88,35 @@ class BuyBookRegisterForm(forms.ModelForm):
 
     isbn = forms.CharField(
         label_suffix='',
+        label='ISBN',
         widget=forms.TextInput(
             attrs={
                 'id': 'isbn',
                 'readonly': 'readonly',
             }
         ),
+    )
+
+    BOOK_TYPE_LANG = '프로그래밍언어'
+    BOOK_TYPE_OS = '운영체제'
+    BOOK_TYPE_ALGORITHM = '자료구조/알고리즘'
+    BOOK_TYPE_NETWORK = '네트워크'
+    BOOK_TYPE_DB = '데이터베이스'
+    BOOK_TYPE_ETC = 'ETC'
+
+    BOOK_TYPE_CHOICES = (
+        (BOOK_TYPE_LANG, '언어'),
+        (BOOK_TYPE_OS, '운영체제'),
+        (BOOK_TYPE_ALGORITHM, '자료구조/알고리즘'),
+        (BOOK_TYPE_NETWORK, '네트워크'),
+        (BOOK_TYPE_DB, '데이터베이스'),
+        (BOOK_TYPE_ETC, 'etc(소프트웨어공학 등)'),
+    )
+
+    category = forms.ChoiceField(
+        label_suffix='',
+        label='카테고리',
+        choices=BOOK_TYPE_CHOICES,
     )
 
     used_price = forms.CharField(
@@ -136,7 +156,7 @@ class BuyBookRegisterForm(forms.ModelForm):
 
         buyer = kwargs.pop('buyer', None)
 
-        if Book.objects.get(isbn=isbn):
+        if Book.objects.filter(isbn=isbn):
             book_info = Book.objects.get(isbn=isbn)
         else:
             book_info = Book.objects.create(
@@ -246,12 +266,35 @@ class SellBookRegisterForm(forms.Form):
 
     isbn = forms.CharField(
         label_suffix='',
+        label='ISBN',
         widget=forms.TextInput(
             attrs={
                 'id': 'isbn',
                 'readonly': 'readonly',
             }
         ),
+    )
+
+    BOOK_TYPE_LANG = '프로그래밍언어'
+    BOOK_TYPE_OS = '운영체제'
+    BOOK_TYPE_ALGORITHM = '자료구조/알고리즘'
+    BOOK_TYPE_NETWORK = '네트워크'
+    BOOK_TYPE_DB = '데이터베이스'
+    BOOK_TYPE_ETC = 'ETC'
+
+    BOOK_TYPE_CHOICES = (
+        (BOOK_TYPE_LANG, '언어'),
+        (BOOK_TYPE_OS, '운영체제'),
+        (BOOK_TYPE_ALGORITHM, '자료구조/알고리즘'),
+        (BOOK_TYPE_NETWORK, '네트워크'),
+        (BOOK_TYPE_DB, '데이터베이스'),
+        (BOOK_TYPE_ETC, 'etc(소프트웨어공학 등)'),
+    )
+
+    category = forms.ChoiceField(
+        label_suffix='',
+        label='카테고리',
+        choices=BOOK_TYPE_CHOICES,
     )
 
     used_price = forms.CharField(
@@ -317,7 +360,7 @@ class SellBookRegisterForm(forms.Form):
 
         seller = kwargs.pop('seller', None)
 
-        if Book.objects.get(isbn=isbn):
+        if Book.objects.filter(isbn=isbn):
             book_info = Book.objects.get(isbn=isbn)
         else:
             book_info = Book.objects.create(

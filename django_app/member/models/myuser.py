@@ -47,6 +47,11 @@ class MyUser(AbstractUser):
         default=USER_TYPE_DJANGO,
     )
 
+    wish_list = models.ManyToManyField(
+        'book.SellBookRegister',
+        through='member.BookWishList',
+    )
+
     # objects = MyUserManager()
 
     def get_user_token(self, user_pk):

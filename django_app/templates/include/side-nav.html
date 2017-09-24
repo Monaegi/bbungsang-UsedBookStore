@@ -42,14 +42,14 @@
         </a>
       </li>
     </ul>
-  {% endif %}
 
-  <a class="bar-element" href="{% url 'book:buy_book_register' %}">사는 책 등록하기</a>
+    <a class="bar-element" href="{% url 'book:buy_book_register' %}">사는 책 등록하기</a>
 
-  {% if user.my_seller %}
-    <a class="bar-element" href="{% url 'book:sell_book_register' %}">파는 책 등록하기</a>
-  {% else %}
-    <a class="bar-element" href="{% url 'member:seller_register' user.pk %}">Seller 등록하기</a>
+    {% if user.my_seller %}
+      <a class="bar-element" href="{% url 'book:sell_book_register' %}">파는 책 등록하기</a>
+    {% else %}
+      <a class="bar-element" href="{% url 'member:seller_register' user.pk %}">Seller 등록하기</a>
+    {% endif %}
   {% endif %}
 
   <a class="bar-element" href="#">Services</a>
