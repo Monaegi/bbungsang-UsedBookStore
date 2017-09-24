@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django_messages.forms import ComposeForm
 
 from book.forms.book_register import BuyBookRegisterForm
@@ -16,7 +16,7 @@ def buy_book_register(request, ):
         form = BuyBookRegisterForm(data=request.POST)
 
         if form.is_valid():
-            form.save(buyer=request.user)
+            buy_book = form.save(buyer=request.user)
 
             buy_isbn = form.data.get('isbn')
             book_info = Book.objects.get(isbn=buy_isbn)
@@ -34,7 +34,8 @@ def buy_book_register(request, ):
                 if compose_form.is_valid():
                     compose_form.save(sender=sender)
 
-                    return HttpResponse('성공!')
+                    return redirect('book:buy_book_detail', buy_pk=buy_book.pk)
+            return redirect('book:buy_book_detail', buy_pk=buy_book.pk)
 
     register_form = BuyBookRegisterForm()
     search_form = NaverBooksSearchForm()

@@ -1,0 +1,15 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<section class="major">
+  <article class="left-space">Page 11 of 55</article>
+  <article class="right-space">77 results found</article>
+</section>
+<div class="book-detail">
+  <img src="{{ book.book_info.cover_img }}" alt="">
+  <ul>
+      <li>{{ book.book_info.title }}</li>
+      <li>{{ book.book_info.author }}</li>
+  </ul>
+</div>
+{% endblock %}
