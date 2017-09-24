@@ -1,0 +1,43 @@
+body { background: url("/static/images/dryflower.png"); background-size: cover; background-repeat: no-repeat; }
+
+body .container { width: 100%; height: 100%; background: rgba(53, 53, 53, 0.3); background-size: cover; }
+
+body .container .top-wrap { width: 100%; margin: 0 auto; height: 100px; line-height: 100px; }
+
+body .container .top-wrap .logo { font-family: 'Walter Turncoat', 'Amatica SC'; font-size: 34px; font-weight: bold; width: 35%; float: left; }
+
+body .container .top-wrap .logo a { text-decoration: none; color: #DB9CFF; padding-left: 50px; transition: color 0.2s; }
+
+body .container .top-wrap .logo a:hover { color: #60DB96; }
+
+body .container .top-wrap .do { width: 62%; margin-right: 3%; float: left; text-align: right; }
+
+body .container .top-wrap .do a { font-family: 'Nanumbarunpen'; color: #fff; text-decoration: none; padding-right: 30px; }
+
+body .container .top-wrap .do a:hover { color: #EAEAEA; }
+
+body .container .content { width: 100%; padding-top: 2%; height: auto; }
+
+body .container .content .do-login { width: 60%; margin: 0 auto; height: auto; background: #fff; opacity: 0.9; border-radius: 10px; }
+
+body .container .content .do-login .login-title { width: 100%; height: 100px; line-height: 100px; text-align: center; font-weight: bold; }
+
+body .container .content .do-login .login-input { width: 100%; height: auto; text-align: center; }
+
+body .container .content .do-login .login-input input[type=text], body .container .content .do-login .login-input input[type=password] { width: 92%; height: 35px; border: 1px solid #EAEAEA; border-radius: 5px; padding: 8px; margin-bottom: 20px; }
+
+body .container .content .do-login .login-input .btn-mint { width: 92%; height: 40px; line-height: 40px; background-color: #5FCEC0; color: white; border: none; border-radius: 4px; text-align: center; font-size: 16px; }
+
+body .container .content .do-login .login-input .btn-pink { width: 92%; height: 40px; line-height: 40px; background-color: pink; color: white; border: none; border-radius: 4px; margin-bottom: 15px; text-align: center; font-size: 16px; }
+
+body .container .content .do-login .facebook { width: 100%; text-align: center; color: #8C8C8C; font-size: 14px; }
+
+body .container .content .do-login .facebook .btn-facebook { text-decoration: none; display: inline-block; width: 92%; margin: 10px 4%; height: 40px; line-height: 40px; background-color: #36589C; color: white; border: none; border-radius: 4px; text-align: center; font-size: 16px; }
+
+body .container .content .do-login .facebook .btn-kakao { text-decoration: none; display: inline-block; width: 92%; margin: 0 4%; height: 40px; line-height: 45px; background-color: #FFCD12; color: #6F2B00; border: none; border-radius: 4px; text-align: center; font-size: 16px; }
+
+body .container .content .do-login .desc { width: 100%; height: 55px; margin-top: 15px; }
+
+body .container .content .do-login .desc a { color: skyblue; font-size: 12px; }
+
+body .container .content .do-login .desc p { margin-top: 10px; }

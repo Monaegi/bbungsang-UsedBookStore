@@ -9,8 +9,8 @@ urlpatterns = [
     url(r'^search/$', views.naver_search_books, name='naver_search_books'),
     url(r'^buy/register/$', views.buy_book_register, name='buy_book_register'),
     url(r'^buy/list/$', views.buy_book_list, name='buy_book_list'),
-    url(r'^buy/detail/(?P<pk>\d+)/$', views.buy_book_detail, name='buy_book_detail'),
+    url(r'^buy/detail/(?P<buy_pk>\d+)/$', views.buy_book_detail, name='buy_book_detail'),
     url(r'^sell/register/$', views.sell_book_register, name='sell_book_register'),
     url(r'^sell/list/$', views.sell_book_list, name='sell_book_list'),
-    url(r'^sell/detail/(?P<pk>\d+)/$', views.sell_book_detail, name='sell_book_detail'),
+    url(r'^sell/detail/(?P<sell_pk>\d+)/$', views.sell_book_detail, name='sell_book_detail'),
 ]

@@ -56,8 +56,8 @@ def buy_book_list(request, ):
     return render(request, 'book/buy_book_list.html', context)
 
 
-def buy_book_detail(request, pk):
-    book = BuyBookRegister.objects.get(pk=pk)
+def buy_book_detail(request, buy_pk):
+    book = BuyBookRegister.objects.get(pk=buy_pk)
 
     context = {
         'book': book,

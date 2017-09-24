@@ -7,12 +7,13 @@ from member.models import Seller
 class Book(models.Model):
     """ 책 기본(필수) 정보 """
 
-    BOOK_TYPE_LANG = 'lang'
-    BOOK_TYPE_OS = 'os'
-    BOOK_TYPE_ALGORITHM = 'algorithm'
-    BOOK_TYPE_NETWORK = 'network'
-    BOOK_TYPE_DB = 'db'
-    BOOK_TYPE_ETC = 'etc'
+    BOOK_TYPE_LANG = '프로그래밍언어'
+    BOOK_TYPE_OS = '운영체제'
+    BOOK_TYPE_ALGORITHM = '자료구조/알고리즘'
+    BOOK_TYPE_NETWORK = '네트워크'
+    BOOK_TYPE_DB = '데이터베이스'
+    BOOK_TYPE_ETC = 'ETC'
+
     BOOK_TYPE_CHOICES = (
         (BOOK_TYPE_LANG, '언어'),
         (BOOK_TYPE_OS, '운영체제'),

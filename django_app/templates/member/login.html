@@ -1,56 +1,71 @@
 {% load static %}
 
-<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BongDal Login</title>
 
-  <title>BongDal LogIn</title>
+  <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+  <link href='https://fonts.googleapis.com/css?family=Walter Turncoat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Amatica SC' rel='stylesheet'>
 </head>
 <body>
-  <form action="" method="POST" id="loginForm">
-    {% csrf_token %}
-    username: <input type="text" name="username" id="username" />
-    password: <input type="password" name="password" id="password" />
-    <button type="submit" class="loginBtn">로그인</button>
-    <button class="signupBtn">회원가입</button>
-  </form>
-
-  <div id="result"></div>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script>
-  $("#loginForm").submit(function(event){
-    var username = $("input#username").val();
-    var password = $("input#password").val();
-
-    logIn(username, password);
-  })
-
-  function logIn(username, password) {
-    console.log(username);
-    var token = '';
-    $.ajax({
-      type: "POST",
-      url: "{% url 'member:api_login' %}",
-      data: {'username': username, 'password': password, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
-      dataType: "json",
-      success: function (response) {
-        console.log(response);
-        token = response.token;
-        localStorage.setItem('token', token);
-        $("#result").html(
-          "{ token: " + response.token + " }"
-        );
-        // location.href='http://localhost:8000/book/main/';
-      },
-      error: function(request, status, error) {
-        $("#result").html(error);
-      }
-    });
-    event.preventDefault();
-  }
-  </script>
+  <div class="container">
+    <div class="top-wrap">
+      <div class="logo">
+        <a href="#">
+          BongDal
+        </a>
+      </div>
+      <div class="do">
+        <a href="#">
+          계정만들기
+        </a>
+        <a href="#">
+          로그인
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="do-login">
+        <div class="login-title">
+          <h2>로그인</h2>
+        </div>
+        <nav>
+            <div class="login-input">
+              <form action="" method="POST">
+                {% csrf_token %}
+                {% include 'include/member_field_set.html' with form=form %}
+                <button type="submit" class="btn-mint">로그인</button>
+              </form>
+              <a href="#">
+                <button class="btn-pink">회원가입</button>
+              </a>
+            </div>
+        </nav>
+        <div class="facebook">
+          <p>
+            --------------- 또는 ---------------
+          </p>
+          <a href="#" class="btn-facebook">
+            페이스북 로그인
+          </a>
+          <a href="#" class="btn-kakao">
+            카카오 로그인
+          </a>
+          <div class="desc">
+            계정이 없나요? <a href="#">계정 만들기</a>
+            <p>비밀번호가 기억나지 않으세요? <a href="#">비밀번호 재설정</a></p>
+          </div>
+          <p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
