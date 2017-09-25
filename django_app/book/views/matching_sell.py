@@ -47,7 +47,7 @@ def sell_book_register(request, ):
     return render(request, 'book/sell_book_register.html', context)
 
 
-def sell_book_list(request, ):
+def sell_book_list(request):
     books = SellBookRegister.objects.all()
 
     context = {

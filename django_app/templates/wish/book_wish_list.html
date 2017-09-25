@@ -1,0 +1,22 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+  <section class="major">
+    <article class="left-space">위시리스트</article>
+    <article class="right-space">{{ lists.count }} results found</article>
+  </section>
+  <ul class="wish-lists">
+  {% for list in lists %}
+    <li>
+      <a href="#">
+        <div class="img-wrap">
+          <img src="{{ list.book.book_info.cover_img }}">
+        </div>
+        <b>{{ list.book.book_info.title|striptags }}</b>
+        - <span>중고가 {{ list.book.used_price }}원</span>
+      </a>
+      <button class="buyBtn">바로구매</button>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

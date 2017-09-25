@@ -5,11 +5,67 @@
   <article class="left-space">Page 11 of 55</article>
   <article class="right-space">77 results found</article>
 </section>
-<div class="book-detail">
+<section class="book-detail">
   <img src="{{ book.book_info.cover_img }}" alt="">
   <ul>
-      <li>{{ book.book_info.title }}</li>
-      <li>{{ book.book_info.author }}</li>
+      <li class="category">
+        [{{ book.book_info.category }}]
+      </li>
+      <li class="title">
+        {{ book.book_info.title|striptags }}
+      </li>
+      <li class="author">
+        <a href="#">{{ book.book_info.author }}</a> (지은이) <span> | </span>
+        <a href="#">{{ book.book_info.publisher }}</a> <span> | </span>
+        {{ book.book_info.publication_date }}
+      </li>
+      <li class="price">
+        정가 : {{ book.book_info.normal_price }}원
+        <span class="arrow"> ➡ </span>
+        <span class="used-price"> 중고가 : {{ book.used_price }}원 </span>
+      </li>
+      <li class="isbn">
+        ISBN : {{ book.book_info.isbn }}
+      </li>
+      <li class="btns">
+        <a href="#" class="wish-list-btn">위시리스트에 담기</a>
+        <a href="#" class="buy-btn">바로구매</a>
+      </li>
   </ul>
-</div>
+</section>
+<section class="book-status">
+  <ul>
+    <p>책 상태 이미지</p>
+    <li>
+      <img src="/static/images/animals.jpg">
+    </li>
+    <li>
+      <img src="/static/images/animals.jpg">
+    </li>
+    <li>
+      <img src="/static/images/animals.jpg">
+    </li>
+    <li>
+      <img src="/static/images/animals.jpg">
+    </li>
+  </ul>
+</section>
+<section class="comment">
+  <p>댓글 달기 <span>총 <a href="#">0</a>개</span></p>
+  <article>
+    <form action="">
+      <div class="select">
+        <select name="" id="">
+          <option value="">⭐⭐⭐⭐⭐</option>
+          <option value="">⭐⭐⭐⭐</option>
+          <option value="">⭐⭐⭐</option>
+          <option value="">⭐⭐</option>
+          <option value="">⭐</option>
+        </select>
+      </div>
+      <textarea name="name" rows="3"></textarea>
+      <button type="submit">댓글<br>달기</button>
+    </form>
+  </article>
+</section>
 {% endblock %}

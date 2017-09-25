@@ -1,0 +1,20 @@
+@charset "UTF-8";
+ul.wish-lists { width: 90%; height: auto; list-style: none; padding: 0; margin: 5% 5%; }
+
+ul.wish-lists li { display: inline-block; width: 42%; margin: 2% 3.5%; padding: 5px; border: 1px solid #ddd; border-radius: 5px; text-align: center; }
+
+ul.wish-lists li .img-wrap { width: 100%; height: auto; position: relative; }
+
+ul.wish-lists li .img-wrap img { width: 100%; height: 150px; border-radius: 5px; }
+
+ul.wish-lists li .img-wrap::after { content: '상세보기'; line-height: 150px; width: 100%; z-index: -1; transform: translateX(-50%); position: absolute; color: #fafafa; font-size: 15px; border-radius: 5px; padding-right: 5px; top: 0; }
+
+ul.wish-lists li a { display: inline-block; color: #444444; }
+
+ul.wish-lists li a:hover .img-wrap::after { z-index: 0; background: rgba(95, 206, 192, 0.8); }
+
+ul.wish-lists li b { font-size: 13px; }
+
+ul.wish-lists li span { color: #f03c97; }
+
+ul.wish-lists li .buyBtn { margin-top: 5px; width: 100%; height: 30px; border: none; border-radius: 2px; background: #135589; color: #fafafa; font-size: 15px; }

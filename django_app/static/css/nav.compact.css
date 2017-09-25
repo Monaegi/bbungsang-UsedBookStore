@@ -1,4 +1,4 @@
-.sidenav { height: 100%; width: 0; position: fixed; transition: 0.1s; z-index: 5; top: 0; right: 0; background-color: #fafafa; overflow-x: hidden; padding-top: 40px; text-align: left; }
+.sidenav { height: 100%; width: 270px; position: fixed; transition: 0.3s; z-index: 5; top: 0; right: -270px; background-color: #fafafa; overflow-x: hidden; padding-top: 40px; text-align: left; }
 
 .sidenav .my-info { list-style: none; width: 100%; height: auto; padding: 0; margin: 0; }
 
