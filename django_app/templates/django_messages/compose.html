@@ -3,18 +3,19 @@
 
 <link rel="stylesheet" href="{% static 'css/message.css' %}">
 <section class="w_msg">
-  <p class="h1">쪽지쓰기</p>
-  {% for message in message_list %}
-    {{ message }}
-  {% endfor %}
-  {{ message.pk }}
-  <form data-value="{{ message_id }}" method="POST" id="replyForm">
+  {% if message_id %}
+    <p class="h1">답장하기</p>
+  {% else %}
+    <p class="h1">쪽지쓰기</p>
+  {% endif %}
+
+  <form data-value="{{ message_id }}" method="POST" id="composeForm">
     {% csrf_token %}
     <li>
-      받는이 <input type="text" class="common" id="recipient" name="recipient">
+      받는이 <input type="text" class="common" id="recipient" name="recipient" value="{{ recipient }}">
     </li>
     <li>
-      제 목 <input type="text" class="common" id="subject" name="subject">
+      제 목 <input type="text" class="common" id="subject" name="subject" value="{{ subject }}">
     </li>
     <li>
       내 용 <textarea id="body" name="body"></textarea>
@@ -26,20 +27,26 @@
 </section>
 
 <script>
-  $("#replyForm").submit(function(e){
+  $("#composeForm").submit(function(e){
     var message_id = e.target.dataset.value;
     var recipient = $("input#recipient").val();
     var subject = $("input#subject").val();
     var body = $("#body").val();
 
-    replyProc(message_id, recipient, subject, body);
-  })
+    composeProc(message_id, recipient, subject, body);
+  });
 
-  function replyProc(message_id, recipient, subject, body) {
-    console.log(message_id, recipient, subject, body);
+  function composeProc(message_id, recipient, subject, body) {
+    var url = "";
+    if (message_id) {
+      url = 'http://localhost:8000/book/messages/reply/' + message_id;
+    } else {
+      url = '{% url "messages_compose" %}';
+    }
+
     $.ajax({
       type: "POST",
-      url: 'http://localhost:8000/book/messages/reply/' + message_id,
+      url: url,
       data: {'recipient': recipient, 'subject': subject, 'body': body, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
       success: function (response) {
         $("#messageScreen").html(

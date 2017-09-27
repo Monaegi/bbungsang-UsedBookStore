@@ -4,8 +4,7 @@ p.h1 {
   margin: 70px 5% 30px 5%;
   font-size: 26px;
   font-family: 'Nanumbarunpen';
-  color: #fafafa;
-  text-align: left; }
+  color: #fafafa; }
 
 table {
   width: 90%;
@@ -23,16 +22,52 @@ table {
     text-align: center; }
     table td .delBtn {
       padding: 2px 5px;
-      background: #D9418C;
+      border: 1px solid #fafafa;
       border-radius: 3px;
       cursor: pointer;
       color: #fafafa;
+      font-family: 'Ubuntu';
       text-decoration: none; }
-    table td:nth-child(2) > a {
-      color: #fafafa;
+      table td .delBtn:hover {
+        border: 1px solid #D9418C;
+        color: #D9418C; }
+    table td a.detail {
+      color: #aed9da;
       cursor: pointer; }
     table td:nth-child(3) {
       font-size: 11px; }
+
+a.new-message {
+  display: inline-block;
+  color: #444444;
+  background: #ddd;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-right: 5%;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 13px;
+  float: right;
+  font-family: '맑은 고딕'; }
+  a.new-message:hover {
+    background: #135589;
+    color: #fafafa; }
+
+a.sub-box {
+  display: inline-block;
+  color: #135589;
+  background: skyblue;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-right: 7.5%;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 13px;
+  float: right;
+  font-family: '맑은 고딕'; }
+  a.sub-box:hover {
+    background: #135589;
+    color: #fafafa; }
 
 /* 쪽지 상세보기 */
 section.message-headers {
@@ -91,8 +126,7 @@ section.w_msg {
   margin: 0 5%;
   height: auto;
   font-family: 'Nanumbarunpen';
-  color: #fafafa;
-  background: black; }
+  color: #fafafa; }
   section.w_msg li {
     padding: 0;
     margin: 0 5%;

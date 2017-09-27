@@ -20,7 +20,6 @@ def create_reply(request, message_id, template_name='django_messages/compose.htm
         raise Http404
 
     if request.method == "POST":
-        print(message_id)
         data = {
             'recipient': request.POST.get('recipient', ''),
             'subject': request.POST.get('subject', ''),
@@ -34,16 +33,10 @@ def create_reply(request, message_id, template_name='django_messages/compose.htm
             if success_url is None:
                 success_url = reverse('messages_inbox')
             return HttpResponseRedirect(success_url)
-    else:
-        compose_form = ComposeForm(initial={
-            'body': quote_helper(parent.sender, parent.body),
-            'subject': subject_template % {'subject': parent.subject},
-            'recipient': [parent.sender, ]
-        })
 
     context = {
-        'compose_form': compose_form,
         'message_id': message_id,
+        'subject': subject_template % {'subject': parent.subject},
+        'recipient': parent.sender.username,
     }
-
     return render(request, template_name, context)

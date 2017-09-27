@@ -1,27 +1,106 @@
-{% extends "django_messages/base.html" %}
 {% load i18n %}
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'css/message.css' %}">
+</head>
+<body>
+  <p class="h1">보낸 쪽지함</p>
+    <table class="messages">
+      <thead>
+        <tr>
+          <th>보내는 사람</th>
+          <th>제목</th>
+          <th>받은 날짜</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      {% if message_list %}
+      <tbody>
+        {% for message in message_list %}
+        <tr>
+          <td>{{ message.sender.nickname }}</td>
+          <td>
+            {% if message.new %}<strong>{% endif %}
+            {% if message.replied %}<em>{% endif %}
+            <a class="detail" data-value="{{ message.id }}">{{ message.subject|truncatechars:9 }}</a>
+            {% if message.replied %}</em>{% endif %}
+            {% if message.new %}</strong>{% endif %}
+          </td>
+          <td>{{ message.sent_at|date:_("DATETIME_FORMAT") }}</td>
+          <td>
+            <a class="delBtn" data-value="{{ message.id }}">
+              Delete
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td style="color: #fafafa; font-size: 15px;" colspan="4">No messages</td>
+        </tr>
+      </tbody>
+      {% endif %}
+    </table>
+    <a class="sub-box" href="{% url 'messages_inbox' %}">받은 쪽지함</a>
 
-{% block content %}
-<h1>{% trans "Sent Messages" %}</h1>
-{% if message_list %}
-<table class="messages">
-    <thead>
-        <tr><th>{% trans "Recipient" %}</th><th>{% trans "Subject" %}</th><th>{% trans "Sent" %}</th><th>{% trans "Action" %}</th></tr>
-    </thead>
-    <tbody>
-{% for message in message_list %}
-    <tr>
-        <td>{{ message.recipient }}</td>
-        <td>
-        <a href="{{ message.get_absolute_url }}">{{ message.subject }}</a>
-        </td>
-        <td>{{ message.sent_at|date:_("DATETIME_FORMAT") }}</td>
-        <td><a href="{% url 'messages_delete' message.id %}?next={% url 'messages_outbox' %}">{% trans "delete" %}</a></td>
-    </tr>
-{% endfor %}
-    </tbody>
-</table>
-{% else %}
-<p>{% trans "No messages." %}</p>
-{% endif %}
-{% endblock %}
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+
+    // 쪽지 삭제
+    $(".delBtn").click(function(e){
+      var message_id = e.target.dataset.value;
+      delMessage(message_id);
+    });
+
+    function delMessage(message_id){
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8000/messages/delete/" + message_id,
+        success: function (response) {
+          $("#messageScreen").html(response);
+        },
+        error: function (request, status, error) {
+          $("#messageScreen").html(error);
+        }
+      });
+      event.preventDefault();
+    }
+
+    // 쪽지 내용 보기
+    $(".detail").click(function(e){
+      var message_id = e.target.dataset.value;
+      viewMessage(message_id);
+    });
+
+    function viewMessage(message_id){
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8000/messages/view/" + message_id,
+        success: function (response) {
+          $("#messageScreen").html(response);
+        },
+        error: function (request, status, error) {
+          $("#messageScreen").html(error);
+        }
+      });
+      event.preventDefault();
+    }
+
+    // 받은 쪽지함 이동
+    $(".sub-box").click(function(e){
+      $.ajax({
+        type: "GET",
+        url: "{% url 'messages_inbox' %}",
+        success: function (response) {
+          $("#messageScreen").html(response);
+        },
+        error: function (request, status, error) {
+          $("#messageScreen").html(error);
+        }
+      });
+      event.preventDefault();
+    });
+  </script>
+</body>
+</html>
