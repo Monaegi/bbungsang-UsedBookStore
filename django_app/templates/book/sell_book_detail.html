@@ -1,4 +1,5 @@
 {% extends 'common/base.html' %}
+{% load show_score %}
 
 {% block content %}
 <section class="major">
@@ -53,19 +54,23 @@
 <section class="comment">
   <p>댓글 달기 <span>총 <a href="#">0</a>개</span></p>
   <article>
-    <form action="">
+    <form action="{% url 'book:create_comment' book.pk %}" method="POST">
+      {% csrf_token %}
       <div class="select">
-        <select name="" id="">
-          <option value="">⭐⭐⭐⭐⭐</option>
-          <option value="">⭐⭐⭐⭐</option>
-          <option value="">⭐⭐⭐</option>
-          <option value="">⭐⭐</option>
-          <option value="">⭐</option>
-        </select>
+        {{ comment_form.star_score }}
       </div>
-      <textarea name="name" rows="3"></textarea>
+      {{ comment_form.content }}
       <button type="submit">댓글<br>달기</button>
     </form>
+    <ul>
+      {% for comment in comments %}
+        <li>
+          {{ comment.user.nickname }} <span class="date">{{ comment.created }}</span>
+          {{ comment.star_score|star }}
+          <p>{{ comment.content }}</p>
+        </li>
+      {% endfor %}
+    </ul>
   </article>
 </section>
 {% endblock %}

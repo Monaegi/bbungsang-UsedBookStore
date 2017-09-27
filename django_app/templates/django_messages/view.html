@@ -1,35 +1,51 @@
-{% extends "django_messages/base.html" %}
 {% load i18n %}
+{% load static %}
 
-{% block content %}
-<h1>{% trans "View Message" %}</h1>
-<dl class="message-headers">
-    <dt>{% trans "Subject" %}</dt>
-    <dd><strong>{{ message.subject }}</strong></dd>
-    <dt>{% trans "Sender" %}</dt>
-    <dd>{{ message.sender }}</dd>
-    <dt>{% trans "Date" %} </dt>
-    <dd>{{ message.sent_at|date:_("DATETIME_FORMAT")}}</dd>
-    <dt>{% trans "Recipient" %}</dt>
-    <dd>{{ message.recipient }}</dd>
-</dl>
-{{ message.body|linebreaksbr }}<br /><br />
+<link rel="stylesheet" href="{% static 'css/message.css' %}">
+<section class="message-headers">
+  <article class="subject">
+    {{ message.subject }}
+    <!-- <span class="recipient">{{ message.recipient.nickname }}님,</span> -->
+    <span class="date">{{ message.sent_at|date:_("DATETIME_FORMAT")}}</span>
+  </article>
+  <article class="content">
+    <p>{{ message.body|linebreaksbr }}</p>
+    from <a href="#">{{ message.sender.nickname }}</a>
+  </article>
+</section>
+<button class="reply" data-value="{{ message.id }}">답장하기</button>
+<button class="prev">이전으로</button>
 
-{% ifequal message.recipient.pk user.pk %}
-<a href="{% url 'messages_reply' message.id %}">{% trans "Reply" %}</a>
-{% endifequal %}
-<a href="{% url 'messages_delete' message.id %}">{% trans "Delete" %}</a>
+<script>
+  // 이전으로
+  $(".prev").click(function(){
+    $.ajax({
+      type: "GET",
+      url: "{% url 'messages_inbox' %}",
+      success: function (response) {
+        $("#messageScreen").html(response);
+      },
+      error: function (request, status, error) {
+        $("#messageScreen").html(error);
+      }
+    });
+    event.preventDefault();
+  });
 
-{% comment %}Example reply_form integration
-{% if reply_form %}
-<h1>{% trans "Compose reply"%}</h1>
-<form action="{% url 'messages_reply' message.id %}" method="post">
-{% csrf_token %}
-<table>
-{{ reply_form.as_table }}
-</table>
-<input type="submit" value="{% trans "Send" %} &raquo;"/>
-</form>
-{% endif %}
-{% endcomment %}
-{% endblock %}
+  // 답장하기
+  $(".reply").click(function(e){
+    var message_id = e.target.dataset.value;
+
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8000/book/messages/reply/" + message_id,
+      success: function (response) {
+        $("#messageScreen").html(response);
+      },
+      error: function (request, status, error) {
+        $("#messageScreen").html(error);
+      }
+    });
+    event.preventDefault();
+  });
+</script>

@@ -282,15 +282,26 @@
       width: 100%;
       height: auto;
       margin-bottom: 5px; }
-    .comment article textarea {
+    .comment article .textarea {
       width: 90%;
+      height: 60px;
       margin-right: 1%;
       float: left; }
     .comment article button {
       width: 9%;
-      height: 66px;
+      height: 60px;
       float: left;
       color: #fafafa;
       background: #08708a;
       border: none;
       border-radius: 5px; }
+    .comment article ul {
+      width: 100%;
+      height: auto;
+      float: left;
+      padding: 0;
+      margin: 0;
+      list-style: none; }
+      .comment article ul li span.date {
+        color: #bdbdbd;
+        font-size: 13px; }

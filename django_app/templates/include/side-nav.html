@@ -11,7 +11,7 @@
         <a href="#">{{ user.nickname }}</a>
 
         {% if user.my_seller %}
-          <p>책지기</p>
+          <p>책지기 <a class="logout" href="{% url 'member:logout' %}">로그아웃</a></p>
         {% else %}
           <p>일반멤버</p>
         {% endif %}
@@ -21,7 +21,7 @@
 
     <ul class="my-list">
       <li>
-        <a href="{% url 'messages_inbox'%}">
+        <a id="messageBtn" class="messageBtn">
           <img src="/static/images/message.png">
           쪽지함
           {% if messages_inbox_count %}
@@ -30,7 +30,7 @@
         </a>
       </li>
       <li>
-        <a href="{% url 'book:book_wish_list' %}">
+        <a id="wishBtn" class="wishBtn">
           <img src="/static/images/shopping-cart.png">
           위시리스트
         </a>
@@ -61,12 +61,69 @@
   {% endif %}
 </div>
 
+<div id="messageScreen" style="display: none" class="message-screen">
+
+</div>
+
+<div id="wishScreen" style="display: none" class="wish-screen">
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
   function openNav() {
     document.getElementById("mySidenav").style.right = "0px";
+    // document.getElementById("callScreen").style.left = "0px";
   }
 
+  var ms = document.getElementById("messageScreen");
+  var ws = document.getElementById("wishScreen");
+
+  var message_btn = document.querySelector('.messageBtn');
+  message_btn.addEventListener('click', function(){
+    if(ms.style.display === 'none' || ws.style.display === 'block') {
+      ms.style.display = 'block';
+      ws.style.display = 'none';
+    } else {
+      ms.style.display = 'none';
+    }
+  })
+
+  var wish_btn = document.querySelector('.wishBtn');
+  wish_btn.addEventListener('click', function(){
+    if(ws.style.display === 'none' || ms.style.display === 'block') {
+      ws.style.display = 'block';
+      ms.style.display = 'none';
+    } else {
+      ws.style.display = 'none';
+    }
+  })
+
   function closeNav() {
-    document.getElementById("mySidenav").style.right = "-270px";
+    document.getElementById("mySidenav").style.right = "-35%";
+    document.getElementById("messageScreen").style.display = "none";
+    document.getElementById("wishScreen").style.display = "none";
   }
+</script>
+
+<script>
+  // 쪽지함
+  $("#messageBtn").click(function(){
+    dataCall();
+  });
+
+  function dataCall(){
+    $.ajax({
+      type: "GET",
+      url: "{% url 'messages_inbox' %}",
+      success: function (response) {
+        $("#messageScreen").html(response);
+      },
+      error: function (request, status, error) {
+        $("#result").html(error);
+      }
+    });
+  }
+
+  // 위시리스트
 </script>

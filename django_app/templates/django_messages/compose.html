@@ -1,14 +1,69 @@
-{% extends "django_messages/base.html" %}
 {% load i18n %}
+{% load static %}
 
-{% block content %}
-<h1>{% trans "Compose Message"%}</h1>
-<form action="" method="post">
-{% csrf_token %}
-<table>
-{{ form.as_table }}
-</table>
-<input type="submit" value="{% trans "Send" %} &raquo;"/>
-</form>
+<link rel="stylesheet" href="{% static 'css/message.css' %}">
+<section class="w_msg">
+  <p class="h1">쪽지쓰기</p>
+  {% for message in message_list %}
+    {{ message }}
+  {% endfor %}
+  {{ message.pk }}
+  <form data-value="{{ message_id }}" method="POST" id="replyForm">
+    {% csrf_token %}
+    <li>
+      받는이 <input type="text" class="common" id="recipient" name="recipient">
+    </li>
+    <li>
+      제 목 <input type="text" class="common" id="subject" name="subject">
+    </li>
+    <li>
+      내 용 <textarea id="body" name="body"></textarea>
+    </li>
+    <li>
+      <button class="sendBtn" type="submit">보내기</button>
+    </li>
+  </form>
+</section>
 
-{% endblock %}
+<script>
+  $("#replyForm").submit(function(e){
+    var message_id = e.target.dataset.value;
+    var recipient = $("input#recipient").val();
+    var subject = $("input#subject").val();
+    var body = $("#body").val();
+
+    replyProc(message_id, recipient, subject, body);
+  })
+
+  function replyProc(message_id, recipient, subject, body) {
+    console.log(message_id, recipient, subject, body);
+    $.ajax({
+      type: "POST",
+      url: 'http://localhost:8000/book/messages/reply/' + message_id,
+      data: {'recipient': recipient, 'subject': subject, 'body': body, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+      success: function (response) {
+        $("#messageScreen").html(
+          "<p style='color: #fafafa; width: 80%; margin: 20px 10%;'>메세지를 성공적으로 발송했습니다! 하단 버튼을 클릭해주세요 :D</p>" +
+          "<button class='prev' style='color: #fafafa; width: 30%; margin: 0 35%; background: transparent; border: 1px solid #fafafa; border-radius: 5px;'>돌아가기</button>"
+        );
+        $(".prev").click(function(){
+          $.ajax({
+            type: "GET",
+            url: "{% url 'messages_inbox' %}",
+            success: function (response) {
+              $("#messageScreen").html(response);
+            },
+            error: function (request, status, error) {
+              $("#messageScreen").html(error);
+            }
+          });
+          event.preventDefault();
+        });
+      },
+      error: function(request, status, error) {
+        $("#messageScreen").html(error);
+      }
+    });
+    event.preventDefault();
+  }
+</script>

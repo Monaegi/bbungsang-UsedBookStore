@@ -4,8 +4,9 @@ from django.shortcuts import render, redirect
 from django_messages.forms import ComposeForm
 
 from book.forms.book_register import SellBookRegisterForm
+from book.forms.comment import CommentForm
 from book.forms.searchs import NaverBooksSearchForm
-from book.models import SellBookRegister, Book, BuyBookRegister
+from book.models import SellBookRegister, Book, BuyBookRegister, Comment
 
 MyUser = get_user_model()
 
@@ -58,10 +59,13 @@ def sell_book_list(request):
 
 
 def sell_book_detail(request, sell_pk):
-    book = SellBookRegister.objects.get(pk=sell_pk)
+    sell_book = SellBookRegister.objects.get(pk=sell_pk)
+    comments = Comment.objects.filter(sell_book=sell_book)
 
     context = {
-        'book': book,
+        'book': sell_book,
+        'comment_form': CommentForm(),
+        'comments': comments,
     }
 
     return render(request, 'book/sell_book_detail.html', context)

@@ -20,3 +20,8 @@ def login(request, ):
     }
     return render(request, 'member/login.html', context)
 
+
+def logout(request):
+    django_logout(request)
+    return redirect('member:login')
+

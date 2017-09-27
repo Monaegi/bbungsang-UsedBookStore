@@ -1,6 +1,5 @@
 #header {
   width: 100%;
-  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 
@@ -8,7 +7,9 @@
   display: inline-block;
   color: #444444;
   font-size: 24px;
-  padding: 4px 0 8px 50px;
+  width: 57.5%;
+  text-align: right;
+  padding: 4px 0 8px 0;
   font-family: 'Amatica SC';
   font-weight: bold;
 }

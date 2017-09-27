@@ -20,4 +20,10 @@ urlpatterns = [
     # 위시리스트
     url(r'^wish/list/$', views.book_wish_list, name='book_wish_list'),
     url(r'^wish/detail/(?P<book_pk>\d+)/$', views.book_wish_detail, name='book_wish_detail'),
+
+    # 댓글
+    url(r'^comment/create/(?P<sell_pk>\d+)$', views.create_comment, name='create_comment'),
+
+    # 쪽지 커스텀
+    url(r'^messages/reply/(?P<message_id>\d+)$', views.create_reply, name='create_reply'),
 ]

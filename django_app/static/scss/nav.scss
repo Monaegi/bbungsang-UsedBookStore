@@ -1,11 +1,11 @@
 .sidenav {
   height: 100%;
-  width: 270px;
+  width: 35%;
   position: fixed;
   transition: 0.3s;
   z-index: 5;
   top: 0;
-  right: -270px;
+  right: -35%;
   background-color: #fafafa;
   overflow-x: hidden;
   padding-top: 40px;
@@ -52,6 +52,12 @@
 
       p {
         font-size: 12px;
+
+        .logout {
+          display: inline;
+          font-size: 12px;
+          float: right
+        }
       }
     }
   }
@@ -69,6 +75,7 @@
       width: 32%;
       margin: 0 0.05%;
       padding-left: 0;
+      cursor: pointer;
 
       a {
         display: inline-block;
@@ -87,7 +94,7 @@
 
         span {
           color: #ED4C00;
-          font-size: 12px;
+          font-size: 10px;
         }
       }
 
@@ -151,4 +158,29 @@
     font-size: 36px;
     margin-left: 50px;
   }
+}
+
+.message-screen {
+  width: 65%;
+  height: 100%;
+  z-index: 5;
+  transition: 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  overflow-x: hidden;
+}
+
+.wish-screen {
+  width: 65%;
+  height: 100%;
+  z-index: 5;
+  transition: 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: pink;
+  overflow-x: hidden;
+  background: rgba(0, 0, 0, 0.8);
 }
