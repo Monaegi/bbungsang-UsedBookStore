@@ -21,7 +21,7 @@
 
     <ul class="my-list">
       <li>
-        <a id="messageBtn" class="messageBtn">
+        <a id="messageBtn" class="messageBtn" data-value="1">
           <img src="/static/images/message.png">
           쪽지함
           {% if messages_inbox_count %}
@@ -30,7 +30,7 @@
         </a>
       </li>
       <li>
-        <a id="wishBtn" class="wishBtn">
+        <a id="wishBtn" class="wishBtn" data-value="2">
           <img src="/static/images/shopping-cart.png">
           위시리스트
         </a>
@@ -104,26 +104,40 @@
     document.getElementById("messageScreen").style.display = "none";
     document.getElementById("wishScreen").style.display = "none";
   }
-</script>
 
-<script>
   // 쪽지함
-  $("#messageBtn").click(function(){
-    dataCall();
+  $("#messageBtn").click(function(e){
+    var data_value = e.target.dataset.value;
+    dataCall(data_value);
   });
 
-  function dataCall(){
+  // 위시리스트
+  $("#wishBtn").click(function(e){
+    var data_value = e.target.dataset.value;
+    dataCall(data_value);
+  });
+
+  function dataCall(data_value){
+    var url = "";
+    if (data_value == "1") {
+      url = "{% url 'messages_inbox' %}";
+    } else {
+      url = "{% url 'book:book_wish_list' %}"
+    }
+
     $.ajax({
       type: "GET",
-      url: "{% url 'messages_inbox' %}",
+      url: url,
       success: function (response) {
-        $("#messageScreen").html(response);
+        if (url === "{% url 'messages_inbox' %}") {
+          $("#messageScreen").html(response);
+        } else {
+          $("#wishScreen").html(response);
+        }
       },
       error: function (request, status, error) {
         $("#result").html(error);
       }
     });
   }
-
-  // 위시리스트
 </script>

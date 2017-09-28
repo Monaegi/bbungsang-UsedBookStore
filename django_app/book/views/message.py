@@ -4,16 +4,17 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django_messages.forms import ComposeForm
 from django_messages.models import Message
-from django_messages.utils import format_quote
 from django.utils.translation import ugettext as _
 
 
 def delete_message(request, message_id, ):
-    pass
+    if request.method == 'POST':
+        pass
 
 
-def create_reply(request, message_id, template_name='django_messages/compose.html', success_url=None,
-                 quote_helper=format_quote, subject_template=_(u"Re: %(subject)s")):
+def create_reply(request, message_id, template_name='django_messages/compose.html',
+                 success_url=None, subject_template=_(u"Re: %(subject)s")):
+
     parent = get_object_or_404(Message, id=message_id)
 
     if parent.sender != request.user and parent.recipient != request.user:
@@ -25,6 +26,7 @@ def create_reply(request, message_id, template_name='django_messages/compose.htm
             'subject': request.POST.get('subject', ''),
             'body': request.POST.get('body', ''),
         }
+
         compose_form = ComposeForm(data)
 
         if compose_form.is_valid():
@@ -39,4 +41,5 @@ def create_reply(request, message_id, template_name='django_messages/compose.htm
         'subject': subject_template % {'subject': parent.subject},
         'recipient': parent.sender.username,
     }
+
     return render(request, template_name, context)

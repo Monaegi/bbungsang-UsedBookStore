@@ -39,7 +39,7 @@
   function composeProc(message_id, recipient, subject, body) {
     var url = "";
     if (message_id) {
-      url = 'http://localhost:8000/book/messages/reply/' + message_id;
+      url = 'http://localhost:8000/books/messages/reply/' + message_id;
     } else {
       url = '{% url "messages_compose" %}';
     }

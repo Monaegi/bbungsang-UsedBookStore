@@ -117,14 +117,20 @@
 
 .comment p span { font-size: 14px; }
 
-.comment article { width: 95%; height: 120px; margin: 0 2.5% 100px 2.5%; padding: 10px; background: #f8f8f8; border: 1px solid #ddd; }
+.comment .create-comment { width: 95%; height: 120px; margin: 0 2.5% 30px 2.5%; padding: 10px; background: #f8f8f8; border: 1px solid #ddd; }
 
-.comment article .select { width: 100%; height: auto; margin-bottom: 5px; }
+.comment .create-comment .select { width: 100%; height: auto; margin-bottom: 5px; }
 
-.comment article .textarea { width: 90%; height: 60px; margin-right: 1%; float: left; }
+.comment .create-comment .textarea { width: 90%; height: 60px; margin-right: 1%; float: left; }
 
-.comment article button { width: 9%; height: 60px; float: left; color: #fafafa; background: #08708a; border: none; border-radius: 5px; }
+.comment .create-comment button { width: 9%; height: 60px; float: left; color: #fafafa; background: #08708a; border: none; border-radius: 5px; }
 
-.comment article ul { width: 100%; height: auto; float: left; padding: 0; margin: 0; list-style: none; }
+.comment .comment-list { border-top: 2px solid #ddd; border-bottom: 1px solid #ddd; height: 40px; line-height: 40px; }
 
-.comment article ul li span.date { color: #bdbdbd; font-size: 13px; }
+.comment .comment-content { width: 90%; margin: 2.5% 5% 100px 5%; }
+
+.comment .comment-content ul { width: 100%; height: auto; float: left; padding: 0; margin: 0; list-style: none; }
+
+.comment .comment-content ul li { font-size: 14px; }
+
+.comment .comment-content ul li .date { padding: 0 10px; color: #bdbdbd; font-size: 13px; }

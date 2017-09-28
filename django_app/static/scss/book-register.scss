@@ -384,10 +384,10 @@
     }
   }
 
-  article {
+  .create-comment {
     width: 95%;
     height: 120px;
-    margin: 0 2.5% 100px 2.5%;
+    margin: 0 2.5% 30px 2.5%;
     padding: 10px;
     background: #f8f8f8;
     border: 1px solid #ddd;
@@ -414,6 +414,18 @@
       border: none;
       border-radius: 5px;
     }
+  }
+
+  .comment-list {
+    border-top: 2px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .comment-content {
+    width: 90%;
+    margin: 2.5% 5% 100px 5%;
 
     ul {
       width: 100%;
@@ -424,7 +436,11 @@
       list-style: none;
 
       li {
-        span.date {
+        font-size: 14px;
+
+
+        .date {
+          padding: 0 10px;
           color: #bdbdbd;
           font-size: 13px;
         }

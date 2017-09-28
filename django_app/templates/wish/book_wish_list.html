@@ -1,22 +1,22 @@
-{% extends 'common/base.html' %}
+{% load static %}
 
-{% block content %}
-  <section class="major">
-    <article class="left-space">위시리스트</article>
-    <article class="right-space">{{ lists.count }} results found</article>
-  </section>
-  <ul class="wish-lists">
+<link rel="stylesheet" href="{% static 'css/wish-list.css' %}">
+<p class="wish-title">위시리스트</p>
+<section class="wish-wrap">
   {% for list in lists %}
-    <li>
-      <a href="#">
-        <div class="img-wrap">
-          <img src="{{ list.book.book_info.cover_img }}">
-        </div>
-        <b>{{ list.book.book_info.title|striptags }}</b>
-        - <span>중고가 {{ list.book.used_price }}원</span>
-      </a>
-      <button class="buyBtn">바로구매</button>
-    </li>
+  <article>
+    <div class="cover-img">
+      <img src="{{ list.book.book_info.cover_img }}">
+    </div>
+    <ul class="wish-lists">
+      <li>
+        <a href="{% url 'book:sell_book_detail' list.book.book_info.pk %}">
+          {{ list.book.book_info.title|striptags }}
+        </a>
+      </li>
+      <li>[중고가] {{ list.book.used_price }}원</li>
+      <li><a class="buyBtn">바로구매</a></li>
+    </ul>
+  </article>
   {% endfor %}
-  </ul>
-{% endblock %}
+</section>
