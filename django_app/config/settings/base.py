@@ -115,7 +115,7 @@ TEMPLATES = [
                 'django_messages.context_processors.inbox',
             ],
             # 'libraries': {
-            #     'show_score': 'book.templatetags.show_score',
+            #     'book_tags': 'book.book_tags',
             # },
         },
     },

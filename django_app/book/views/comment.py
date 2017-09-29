@@ -1,5 +1,6 @@
 from django.shortcuts import redirect
 
+
 from book.forms.comment import CommentForm
 from book.models import SellBookRegister
 

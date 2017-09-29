@@ -1,5 +1,5 @@
 {% extends 'common/base.html' %}
-{% load show_score %}
+{% load comment %}
 
 {% block content %}
 <section class="major">
@@ -74,7 +74,7 @@
             {{ comment.star_score|star }}
           </li>
           <li>
-            {{ comment.content }}
+            {{ comment.content|safe }}
           </li>
         </ul>
         {% endfor %}
