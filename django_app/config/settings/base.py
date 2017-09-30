@@ -37,8 +37,6 @@ CONFIG_SECRET_DEBUG_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_debug.json'
 CONFIG_SECRET_DEPLOY_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_deploy.json')
 
 config_secret_common = json.loads(open(CONFIG_SECRET_COMMON_FILE).read())
-config_secret_debug = json.loads(open(CONFIG_SECRET_DEBUG_FILE).read())
-config_secret_deploy = json.loads(open(CONFIG_SECRET_DEPLOY_FILE).read())
 
 SECRET_KEY = config_secret_common['django']['secret_key']
 
