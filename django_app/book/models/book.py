@@ -43,3 +43,13 @@ class Book(models.Model):
     seller = models.ManyToManyField(
         Seller,
     )
+
+    def save(self, *args, **kwargs):
+        self.remove_b_tag()
+        super().save(*args, **kwargs)
+
+    def remove_b_tag(self):
+        ori_title = self.title
+        ori_title = ori_title.replace("<b>", "")
+        ori_title = ori_title.replace("</b>", "")
+        self.title = ori_title

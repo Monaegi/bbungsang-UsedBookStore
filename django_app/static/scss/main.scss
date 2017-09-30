@@ -1,32 +1,15 @@
-.pure-js-carousel {
-  overflow: hidden;
-}
-
-.pure-js-carousel-list:before,
-.pure-js-carousel-list:after {
-  content: "";
-  display: table;
-}
-
-.pure-js-carousel-list:after {
-  clear: both;
-}
-
-.pure-js-carousel-slide {
-  float: left;
-}
 
 /* 최대 사이즈 */
-@media (min-width: 792px) {
+@media (min-width: 893px) {
   .main-bg {
     width: 100%;
-    height: 490px;
+    height: 510px;
     background: url("/static/images/mac_bg_lg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
     #header {
-      width: 95%;
+      width: 92.5%;
       height: 60px;
       margin: 0 auto;
       border-bottom: 1px solid #fafafa;
@@ -64,39 +47,75 @@
       }
     }
 
-    .move-books {
-      width: 100%;
-      margin-top: 30px;
+    .slider-wrap {
+      position: relative;
+      margin: 0 auto;
+      width: 95%;
       height: auto;
       text-align: center;
-      justify-content: space-between;
-      display: flex;
       list-style: none;
+      // justify-content: space-between;
+      // flex-wrap: wrap;
+      // display: flex;
 
-      .link-book {
-        width: 190px;
-        float: left;
-        margin: 0 auto;
+      .slider {
+        position: relative;
+        width: 90%;
+        margin: 4% auto;
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          .slider-ele {
+
+            .cover-img {
+              width: 90%;
+              margin: 0 5%;
+
+              img {
+                width: 75%;
+                height: 165px;
+              }
+            }
+
+            .title {
+              padding: 5px 7.5%;
+
+              a {
+                font-size: 13px;
+                color: #fafafa;
+              }
+            }
+
+            .info {
+              padding: 0 7.5%;
+              color: #ddd;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .slider-arrow {
+        position: absolute;
+        top: 40px;
+        width: 20px;
+        height: 20px;
+        background: black;
+        color: #fff;
         text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+      }
 
-        img {
-          width: 145px;
-          height: 185px;
-        }
+      .sa-left {
+        left: 10px;
+      }
 
-        .title {
-          color: #fafafa;
-          font-size: 18px;
-        }
-
-        .info {
-          width: 120px;
-          height: auto;
-          color: #ddd;
-          font-size: 14px;
-          padding: 0 !important;
-          margin-left: 37px;
-        }
+      .sa-right {
+        right: 10px;
       }
     }
 
@@ -104,13 +123,14 @@
       width: 100%;
       height: auto;
       color: #fff;
-      margin-top: 45px;
       text-align: center;
+      font-size: 1.3em;
+      font-family: 'Nanumbarunpen';
       float: left;
 
       .detail {
-        margin: 0 30px;
-        padding: 15px 72px;
+        margin: 0 2.5%;
+        padding: 1.2% 7.5%;
         text-decoration: none;
         color: #fafafa;
         border: 1px solid #fafafa;
@@ -124,8 +144,8 @@
       }
 
       .best-seller {
-        padding: 15px 60px;
-        margin: 0 30px;
+        margin: 0 2.5%;
+        padding: 1.2% 7.5%;
         text-decoration: none;
         color: #fafafa;
         background: rgba(95, 206, 192, 0.8);
@@ -254,7 +274,23 @@
   }
 }
 
-@media (max-width: 1210px) {
+@media (max-width: 1250px) {
+  .slider {
+    ul {
+      .slider-ele {
+        .cover-img {
+          img {
+            height: 120px;
+          }
+        }
+      }
+    }
+  }
+
+  .inner {
+    margin-top: 1.5%;
+  }
+
   /* 나를 위한 책(추천 알고리즘 적용) */
   .recommend-book {
     width: 100%;
@@ -285,189 +321,18 @@
   }
 }
 
-@media (max-width: 972px) {
+/* 893px 이하 */
+@media (max-width: 894px) {
   .main-bg {
     width: 100%;
-    height: 830px;
-    position: relative;
-    background: url("/static/images/mac_bg_sm.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    float: left;
-
-    .move-books {
-      width: 100%;
-      height: auto;
-      padding-top: 15px;
-      text-align: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      display: flex;
-      list-style: none;
-
-      .link-book {
-        width: 240px;
-        margin-top: 10px;
-        text-align: center;
-
-        img {
-          width: 135px;
-          height: 185px;
-        }
-
-        .title {
-          color: #fafafa;
-          margin-top: 18px;
-          font-size: 13px;
-        }
-
-        .info {
-          width: 100px;
-          height: auto;
-          color: #ddd;
-          font-size: 13px;
-          margin: 0 auto;
-        }
-      }
-    }
-
-    .inner {
-      width: 100%;
-      height: auto;
-      color: #fff;
-      margin-top: 45px;
-      text-align: center;
-      float: left;
-
-      .detail {
-        margin: 0 15px;
-        padding: 15px 72px;
-        text-decoration: none;
-        color: #fafafa;
-        border: 1px solid #fafafa;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .detail:hover {
-        border: 1px solid #5FCEC0;
-        color: #5FCEC0;
-      }
-
-      .best-seller {
-        padding: 15px 60px;
-        margin: 0 15px;
-        text-decoration: none;
-        color: #fafafa;
-        background: rgba(95, 206, 192, 0.8);
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .best-seller:hover {
-        background: #ddd;
-        color: #5FCEC0;
-      }
-    }
-  }
-
-  /* 나를 위한 책(추천 알고리즘 적용) */
-  .recommend-book {
-    width: 100%;
-    height: auto;
-    float: left;
-    padding: 15px 15px 0 17px;
-    font-size: 17px;
-    font-family: '맑은 고딕';
-  }
-
-  ul.book-box {
-    width: 22%;
-    margin: 1.5%;
-    border: 1px solid #ddd;
-    float: left;
-    text-align: center;
-
-    &:hover {
-      border: 2px solid rgba(95, 206, 192, 0.6);
-    }
-
-    .book-info {
-      position: relative;
-      padding-top: 10px;
-
-      .img-hover-show-box {
-        width: 70%;
-        height: 190px;
-        margin: 0 auto;
-        background: rgba(95, 206, 192, 0.6);
-
-        .book-img {
-            width: 100%;
-            height: 190px;
-        }
-
-        .bucket {
-          width: 25%;
-          margin: 52% 5% 0 20%;
-          padding: 5%;
-          border: 1px solid #fafafa;
-          display: none;
-          float: left;
-
-          &:hover {
-            background: #61c0bf;
-          }
-        }
-
-        .info {
-          width: 25%;
-          margin: 52% 20% 0 5%;
-          padding: 5%;
-          border: 1px solid #fafafa;
-          display: none;
-          float: left;
-
-          &:hover {
-            background: #61c0bf;
-          }
-        }
-      }
-    }
-
-    .title {
-      font-size: 13px;
-      padding: 0 5px;
-      margin-top: 5px;
-
-      a {
-        color: #5d5d5d;
-      }
-    }
-
-    .author {
-      font-size: 12px;
-      margin-bottom: 7px;
-
-      a {
-        color: #a6a6a6;
-      }
-    }
-  }
-}
-
-/* 793px 이하 */
-@media (max-width: 794px) {
-  .main-bg {
-    width: 100%;
-    height: 420px;
+    height: 430px;
     position: relative;
     background: url("/static/images/mac_bg_sm.jpg");
     background-repeat: no-repeat;
     // background-size: cover;
 
     #header {
-      width: 95%;
+      width: 92.5%;
       height: 50px;
       margin: 0 auto;
       border-bottom: 1px solid #fafafa;
@@ -505,42 +370,116 @@
       }
     }
 
+    .slider-wrap {
+      position: relative;
+      margin: 0 auto;
+      width: 95%;
+      height: auto;
+      text-align: center;
+      list-style: none;
+      // justify-content: space-between;
+      // flex-wrap: wrap;
+      // display: flex;
 
-    .move-books {
+      .slider {
+        position: relative;
+        width: 90%;
+        margin: 5% auto;
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          .slider-ele {
+
+            .cover-img {
+              width: 90%;
+              margin: 0 5%;
+
+              img {
+                width: 75%;
+                height: 125px;
+              }
+            }
+
+            .title {
+              padding: 5px 7.5%;
+
+              a {
+                font-size: 13px;
+                color: #fafafa;
+              }
+            }
+
+            .info {
+              padding: 0 7.5%;
+              color: #ddd;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .slider-arrow {
+        position: absolute;
+        top: 40px;
+        width: 20px;
+        height: 20px;
+        background: black;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+      }
+
+      .sa-left {
+        left: 10px;
+      }
+
+      .sa-right {
+        right: 10px;
+      }
+    }
+
+    .inner {
       width: 100%;
       height: auto;
-      padding-top: 25px;
+      color: #fff;
+      margin-top: 2.5%;
       text-align: center;
-      justify-content: space-between;
-      display: flex;
+      font-family: 'Nanumbarunpen';
+      font-size: 1.1em;
+      float: left;
 
-      .link-book {
-        display: inline-block;
-        width: 105px;
-        float: left;
-        margin: 0 auto;
-        text-align: center;
+      .detail {
+        margin: 0 2.5%;
+        padding: 2% 10%;
+        text-decoration: none;
+        color: #fafafa;
+        border: 1px solid #fafafa;
+        border-radius: 5px;
+        cursor: pointer;
+      }
 
-        img {
-          width: 92%;
-          margin: 0 4%;
-          height: 140px;
-        }
+      .detail:hover {
+        border: 1px solid #5FCEC0;
+        color: #5FCEC0;
+      }
 
-        .title {
-          width: 92%;
-          margin: 4% 4%;
-          color: #fafafa;
-          font-size: 13px;
-        }
+      .best-seller {
+        margin: 0 2.5%;
+        padding: 2% 9%;
+        text-decoration: none;
+        color: #fafafa;
+        background: rgba(95, 206, 192, 0.8);
+        border-radius: 5px;
+        cursor: pointer;
+      }
 
-        .info {
-          width: 92%;
-          margin: 3% 4%;
-          height: auto;
-          color: #ddd;
-          font-size: 11px;
-        }
+      .best-seller:hover {
+        background: #ddd;
+        color: #5FCEC0;
       }
     }
   }
@@ -637,375 +576,5 @@
     font-size: 17px;
     font-family: '맑은 고딕';
     background: #f1f1f1;
-  }
-}
-
-/* 672px 이하 */
-@media (max-width: 672px) {
-  .main-bg {
-    width: 100%;
-    height: 390px;
-    position: relative;
-    background: url("/static/images/mac_bg_sm.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    float: left;
-
-    .move-books {
-      width: 100%;
-      height: auto;
-      padding-top: 25px;
-      text-align: center;
-      justify-content: space-between;
-      display: flex;
-
-      .link-book {
-        width: 92px;
-        float: left;
-        margin: 0 auto;
-        text-align: center;
-
-        img {
-          width: 82px;
-          height: 120px;
-        }
-
-        .title {
-          color: #fafafa;
-          font-size: 11px;
-          margin-top: 5px;
-        }
-
-        .info {
-          width: 95px;
-          height: auto;
-          color: #ddd;
-          font-size: 10px;
-          margin: 0;
-        }
-      }
-    }
-
-    .inner {
-      width: 100%;
-      height: auto;
-      color: #fff;
-      margin-top: 40px;
-      text-align: center;
-      float: left;
-
-      .detail {
-        margin: 0 10px;
-        padding: 10px 52px;
-        text-decoration: none;
-        color: #fafafa;
-        border: 1px solid #fafafa;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .detail:hover {
-        border: 1px solid #5FCEC0;
-        color: #5FCEC0;
-      }
-
-      .best-seller {
-        padding: 10px 40px;
-        margin: 0 10px;
-        text-decoration: none;
-        color: #fafafa;
-        background: rgba(95, 206, 192, 0.8);
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .best-seller:hover {
-        background: #ddd;
-        color: #5FCEC0;
-      }
-    }
-  }
-
-  /* 나를 위한 추천 도서 */
-  ul.book-box {
-    .book-info {
-      .img-hover-show-box {
-        height: 160px;
-
-        .book-img {
-          height: 160px;
-        }
-      }
-    }
-  }
-}
-
-/* 553px 이하 */
-@media (max-width: 567px) {
-  .main-bg {
-    width: 100%;
-    height: 620px;
-    position: relative;
-    background: url("/static/images/mac_bg_sm.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    float: left;
-
-    .move-books {
-      width: 100%;
-      height: auto;
-      padding-top: 25px;
-      text-align: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      display: flex;
-
-      .link-book {
-        width: 139px;
-        margin-top: 5px;
-        text-align: center;
-
-        img {
-          width: 100px;
-          height: 140px;
-        }
-
-        .title {
-          color: #fafafa;
-          font-size: 13px;
-        }
-
-        .info {
-          width: 100px;
-          height: auto;
-          color: #ddd;
-          font-size: 11px;
-          margin: 0 auto;
-        }
-      }
-    }
-
-    .inner {
-      width: 100%;
-      height: auto;
-      color: #fff;
-      margin-top: 30px;
-      text-align: center;
-      font-size: 12px;
-      float: left;
-
-      .detail {
-        margin: 0 10px;
-        padding: 10px 52px;
-        text-decoration: none;
-        color: #fafafa;
-        border: 1px solid #fafafa;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .detail:hover {
-        border: 1px solid #5FCEC0;
-        color: #5FCEC0;
-      }
-
-      .best-seller {
-        padding: 10px 40px;
-        margin: 0 10px;
-        text-decoration: none;
-        color: #fafafa;
-        background: rgba(95, 206, 192, 0.8);
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .best-seller:hover {
-        background: #ddd;
-        color: #5FCEC0;
-      }
-    }
-  }
-
-  /* 나를 위한 책(추천 알고리즘 적용) */
-  .recommend-book {
-    width: 100%;
-    height: auto;
-    float: left;
-    padding: 15px 15px 0 17px;
-    font-size: 17px;
-    font-family: '맑은 고딕';
-  }
-
-  ul.book-box {
-    width: 38%;
-    margin: 15px 6%;
-    border: 1px solid #ddd;
-    float: left;
-    text-align: center;
-
-    &:hover {
-      border: 2px solid rgba(95, 206, 192, 0.6);
-    }
-
-    .book-info {
-      position: relative;
-      padding-top: 10px;
-
-      .img-hover-show-box {
-        width: 80%;
-        height: 190px;
-        margin: 0 auto;
-        background: rgba(95, 206, 192, 0.6);
-
-        .book-img {
-          width: 100%;
-          height: 190px;
-        }
-
-        .bucket {
-          width: 25%;
-          margin: 52% 5% 0 20%;
-          padding: 5%;
-          border: 1px solid #fafafa;
-          display: none;
-          float: left;
-
-          &:hover {
-            background: #61c0bf;
-          }
-        }
-
-        .info {
-          width: 25%;
-          margin: 52% 20% 0 5%;
-          padding: 5%;
-          border: 1px solid #fafafa;
-          display: none;
-          float: left;
-
-          &:hover {
-            background: #61c0bf;
-          }
-        }
-      }
-    }
-
-    .title {
-      font-size: 13px;
-      padding: 0 5px;
-      margin-top: 5px;
-
-      a {
-        color: #5d5d5d;
-      }
-    }
-
-    .author {
-      font-size: 12px;
-      margin-bottom: 7px;
-
-      a {
-        color: #a6a6a6;
-      }
-    }
-  }
-}
-
-/* 432px 이하 */
-@media (max-width: 432px) {
-  .main-bg {
-    width: 100%;
-    height: 580px;
-    position: relative;
-    background: url("/static/images/mac_bg_sm.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    float: left;
-
-    .move-books {
-      width: 100%;
-      height: auto;
-      padding-top: 25px;
-      text-align: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      display: flex;
-
-      .link-book {
-        width: 108px;
-        margin-top: 5px;
-        text-align: center;
-
-        img {
-          width: 85px;
-          height: 115px;
-        }
-
-        .title {
-          color: #fafafa;
-          font-size: 13px;
-        }
-
-        .info {
-          width: 100px;
-          height: auto;
-          color: #ddd;
-          font-size: 11px;
-          margin: 0 auto;
-        }
-      }
-    }
-
-    .inner {
-      width: 100%;
-      height: auto;
-      color: #fff;
-      margin-top: 30px;
-      text-align: center;
-      float: left;
-
-      .detail {
-        margin: 0 10px;
-        padding: 10px 52px;
-        text-decoration: none;
-        color: #fafafa;
-        border: 1px solid #fafafa;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .detail:hover {
-        border: 1px solid #5FCEC0;
-        color: #5FCEC0;
-      }
-
-      .best-seller {
-        padding: 10px 40px;
-        margin: 0 10px;
-        text-decoration: none;
-        color: #fafafa;
-        background: rgba(95, 206, 192, 0.8);
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .best-seller:hover {
-        background: #ddd;
-        color: #5FCEC0;
-      }
-    }
-  }
-
-  /* 나를 위한 추천 도서 */
-  ul.book-box {
-    .book-info {
-      .img-hover-show-box {
-        height: 140px;
-
-        .book-img {
-          height: 140px;
-        }
-      }
-    }
   }
 }

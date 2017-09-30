@@ -24,6 +24,9 @@ class BuyBookRegister(models.Model):
 class SellBookRegister(models.Model):
     """ 팔려는 책 등록 """
 
+    class Meta:
+        ordering = ['-pk']
+
     book_info = models.ForeignKey(
         Book,
         related_name='sell_book_info'
@@ -35,6 +38,8 @@ class SellBookRegister(models.Model):
     )
 
     used_price = models.CharField(max_length=50, )
+
+    description = models.TextField(blank=True)
 
 
 class BookStatus(models.Model):

@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
   <link rel="stylesheet" href="{% static 'css/common.css' %}">
   <link rel="stylesheet" href="{% static 'css/nav.css' %}">
-  <script src="{% static 'js/purejscarousel.js' %}"></script>
+  <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Amatica SC'>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Bungee Outline'>
+  <link href='https://fonts.googleapis.com/css?family=Amatica SC' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Bungee Outline' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -31,70 +31,48 @@
         {% include 'include/side-nav.html' %}
       </div>
     </header>
-    <section id="">
-      <!-- 이 달의 주제 관련 책 -->
-      <article class="carousel move-books" id="demo">
-        <a href="#" class="slide link-book">
-          <li>
-            <img src="/static/images/book_sample1.jpg" width="96px" height="140px">
-          </li>
-          <li class="title">매일 심리학 공부</li>
-          <li class="info">
-            나, 요즘 괜찮은 건가? 세상의 적으로부터 내 마음을 지키는 방법!
-          </li>
-        </a>
-        <a href="#" class="slide link-book">
-          <li>
-            <img src="/static/images/book_sample2.jpg" width="96px" height="140px">
-          </li>
-          <li class="title">힐빌리의 노래</li>
-          <li class="info">
-            미국 사회를 뒤흔든 한 젊은이의 고백. 빌 게이츠 선정 '2017 휴가 필독서'
-          </li>
-        </a>
-        <a href="#" class="slide link-book">
-          <li>
-            <img src="/static/images/book_sample1.jpg" width="96px" height="140px">
-          </li>
-          <li class="title">매일 심리학 공부</li>
-          <li class="info">
-            나, 요즘 괜찮은 건가? 세상의 적으로부터 내 마음을 지키는 방법!
-          </li>
-        </a>
-        <a href="#" class="slide link-book">
-          <li>
-            <img src="/static/images/book_sample2.jpg" width="96px" height="140px">
-          </li>
-          <li class="title">힐빌리의 노래</li>
-          <li class="info">
-            미국 사회를 뒤흔든 한 젊은이의 고백. 빌 게이츠 선정 '2017 휴가 필독서'
-          </li>
-        </a>
-        <a href="#" class="slide link-book">
-          <li>
-            <img src="/static/images/book_sample1.jpg" width="96px" height="140px">
-          </li>
-          <li class="title">매일 심리학 공부</li>
-          <li class="info">
-            나, 요즘 괜찮은 건가? 세상의 적으로부터 내 마음을 지키는 방법!
-          </li>
-        </a>
-        <a href="#" class="slide link-book">
-          <li>
-            <img src="/static/images/book_sample2.jpg" width="96px" height="140px">
-          </li>
-          <li class="title">힐빌리의 노래</li>
-          <li class="info">
-            미국 사회를 뒤흔든 한 젊은이의 고백. 빌 게이츠 선정 '2017 휴가 필독서'
-          </li>
-        </a>
+    <section class="slider-wrap" id="">
+      <article class="slider">
+        <ul>
+          {% for new_book in new_books %}
+            <li class="slider-ele">
+              <div class="cover-img">
+                <a href="#"><img src="{{ new_book.book_info.cover_img }}"></a>
+              </div>
+              <div class="title"><a href="#">{{ new_book.book_info.title|truncatechars:40 }}</a></div>
+              <div class="info">[{{ new_book.book_info.category }}]</div>
+            </li>
+          {% endfor %}
+        </ul>
       </article>
+      <a href="#" class="slider-arrow sa-left">&lt;</a>
+      <a href="#" class="slider-arrow sa-right">&gt;</a>
+
       <div class="inner">
         <a class="detail">자세히 보기</a>
         <a class="best-seller">주간 베스트 셀러</a>
       </div>
     </section>
   </div>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="{% static 'js/carousel.js' %}"></script>
+  <script>
+    var visible = 0;
+    if (matchMedia("(min-width: 893px)").matches){
+      visible = 6;
+    } else {
+      visible = 4;
+    }
+
+    jQuery('.slider').lbSlider({
+      leftBtn: '.sa-left',
+      rightBtn: '.sa-right',
+      visible: visible,
+      autoPlay: true,
+      autoPlayDelay: 10
+    });
+  </script>
 
   <!-- 나를 위한 책(추천 알고리즘 적용) -->
   <div class="recommend-book">
@@ -169,6 +147,7 @@
 
   <!-- 주간 베스트 셀러 -->
   <div class="this-week-best-seller">주간 베스트 셀러</div>
+
   <script>
     $(document).ready(function() {
       $('#book-box, #img-hover-show-box').hover(function() {
