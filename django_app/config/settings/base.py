@@ -33,8 +33,12 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 
 CONFIG_SECRET_DIR = os.path.join(ROOT_DIR, '.config_secret')
 CONFIG_SECRET_COMMON_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_common.json')
+CONFIG_SECRET_DEBUG_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_debug.json')
+CONFIG_SECRET_DEPLOY_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_deploy.json')
 
 config_secret_common = json.loads(open(CONFIG_SECRET_COMMON_FILE).read())
+config_secret_debug = json.loads(open(CONFIG_SECRET_DEBUG_FILE).read())
+config_secret_deploy = json.loads(open(CONFIG_SECRET_DEPLOY_FILE).read())
 
 SECRET_KEY = config_secret_common['django']['secret_key']
 
@@ -44,11 +48,6 @@ api_secret_keys = json.loads(open(API_SECRET_KEYS_FILE).read())
 
 NAVER_CLIENT_ID = api_secret_keys['naver']['client_id']
 NAVER_CLIENT_SECRET = api_secret_keys['naver']['client_secret']
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -122,17 +121,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation
