@@ -37,9 +37,9 @@
           {% for new_book in new_books %}
             <li class="slider-ele">
               <div class="cover-img">
-                <a href="#"><img src="{{ new_book.book_info.cover_img }}"></a>
+                <a href="{% url 'book:sell_book_detail' new_book.pk %}"><img src="{{ new_book.book_info.cover_img }}"></a>
               </div>
-              <div class="title"><a href="#">{{ new_book.book_info.title|truncatechars:40 }}</a></div>
+              <div class="title"><a href="{% url 'book:sell_book_detail' new_book.pk %}">{{ new_book.book_info.title|truncatechars:40 }}</a></div>
               <div class="info">[{{ new_book.book_info.category }}]</div>
             </li>
           {% endfor %}
