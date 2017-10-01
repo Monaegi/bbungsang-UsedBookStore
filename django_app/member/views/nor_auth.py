@@ -41,6 +41,7 @@ def facebook_login(request):
         access_token = get_facebook_access_token(request, code)
         debug_result = facebook_debug_token(access_token)
         user_info = facebook_get_user_info(user_id=debug_result['data']['user_id'], access_token=access_token)
+        print(user_info)
         user = MyUser.objects.get_or_create_facebook_user(user_info)
 
         django_login(request, user)

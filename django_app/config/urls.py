@@ -23,7 +23,7 @@ from member import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^members/', include('member.urls', namespace="member")),
+    url(r'^member/', include('member.urls', namespace="member")),
     url(r'^books/', include('book.urls', namespace="book")),
     url(r'^$', views.login),
 

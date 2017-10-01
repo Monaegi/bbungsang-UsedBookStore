@@ -52,7 +52,7 @@ NAVER_CLIENT_SECRET = api_secret_keys['naver']['client_secret']
 
 # Facebook
 FACEBOOK_APP_ID = api_secret_keys['facebook']['app_id']
-FACEBOOK_SECRET_KEY = api_secret_keys['facebook']['secret_key']
+FACEBOOK_SECRET_CODE = api_secret_keys['facebook']['secret_key']
 
 # Application definition
 INSTALLED_APPS = [

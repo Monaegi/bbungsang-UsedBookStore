@@ -5,7 +5,11 @@
   {% if user.is_authenticated %}
     <ul class="my-info">
       <li class="my-photo">
-        <img src="{{ user.my_photo.url }}">
+        {% if user.user_type == 'f' %}
+          <img src="{{ user.my_photo }}" alt="">
+        {% else %}
+          <img src="{{ user.my_photo.url }}">
+        {% endif %}
       </li>
       <li class="my-page">
         <a href="#">{{ user.nickname }}</a>

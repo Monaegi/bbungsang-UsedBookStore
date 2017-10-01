@@ -8,7 +8,8 @@ from utils.fields import CustomImageField
 class MyUserManager(DefaultUserManager):
     def get_or_create_facebook_user(self, user_info):
         username = user_info.get('email', '')
-        # my_photo =
+        print(username)
+        my_photo = user_info.get('picture', '')
         nickname = '{}_{}'.format(
             self.model.USER_TYPE_FACEBOOK,
             user_info['id']
@@ -21,7 +22,7 @@ class MyUserManager(DefaultUserManager):
         user, user_created = self.get_or_create(
             username=username,
             user_type=self.model.USER_TYPE_FACEBOOK,
-            # my_photo=
+            my_photo=my_photo['data']['url'],
             nickname=nickname,
         )
 

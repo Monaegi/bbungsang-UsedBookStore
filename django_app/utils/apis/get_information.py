@@ -52,11 +52,12 @@ def facebook_debug_token(input_token):
     }
 
     response = requests.get(debug_token_url, debug_token_url_params)
-
     result = response.json()
 
     if 'error' in result['data']:
         raise DebugTokenException(result)
+
+    return result
 
 
 def facebook_get_user_info(user_id, access_token):
@@ -66,6 +67,7 @@ def facebook_get_user_info(user_id, access_token):
         'fields': ','.join([
             'id',
             'name',
+            'picture',
             'email',
         ])
     }
