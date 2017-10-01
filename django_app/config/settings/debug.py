@@ -22,5 +22,7 @@ DATABASES = {
     }
 }
 
+SITE_URL = 'http://localhost:8000'
+
 print('@@@@@@ DEBUG:', DEBUG)
 print('@@@@@@ ALLOWED_HOSTS:', ALLOWED_HOSTS)

@@ -40,15 +40,21 @@ config_secret_common = json.loads(open(CONFIG_SECRET_COMMON_FILE).read())
 
 SECRET_KEY = config_secret_common['django']['secret_key']
 
+##
 # 외부 API
+##
 API_SECRET_KEYS_FILE = os.path.join(CONFIG_SECRET_DIR, 'api_secret_keys.json')
 api_secret_keys = json.loads(open(API_SECRET_KEYS_FILE).read())
 
+# Naver
 NAVER_CLIENT_ID = api_secret_keys['naver']['client_id']
 NAVER_CLIENT_SECRET = api_secret_keys['naver']['client_secret']
 
-# Application definition
+# Facebook
+FACEBOOK_APP_ID = api_secret_keys['facebook']['app_id']
+FACEBOOK_SECRET_KEY = api_secret_keys['facebook']['secret_key']
 
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
