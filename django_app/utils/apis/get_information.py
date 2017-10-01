@@ -66,7 +66,6 @@ def facebook_get_user_info(user_id, access_token):
         'access_token': access_token,
         'fields': ','.join([
             'id',
-            'name',
             'picture',
             'email',
         ])

@@ -12,14 +12,15 @@
         {% endif %}
       </li>
       <li class="my-page">
-        <a href="#">{{ user.nickname }}</a>
-
-        {% if user.my_seller %}
-          <p>책지기 <a class="logout" href="{% url 'member:logout' %}">로그아웃</a></p>
-        {% else %}
-          <p>일반멤버</p>
-        {% endif %}
-
+          <a href="#" class="nickname">{{ user.nickname }}</a>
+        <p class="status">
+          {% if user.my_seller %}
+          책지기
+          {% else %}
+          일반멤버
+          {% endif %}
+          <a class="logout" href="{% url 'member:logout' %}">로그아웃</a>
+        </p>
       </li>
     </ul>
 

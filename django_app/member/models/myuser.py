@@ -8,7 +8,6 @@ from utils.fields import CustomImageField
 class MyUserManager(DefaultUserManager):
     def get_or_create_facebook_user(self, user_info):
         username = user_info.get('email', '')
-        print(username)
         my_photo = user_info.get('picture', '')
         nickname = '{}_{}'.format(
             self.model.USER_TYPE_FACEBOOK,
