@@ -116,6 +116,7 @@ TEMPLATES = [
 
                 # Custom context processors
                 'django_messages.context_processors.inbox',
+                'utils.context_processors.social_login.facebook_tag',
             ],
             # 'libraries': {
             #     'book_tags': 'book.book_tags',
