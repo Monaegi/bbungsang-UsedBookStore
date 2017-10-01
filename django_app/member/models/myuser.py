@@ -2,11 +2,30 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager as DefaultUserManager, Permission
 from rest_framework.authtoken.models import Token
 
-from utils.fields.custom_image_fields import CustomImageField
+from utils.fields import CustomImageField
 
 
 class MyUserManager(DefaultUserManager):
-    pass
+    def get_or_create_facebook_user(self, user_info):
+        username = user_info.get('email', '')
+        # my_photo =
+        nickname = '{}_{}'.format(
+            self.model.USER_TYPE_FACEBOOK,
+            user_info['id']
+        )
+
+        # username이 email 형태가 아니면 email 형태의 username을 작성하는 폼 호출
+        if username == '':
+            pass
+
+        user, user_created = self.get_or_create(
+            username=username,
+            user_type=self.model.USER_TYPE_FACEBOOK,
+            # my_photo=
+            nickname=nickname,
+        )
+
+        return user
 
 
 class MyUser(AbstractUser):
@@ -27,9 +46,7 @@ class MyUser(AbstractUser):
 
     USERNAME_FIELD = 'username'
 
-    my_photo = CustomImageField(
-
-    )
+    my_photo = CustomImageField()
 
     nickname = models.CharField(
         max_length=36,
@@ -52,7 +69,7 @@ class MyUser(AbstractUser):
         through='member.BookWishList',
     )
 
-    # objects = MyUserManager()
+    objects = MyUserManager()
 
     def get_user_token(self, user_pk):
         return Token.objects.get_or_create(user_id=user_pk)
