@@ -10,6 +10,8 @@ MyUser = get_user_model()
 
 
 def login(request):
+    """ 일반 로그인 """
+
     form = LoginForm(data=request.POST)
     if request.method == "POST":
         if form.is_valid():
@@ -27,11 +29,15 @@ def login(request):
 
 
 def logout(request):
+    """ 로그아웃 """
+
     django_logout(request)
     return redirect('member:login')
 
 
 def facebook_login(request):
+    """ 페이스북 로그인 """
+
     code = request.GET.get('code')
 
     # code가 없으면 에러 메세지를 request에 추가하고 이전 페이지로 redirect
@@ -58,6 +64,8 @@ def facebook_login(request):
 
 
 def kakao_login(request):
+    """ 카카오 로그인 """
+
     code = request.GET.get('code')
 
     if not code:

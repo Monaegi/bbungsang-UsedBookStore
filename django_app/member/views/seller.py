@@ -7,6 +7,8 @@ MyUser = get_user_model()
 
 
 def seller_register(request, user_pk):
+    """ 판매자 등록 """
+
     if request.method == 'POST':
         user = MyUser.objects.get(pk=user_pk)
         Seller.objects.get_or_create(user=user)
