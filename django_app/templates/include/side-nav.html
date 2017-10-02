@@ -5,7 +5,7 @@
   {% if user.is_authenticated %}
     <ul class="my-info">
       <li class="my-photo">
-        {% if user.user_type == 'f' %}
+        {% if user.user_type == 'f' or user.user_type == 'k' %}
           <img src="{{ user.my_photo }}" alt="">
         {% else %}
           <img src="{{ user.my_photo.url }}">

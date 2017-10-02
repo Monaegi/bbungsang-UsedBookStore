@@ -3,7 +3,8 @@ from django.contrib.auth import login as django_login, logout as django_logout, 
 
 from member.forms import LoginForm
 from utils.apis import get_facebook_access_token, facebook_debug_token, facebook_get_user_info, \
-    error_message_and_redirect_referer, GetAccessTokenException, DebugTokenException
+    get_kakao_access_token, error_message_and_redirect_referer, GetAccessTokenException, \
+    DebugTokenException, get_kakao_user_info
 
 MyUser = get_user_model()
 
@@ -54,3 +55,29 @@ def facebook_login(request):
         print(e.code)
         print(e.message)
         return error_message_and_redirect_referer(request)
+
+
+def kakao_login(request):
+    code = request.GET.get('code')
+
+    if not code:
+        return error_message_and_redirect_referer(request)
+
+    try:
+        access_token = get_kakao_access_token(code)
+        # app_connection = app_connection(access_token)
+        user_info = get_kakao_user_info(access_token)
+        print(user_info)
+        user = MyUser.objects.get_or_create_kakao_user(user_info)
+
+        django_login(request, user)
+        return redirect('book:main')
+    except GetAccessTokenException as e:
+        print(e.code)
+        print(e.message)
+        return error_message_and_redirect_referer(request)
+    except DebugTokenException as e:
+        print(e.code)
+        print(e.message)
+        return error_message_and_redirect_referer(request)
+

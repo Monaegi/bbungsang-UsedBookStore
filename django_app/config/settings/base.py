@@ -54,6 +54,11 @@ NAVER_CLIENT_SECRET = api_secret_keys['naver']['client_secret']
 FACEBOOK_APP_ID = api_secret_keys['facebook']['app_id']
 FACEBOOK_SECRET_CODE = api_secret_keys['facebook']['secret_key']
 
+# Kakao
+KAKAO_APP_ID = api_secret_keys['kakao']['app_id']
+KAKAO_CLIENT_SECRET = api_secret_keys['kakao']['client_secret']
+
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -117,6 +122,7 @@ TEMPLATES = [
                 # Custom context processors
                 'django_messages.context_processors.inbox',
                 'utils.context_processors.social_login.facebook_tag',
+                'utils.context_processors.social_login.kakao_tag',
             ],
             # 'libraries': {
             #     'book_tags': 'book.book_tags',

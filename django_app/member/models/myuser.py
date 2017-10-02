@@ -27,6 +27,25 @@ class MyUserManager(DefaultUserManager):
 
         return user
 
+    def get_or_create_kakao_user(self, user_info):
+        username = user_info.get('kaccount_email', '')
+        my_photo = user_info.get('properties', '')
+        nickname = '{}_{}'.format(
+            self.model.USER_TYPE_KAKAO,
+            user_info['id'],
+        )
+
+        if username == '':
+            pass
+
+        user, user_created = self.get_or_create(
+            username=username,
+            user_type=self.model.USER_TYPE_KAKAO,
+            my_photo=my_photo['profile_image'],
+            nickname=nickname,
+        )
+        return user
+
 
 class MyUser(AbstractUser):
     """ 유저 모델, 모든 인증된 사용자는 책을 '사는 사람' 권한을 갖음 """

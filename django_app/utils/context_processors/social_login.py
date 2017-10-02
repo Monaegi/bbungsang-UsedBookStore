@@ -8,3 +8,11 @@ def facebook_tag(request):
         'site_url': settings.SITE_URL,
     }
     return context
+
+
+def kakao_tag(request):
+    context = {
+        'kakao_app_id': settings.KAKAO_APP_ID,
+        'kakao_redirect_uri': settings.KAKAO_REDIRECT_URI,
+    }
+    return context

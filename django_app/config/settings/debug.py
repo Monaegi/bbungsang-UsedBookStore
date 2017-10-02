@@ -23,6 +23,7 @@ DATABASES = {
 }
 
 SITE_URL = 'http://localhost:8000'
+KAKAO_REDIRECT_URI = SITE_URL + '/member/login/kakao'
 
 print('@@@@@@ DEBUG:', DEBUG)
 print('@@@@@@ ALLOWED_HOSTS:', ALLOWED_HOSTS)

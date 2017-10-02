@@ -76,7 +76,70 @@ def facebook_get_user_info(user_id, access_token):
     return result
 
 
+def get_kakao_access_token(code):
+    exchange_access_token_url = 'https://kauth.kakao.com/oauth/token'
+    redirect_uri = settings.KAKAO_REDIRECT_URI
+    exchange_access_token_url_params = {
+        'grant_type': 'authorization_code',
+        'client_id': settings.KAKAO_APP_ID,
+        'redirect_uri': redirect_uri,
+        'code': code,
+        'client_secret': settings.KAKAO_CLIENT_SECRET,
+    }
+    response = requests.get(
+        exchange_access_token_url,
+        params=exchange_access_token_url_params,
+    )
+    result = response.json()
+
+    # 응답받은 결과값에 'access_token'이라는 key가 존재하면,
+    if 'access_token' in result:
+        # access_token key의 value를 반환
+        return result['access_token']
+    elif 'error' in result:
+        raise Exception(result)
+    else:
+        raise Exception('Unknown Error')
+
+
+def kakako_app_connection(access_token):
+    url = 'https://kapi.kakao.com/v1/user/signup'
+    access_token = "Bearer " + access_token
+    response = requests.get(
+        url,
+        headers={
+            "Authorization": access_token,
+            "Content-Type": "Content-Type: application/x-www-form-urlencoded;charset=utf-8",
+        },
+    )
+    result = response.json()
+    return result
+
+
+def get_kakao_user_info(access_token):
+    url = 'https://kapi.kakao.com/v1/user/me'
+    response = requests.get(
+        url,
+        headers={
+            "Authorization": "Bearer " + access_token,
+        }
+    )
+    result = response.json()
+    return result
+
+
 # 공통 사용
+def return_result(result):
+    # 응답받은 결과값에 'access_token'이라는 key가 존재하면,
+    if 'access_token' in result:
+        # access_token key의 value를 반환
+        return result['access_token']
+    elif 'error' in result:
+        raise Exception(result)
+    else:
+        raise Exception('Unknown Error')
+
+
 def error_message_and_redirect_referer(request):
     error_message = 'Social Login Error'
     messages.error(request, error_message)
