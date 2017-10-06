@@ -50,11 +50,6 @@
   .sidenav .my-info .my-page p {
     font-size: 12px;
   }
-  .sidenav .my-info .my-page p .logout {
-    display: inline;
-    font-size: 12px;
-    float: right;
-  }
   .sidenav .my-list {
     width: 100%;
     height: auto;
@@ -202,10 +197,8 @@
     height: 25px;
     line-height: 25px;
     margin-bottom: 20px;
-    float: left;
   }
-  .sidenav .my-info .my-page a.nickname {
-    width: 100%;
+  .sidenav .my-info .my-page a {
     padding: 0;
     margin: 0;
     color: #444444;
@@ -213,15 +206,10 @@
     font-family: 'NanumBarunpen';
   }
   .sidenav .my-info .my-page a:hover {
-    color: pink;
+    color: #ddd;
   }
   .sidenav .my-info .my-page p {
     font-size: 12px;
-  }
-  .sidenav .my-info .my-page p .logout {
-    display: inline;
-    font-size: 12px;
-    float: right;
   }
   .sidenav .my-list {
     width: 100%;
@@ -273,17 +261,14 @@
     text-decoration: none;
   }
   .sidenav .bar-element {
-    display: block;
-    width: 90%;
-    margin: 0 5%;
+    margin: 0 20px;
     border-bottom: 1px solid #ddd;
-    float: left;
   }
-  .sidenav .bar-element:nth-child(8) {
-    border-bottom: 1px solid #fafafa;
+  .sidenav .bar-element:nth-last-child(1) {
+    border-bottom: none;
   }
   .sidenav .signupBtn {
-    padding: 0 40px;
+    padding: 7px 40px;
     margin: 25px 15px 10px 15px;
     text-align: center;
     font-size: 14px;
@@ -292,15 +277,20 @@
     border-radius: 5px;
     cursor: pointer;
   }
+  .sidenav .signupBtn:hover {
+    background: #ddd;
+  }
   .sidenav .loginBtn {
-    padding: 0 40px;
+    padding: 7px 40px;
     margin: 10px 15px;
     text-align: center;
     font-size: 14px;
-    color: #757081;
     border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
+  }
+  .sidenav .loginBtn:hover {
+    border: 1px solid #5FCEC0;
   }
   .sidenav .closebtn {
     position: absolute;

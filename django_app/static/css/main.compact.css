@@ -1,11 +1,19 @@
 @charset "UTF-8";
 /* 최대 사이즈 */
 @media (min-width: 893px) { .main-bg { width: 100%; height: 510px; background: url("/static/images/mac_bg_lg.jpg"); background-repeat: no-repeat; background-size: cover; }
-  .main-bg #header { width: 92.5%; height: 60px; margin: 0 auto; border-bottom: 1px solid #fafafa; }
-  .main-bg #header .logo { color: #fafafa; font-size: 32px; font-family: 'Amatica SC'; font-weight: bold; top: 7px; margin-left: 5px; position: absolute; float: left; }
-  .main-bg #header .sidebar-toggle-box { float: right; margin-top: 17px; margin-right: 5px; }
-  .main-bg #header .sidebar-toggle-box .fa-bars { cursor: pointer; display: inline-block; font-size: 18px; color: #fafafa; border: 1px solid #fafafa; border-radius: 3px; padding: 2px 9px; }
-  .main-bg #header .sidebar-toggle-box .fa-bars:hover { border: 1px solid #ddd; color: #ddd; }
+  .main-bg #header { width: 100%; height: 50px; margin: 0 auto; border-bottom: 1px solid #fafafa; }
+  .main-bg #header .logo-wrap { width: 66.5%; padding-left: 2.5%; line-height: 45px; float: left; }
+  .main-bg #header .logo-wrap .logo { color: #fafafa; font-size: 28px; font-family: 'Amatica SC'; font-weight: bold; top: 7px; margin-left: 5px; float: left; }
+  .main-bg #header .logo-wrap .logo:hover { text-decoration: none; color: #ddd; }
+  .main-bg #header .regibook { width: 15%; line-height: 46px; text-align: center; transition: 0.2s; float: left; }
+  .main-bg #header .regibook a { display: inline-block; font-size: 15px; padding-top: 2px; text-decoration: none; color: #fafafa; font-family: 'Nanumbarunpen'; }
+  .main-bg #header .regibook:hover { background: rgba(0, 0, 0, 0.1); border-bottom: 3px solid #5FCEC0; }
+  .main-bg #header .regibook:hover a { color: #5FCEC0; }
+  .main-bg #header .regibook .guidetext { height: 35px; line-height: 35px; background-color: #555; color: #fff; font-size: 13px; font-family: 'Nanumbarunpen'; text-align: center; border-radius: 6px; padding: 0 15px; position: absolute; z-index: 3; margin-top: 55px; margin-left: -120px; }
+  .main-bg #header .regibook .guidetext::after { content: ""; position: absolute; bottom: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: transparent transparent #555 transparent; }
+  .main-bg #header .sidebar-toggle-box { width: 3.5%; text-align: center; float: left; }
+  .main-bg #header .sidebar-toggle-box .fa-bars { cursor: pointer; display: inline-block; font-size: 20px; color: #fafafa; width: 100%; line-height: 44px; border-top: 1px solid #fafafa; border-left: 1px solid #fafafa; border-right: 1px solid #fafafa; padding: 2px 7px; }
+  .main-bg #header .sidebar-toggle-box .fa-bars:hover { color: #ddd; background: rgba(0, 0, 0, 0.2); }
   .main-bg .slider-wrap { position: relative; margin: 0 auto; width: 95%; height: auto; text-align: center; list-style: none; }
   .main-bg .slider-wrap .slider { position: relative; width: 90%; margin: 4% auto; }
   .main-bg .slider-wrap .slider ul { margin: 0; padding: 0; list-style: none; }
@@ -39,8 +47,7 @@
   ul.book-box .author a { color: #a6a6a6; }
   .this-week-best-seller { width: 100%; height: auto; float: left; padding: 40px 15px 0 17px; font-size: 19px; font-family: '맑은 고딕'; background: #f1f1f1; } }
 
-@media (max-width: 1250px) { .slider ul .slider-ele .cover-img img { height: 120px; }
-  .inner { margin-top: 1.5%; }
+@media (max-width: 1250px) { .inner { margin-top: 1.5%; }
   /* 나를 위한 책(추천 알고리즘 적용) */
   .recommend-book { width: 100%; height: auto; float: left; padding: 30px 15px 0 17px; font-size: 19px; font-family: '맑은 고딕'; }
   ul.book-box { width: 20%; margin: 2.5%; list-style: none; padding: 0; }
@@ -49,11 +56,19 @@
 
 /* 893px 이하 */
 @media (max-width: 894px) { .main-bg { width: 100%; height: 430px; position: relative; background: url("/static/images/mac_bg_sm.jpg"); background-repeat: no-repeat; }
-  .main-bg #header { width: 92.5%; height: 50px; margin: 0 auto; border-bottom: 1px solid #fafafa; }
-  .main-bg #header .logo { color: #fafafa; font-size: 26px; font-family: 'Amatica SC'; font-weight: bold; top: 7px; margin-left: 5px; position: absolute; float: left; }
-  .main-bg #header .sidebar-toggle-box { float: right; margin-top: 13px; margin-right: 5px; }
-  .main-bg #header .sidebar-toggle-box .fa-bars { cursor: pointer; display: inline-block; font-size: 14px; color: #fafafa; border: 1px solid #fafafa; border-radius: 3px; padding: 2px 7px; }
-  .main-bg #header .sidebar-toggle-box .fa-bars:hover { border: 1px solid #ddd; color: #ddd; }
+  .main-bg #header { width: 100%; height: 50px; margin: 0 auto; border-bottom: 1px solid #fafafa; }
+  .main-bg #header .logo-wrap { width: 58.5%; padding-left: 2.5%; line-height: 45px; float: left; }
+  .main-bg #header .logo-wrap .logo { color: #fafafa; font-size: 28px; font-family: 'Amatica SC'; font-weight: bold; top: 7px; margin-left: 5px; float: left; }
+  .main-bg #header .logo-wrap .logo:hover { text-decoration: none; color: #ddd; }
+  .main-bg #header .regibook { width: 17.5%; line-height: 46px; text-align: center; transition: 0.2s; float: left; }
+  .main-bg #header .regibook a { display: inline-block; font-size: 15px; padding-top: 2px; text-decoration: none; color: #fafafa; font-family: 'Nanumbarunpen'; }
+  .main-bg #header .regibook:hover { background: rgba(0, 0, 0, 0.1); border-bottom: 3px solid #5FCEC0; }
+  .main-bg #header .regibook:hover a { color: #5FCEC0; }
+  .main-bg #header .regibook .guidetext { height: 35px; line-height: 35px; background-color: #555; color: #fff; font-size: 13px; font-family: 'Nanumbarunpen'; text-align: center; border-radius: 6px; padding: 0 15px; position: absolute; z-index: 3; margin-top: 55px; margin-left: -120px; }
+  .main-bg #header .regibook .guidetext::after { content: ""; position: absolute; bottom: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: transparent transparent #555 transparent; }
+  .main-bg #header .sidebar-toggle-box { width: 6.5%; text-align: center; float: left; }
+  .main-bg #header .sidebar-toggle-box .fa-bars { cursor: pointer; display: inline-block; font-size: 20px; color: #fafafa; width: 100%; line-height: 44px; border-top: 1px solid #fafafa; border-left: 1px solid #fafafa; border-right: 1px solid #fafafa; padding: 2px 7px; }
+  .main-bg #header .sidebar-toggle-box .fa-bars:hover { color: #ddd; background: rgba(0, 0, 0, 0.2); }
   .main-bg .slider-wrap { position: relative; margin: 0 auto; width: 95%; height: auto; text-align: center; list-style: none; }
   .main-bg .slider-wrap .slider { position: relative; width: 90%; margin: 5% auto; }
   .main-bg .slider-wrap .slider ul { margin: 0; padding: 0; list-style: none; }

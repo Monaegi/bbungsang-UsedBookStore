@@ -6,12 +6,12 @@
   margin: 0;
   font-family: 'NanumBarunpen';
 
-  .header {
+  .sell-header {
     width: 100%;
     height: auto;
     padding: 20px 0;
     margin-bottom: 20px;
-    background: url("/static/images/book-bg.jpeg");
+    background: url("/static/images/book-bg1.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
@@ -26,22 +26,69 @@
     }
 
     p {
+      font-size: 15px;
       color: #fafafa;
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
     }
 
     #myBtn {
-      border: 1px solid #fafafa;
-      border-radius: 10px;
-      background: transparent;
-      color: #fafafa;
+      border: none;
+      background: #ddd;
+      border-radius: 7px;
+      color: #818181;
       font-size: 16px;
-      margin: 35px 0 20px 0;
+      margin: 20px 0 20px 0;
       padding: 7px 35px;
     }
 
     #myBtn:hover {
+      color: #fafafa;
+      background: #8d8d8d;
+    }
+  }
+
+  .buy-header {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    background: url("/static/images/book-bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+    h2 {
+      margin: 30px 0;
+      color: #fafafa;
+    }
+
+    hr {
+      width: 72px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #fafafa;
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
+    }
+
+    #myBtn {
+      border: none;
       background: #ddd;
-      color: #8d8d8d;
+      border-radius: 7px;
+      color: #818181;
+      font-size: 16px;
+      margin: 20px 0 20px 0;
+      padding: 7px 35px;
+    }
+
+    #myBtn:hover {
+      color: #fafafa;
+      background: #8d8d8d;
     }
   }
 
@@ -131,6 +178,12 @@
     line-height: 65px;
     text-align: left;
     float: left;
+
+    a {
+      font-weight: 200;
+      display: inline-block;
+      color: #fafafa;
+    }
   }
 
   .right-space {
@@ -139,6 +192,12 @@
     line-height: 65px;
     text-align: right;
     float: left;
+
+    a {
+      font-weight: 200;
+      display: inline-block;
+      color: #fafafa;
+    }
   }
 }
 

@@ -13,7 +13,6 @@
   <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
   <link href='https://fonts.googleapis.com/css?family=Amatica SC' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Bungee Outline' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -22,15 +21,28 @@
 </head>
 <body>
   <div class="main-bg">
-    <header id="header">
-      <a href="#" class="logo">BongDal<a>
-      <div class="sidebar-toggle-box">
+    <section id="header">
+      <article class="logo-wrap">
+        <a href="#" class="logo">BongDal<a>
+      </article>
+      <article class="regibook">
+        <a href="{% url 'book:buy_book_register' %}">살 책 등록하기</a>
+      </article>
+      <article class="regibook">
+        {% if not user.my_seller %}
+        <a href="{% url 'member:seller_register' user.pk %}">판매자 등록하기</a>
+        <span class="guidetext">판매자 등록을 해주세요 :)</span>
+        {% else %}
+        <a href="{% url 'book:sell_book_register' %}">팔 책 등록하기</a>
+        {% endif %}
+      </article>
+      <article class="sidebar-toggle-box">
         <div class="fa-bars" data-placement="right" onclick="openNav()">
           <span class="glyphicon glyphicon-align-justify"></span>
         </div>
         {% include 'include/side-nav.html' %}
-      </div>
-    </header>
+      </article>
+    </section>
     <section class="slider-wrap" id="">
       <article class="slider">
         <ul>

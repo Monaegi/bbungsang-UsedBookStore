@@ -19,7 +19,6 @@
           {% else %}
           일반멤버
           {% endif %}
-          <a class="logout" href="{% url 'member:logout' %}">로그아웃</a>
         </p>
       </li>
     </ul>
@@ -49,11 +48,10 @@
     </ul>
 
     <a class="bar-element" href="{% url 'book:buy_book_register' %}">사는 책 등록하기</a>
-
     {% if user.my_seller %}
-      <a class="bar-element" href="{% url 'book:sell_book_register' %}">파는 책 등록하기</a>
+    <a class="bar-element" href="{% url 'book:sell_book_register' %}">파는 책 등록하기</a>
     {% else %}
-      <a class="bar-element" href="{% url 'member:seller_register' user.pk %}">Seller 등록하기</a>
+    <a class="bar-element" href="{% url 'member:seller_register' user.pk %}">판매자 등록하기</a>
     {% endif %}
   {% endif %}
 
@@ -61,8 +59,10 @@
   <a class="bar-element" href="{% url 'book:sell_book_list' %}">파는 책 목록</a>
 
   {% if not user.is_authenticated %}
-    <a class="bar-element signupBtn" href="#">Sign Up</a>
-    <a class="bar-element loginBtn" href="#">Log In</a>
+    <a class="signupBtn" href="#">Sign Up</a>
+    <a class="loginBtn" href="{% url 'member:login' %}">Log In</a>
+  {% else %}
+    <a class="bar-element" href="{% url 'member:logout' %}">로그아웃</a>
   {% endif %}
 </div>
 

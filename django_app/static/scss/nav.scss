@@ -53,12 +53,6 @@
 
         p {
           font-size: 12px;
-
-          .logout {
-            display: inline;
-            font-size: 12px;
-            float: right
-          }
         }
       }
     }
@@ -227,10 +221,8 @@
         height: 25px;
         line-height: 25px;
         margin-bottom: 20px;
-        float: left;
 
-        a.nickname {
-          width: 100%;
+        a {
           padding: 0;
           margin: 0;
           color: #444444;
@@ -239,17 +231,11 @@
         }
 
         a:hover {
-          color: pink;
+          color: #ddd;
         }
 
         p {
           font-size: 12px;
-
-          .logout {
-            display: inline;
-            font-size: 12px;
-            float: right
-          }
         }
       }
     }
@@ -304,27 +290,24 @@
       color: #818181;
       display: block;
       transition: 0.3s;
-    }
 
-    a:hover {
-      color: #5FCEC0;
-      text-decoration: none;
+      &:hover {
+        color: #5FCEC0;
+        text-decoration: none;
+      }
     }
 
     .bar-element {
-      display: block;
-      width: 90%;
-      margin: 0 5%;
+      margin: 0 20px;
       border-bottom: 1px solid #ddd;
-      float: left;
 
-      &:nth-child(8) {
-        border-bottom: 1px solid #fafafa;
+      &:nth-last-child(1) {
+        border-bottom: none;
       }
     }
 
     .signupBtn {
-      padding: 0 40px;
+      padding: 7px 40px;
       margin: 25px 15px 10px 15px;
       text-align: center;
       font-size: 14px;
@@ -332,17 +315,24 @@
       background: rgba(95, 206, 192, 0.8);
       border-radius: 5px;
       cursor: pointer;
+
+      &:hover {
+        background: #ddd;
+      }
     }
 
     .loginBtn {
-      padding: 0 40px;
+      padding: 7px 40px;
       margin: 10px 15px;
       text-align: center;
       font-size: 14px;
-      color: #757081;
       border: 1px solid #ddd;
       border-radius: 5px;
       cursor: pointer;
+
+      &:hover {
+        border: 1px solid #5FCEC0;
+      }
     }
 
     .closebtn {
