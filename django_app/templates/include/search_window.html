@@ -29,8 +29,6 @@
           type: "GET",
           url: "{% url 'book:naver_search_books' %}",
           data: {'q': value, 'page': page},
-          //  data: {'q': value, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
-          //  dataType: "json",
           success: function (response) {
             $("#result").html(response);
           },

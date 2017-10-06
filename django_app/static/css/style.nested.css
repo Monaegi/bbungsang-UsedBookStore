@@ -8,9 +8,8 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-
-  .modal-content {
+  background-color: rgba(0, 0, 0, 0.4); }
+  .modal .modal-content {
     background: #fff;
     margin: 5% auto;
     padding: 20px;
@@ -18,99 +17,73 @@
     border-radius: 10px;
     width: 85%;
     height: 90%;
-
     /* The Search Form */
-    .search-form {
+    /* The Close Button */ }
+    .modal .modal-content .search-form {
       width: 80%;
       margin: 0 10%;
       height: 40px;
       line-height: 40px;
-      float: left;
-    }
-
-    /* The Close Button */
-    .close {
+      float: left; }
+    .modal .modal-content .close {
       margin: 0 auto;
       width: 5%;
       color: #aaa;
       float: right;
       font-size: 34px;
       text-align: center;
-      font-weight: bold;
-
-      &:hover, &:focus {
+      font-weight: bold; }
+      .modal .modal-content .close:hover, .modal .modal-content .close:focus {
         color: black;
         text-decoration: none;
-        cursor: pointer;
-      }
-    }
-
-    .result {
-        width: 100%;
-        height: 91%;
-        // background: aquamarine;
-        float: left;
-    }
-  }
-}
+        cursor: pointer; }
+    .modal .modal-content .result {
+      width: 100%;
+      height: 91%;
+      float: left; }
 
 /* Naver Book List */
 .result {
-  padding: 10px;
-
-  .book-wrap {
+  padding: 10px; }
+  .result .book-wrap {
     width: 100%;
     height: 130px;
     margin: 5px 0;
-    float: left;
-
-    .checkbox {
+    float: left; }
+    .result .book-wrap .checkbox {
       width: 3%;
       float: left;
-      margin-top: 10px;
-    }
-
-    .book-img {
+      margin-top: 10px; }
+    .result .book-wrap .book-img {
       width: 17%;
       height: 130px;
       float: left;
       border: 1px solid #ddd;
-      margin-top: 3px;
-    }
-
-    .book-info {
+      margin-top: 3px; }
+    .result .book-wrap .book-info {
       list-style: none;
       width: 78%;
       font-size: 13px;
       float: left;
       margin-top: 3px;
-      margin-left: 2%;
-    }
-  }
-
-  .pagination {
+      margin-left: 2%; }
+  .result .pagination {
     width: 100%;
     margin: 5px 0;
     padding: 0;
     font-weight: bold;
-    text-align: center;
-
-    #prev, #next {
+    text-align: center; }
+    .result .pagination #prev, .result .pagination #next {
       border: none;
       border-radius: 4px;
       background: skyblue;
       color: #fafafa;
       padding: 3px 9px;
-      margin: 3px;
-    }
-
-    .select {
+      margin: 3px; }
+    .result .pagination .select {
       border: none;
       border-radius: 4px;
       background: #135589;
       color: #fafafa;
       padding: 3px 9px;
-      margin: 3px;
-    }
-  }
-}
+      margin: 3px; }
