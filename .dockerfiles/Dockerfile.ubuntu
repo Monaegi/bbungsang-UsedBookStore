@@ -56,5 +56,4 @@ RUN             /root/.pyenv/versions/used-book-store/bin/pip install uwsgi
 ##
 RUN             apt-get -y update
 RUN             apt-get -y install nginx
-
 RUN             apt-get -y install supervisor

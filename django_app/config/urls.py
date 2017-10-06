@@ -29,6 +29,7 @@ urlpatterns = [
 
     url(r'^messages/', include('django_messages.urls')),
 ]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_DIR)
-urlpatterns += static('/static/', document_root='project/.static_root')
+# /static/, /media/에 대한 요청을 STATIC_ROOT, MEDIA_ROOT 경로의 파일에서 찾는다.
+# /xx/ URL 에 대해서 XX_ROOT 경로에서 파일을 찾아서 해당 파일 자체를 리턴
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

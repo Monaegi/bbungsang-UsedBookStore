@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, UserManager as DefaultUserManager, Permission
-from rest_framework.authtoken.models import Token
+from django.contrib.auth.models import AbstractUser, UserManager as DefaultUserManager
 
 from utils.fields import CustomImageField
 
@@ -90,5 +89,5 @@ class MyUser(AbstractUser):
 
     objects = MyUserManager()
 
-    def get_user_token(self, user_pk):
-        return Token.objects.get_or_create(user_id=user_pk)
+    # def get_user_token(self, user_pk):
+    #     return Token.objects.get_or_create(user_id=user_pk)

@@ -70,8 +70,8 @@ INSTALLED_APPS = [
 
     'django.contrib.sites',
 
-    'rest_framework',
-    'rest_framework.authtoken',
+    # 'rest_framework',
+    # 'rest_framework.authtoken',
     'django_messages',
 
     'member',
