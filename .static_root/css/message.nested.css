@@ -1,0 +1,161 @@
+@charset "UTF-8";
+/* 쪽지함 */
+p.h1 {
+  margin: 70px 5% 30px 5%;
+  font-size: 26px;
+  font-family: 'Nanumbarunpen';
+  color: #fafafa; }
+
+table {
+  width: 90%;
+  margin: 20px 5%;
+  font-family: 'Nanumbarunpen'; }
+  table th {
+    border-bottom: 1px solid #fafafa;
+    color: #fafafa;
+    font-weight: 400;
+    text-align: center; }
+  table td {
+    color: #fafafa;
+    height: 40px;
+    line-height: 40px;
+    text-align: center; }
+    table td .delBtn {
+      padding: 2px 5px;
+      border: 1px solid #fafafa;
+      border-radius: 3px;
+      cursor: pointer;
+      color: #fafafa;
+      font-family: 'Ubuntu';
+      text-decoration: none; }
+      table td .delBtn:hover {
+        border: 1px solid #D9418C;
+        color: #D9418C; }
+    table td a.detail {
+      color: #aed9da;
+      cursor: pointer; }
+    table td:nth-child(3) {
+      font-size: 11px; }
+
+a.new-message {
+  display: inline-block;
+  color: #444444;
+  background: #ddd;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-right: 5%;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 13px;
+  float: right;
+  font-family: '맑은 고딕'; }
+  a.new-message:hover {
+    background: #135589;
+    color: #fafafa; }
+
+a.sub-box {
+  display: inline-block;
+  color: #135589;
+  background: skyblue;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-right: 7.5%;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 13px;
+  float: right;
+  font-family: '맑은 고딕'; }
+  a.sub-box:hover {
+    background: #135589;
+    color: #fafafa; }
+
+/* 쪽지 상세보기 */
+section.message-headers {
+  color: #fafafa;
+  font-family: 'Nanumbarunpen'; }
+  section.message-headers .subject {
+    margin: 70px 5% 15px 5%;
+    font-size: 22px;
+    text-align: left; }
+    section.message-headers .subject span.recipient {
+      font-size: 15px; }
+    section.message-headers .subject span.date {
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+      color: #ddd;
+      float: right; }
+  section.message-headers .content {
+    margin: 0 5%;
+    padding: 20px 0;
+    border-top: 1px solid #fafafa;
+    text-align: left; }
+    section.message-headers .content span {
+      margin-left: 50px;
+      font-size: 14px; }
+
+.reply {
+  border: 1px solid #fafafa;
+  background: transparent;
+  border-radius: 5px;
+  color: #fafafa;
+  width: 20%;
+  margin-right: 5%;
+  text-align: center;
+  float: right; }
+  .reply:hover {
+    color: #D9418C;
+    border: 1px solid #D9418C; }
+
+.prev {
+  border: 1px solid #fafafa;
+  background: transparent;
+  border-radius: 5px;
+  color: #fafafa;
+  width: 20%;
+  margin-right: 5%;
+  text-align: center;
+  float: right; }
+  .prev:hover {
+    color: #5FCEC0;
+    border: 1px solid #5FCEC0; }
+
+/* 쪽지 쓰기 */
+section.w_msg {
+  width: 90%;
+  margin: 0 5%;
+  height: auto;
+  font-family: 'Nanumbarunpen';
+  color: #fafafa; }
+  section.w_msg li {
+    padding: 0;
+    margin: 0 5%;
+    width: 90%;
+    height: 60px;
+    text-align: left;
+    list-style: none; }
+    section.w_msg li .common {
+      background: transparent;
+      width: 100%;
+      border: none;
+      color: #fafafa;
+      border-bottom: 1px solid #fafafa;
+      float: left; }
+    section.w_msg li textarea {
+      width: 100%;
+      border: 1px solid #fafafa;
+      background: transparent;
+      color: #fafafa;
+      float: left; }
+    section.w_msg li .sendBtn {
+      width: 15%;
+      height: 30px;
+      font-size: 15px;
+      border: none;
+      background: #5FCEC0;
+      border-radius: 5px;
+      color: #fafafa;
+      margin-top: 15px;
+      float: right; }
+
+/*  */

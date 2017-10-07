@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^login/kakao/$', views.kakao_login, name='kakao_login'),
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^seller/(?P<user_pk>\d+)/$', views.seller_register, name='seller_register'),
+    url(r'^email/authenticate/(?P<user_pk>\d+)/$', views.send_email, name='send_email'),
 ]

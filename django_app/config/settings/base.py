@@ -172,5 +172,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Authentication, Permissions
+# Email_Backend
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config_secret_common['django']['email_host_user']
+EMAIL_HOST_PASSWORD = config_secret_common['django']['email_host_password']
+EMAIL_PORT = '587'
 

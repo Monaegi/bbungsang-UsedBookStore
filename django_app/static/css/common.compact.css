@@ -4,7 +4,7 @@ html body { margin: 0; padding: 0; }
 ul ol li { display: inline-block; list-style: none; }
 
 /* NanumBarunpen 웹폰트 적용 */
-@font-face { font-family: NanumBarunpen; src: url("/static/font/NanumBarunpen.woff") format("woff"); }
+@font-face { font-family: NanumBarunpen; src: url("/static/font/NanumBarunpen.eot") format("eot"); }
 
 @media (min-width: 768px) { .input-wrap { margin: 0 auto; width: 600px; height: 40px; line-height: 40px; float: center; position: relative; }
   .input-wrap input#q { width: 100%; height: 33px; border: none; border: 1px solid #5FCEC0; }

@@ -14,7 +14,13 @@ class Seller(models.Model):
 
     )
 
-    # sell_book_register = models.ManyToManyField(
-    #     Book,
-    #     through=SellBookRegister,
-    # )
+
+class EmailToken(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        related_name='email_token',
+    )
+
+    token = models.CharField(
+        max_length=24,
+    )

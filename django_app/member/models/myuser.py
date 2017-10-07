@@ -1,6 +1,10 @@
+import string
+import random
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager as DefaultUserManager
 
+from member.models.seller import EmailToken
 from utils.fields import CustomImageField
 
 
@@ -88,6 +92,11 @@ class MyUser(AbstractUser):
     )
 
     objects = MyUserManager()
+
+    def email_token_generator(self, user_pk, size=35, chars=string.ascii_uppercase + string.digits + string.ascii_lowercase):
+        token = ''.join(random.choice(chars) for _ in range(size))
+        EmailToken.objects.get_or_create(user_id=user_pk, token=token)
+        return token
 
     # def get_user_token(self, user_pk):
     #     return Token.objects.get_or_create(user_id=user_pk)

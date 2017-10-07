@@ -1,0 +1,509 @@
+
+.container {
+  width: 100%;
+  height: auto;
+  padding: 0 !important;
+  margin: 0;
+  font-family: 'NanumBarunpen';
+
+  .sell-header {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    background: url("/static/images/book-bg1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+    h2 {
+      margin: 30px 0;
+      color: #fafafa;
+    }
+
+    hr {
+      width: 72px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #fafafa;
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
+    }
+
+    #myBtn {
+      border: none;
+      background: #ddd;
+      border-radius: 7px;
+      color: #818181;
+      font-size: 16px;
+      margin: 20px 0 20px 0;
+      padding: 7px 35px;
+    }
+
+    #myBtn:hover {
+      color: #fafafa;
+      background: #8d8d8d;
+    }
+  }
+
+  .buy-header {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    background: url("/static/images/book-bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+    h2 {
+      margin: 30px 0;
+      color: #fafafa;
+    }
+
+    hr {
+      width: 72px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #fafafa;
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
+    }
+
+    #myBtn {
+      border: none;
+      background: #ddd;
+      border-radius: 7px;
+      color: #818181;
+      font-size: 16px;
+      margin: 20px 0 20px 0;
+      padding: 7px 35px;
+    }
+
+    #myBtn:hover {
+      color: #fafafa;
+      background: #8d8d8d;
+    }
+  }
+
+  .input-form {
+    width: 100%;
+    height: auto;
+    float: left;
+
+    .book-form {
+      width: 80%;
+      margin: 0 10%;
+      height: auto;
+
+      label {
+        width: 100%;
+        margin-top: 25px;
+        padding-left: 5px;
+        height: 23px;
+        line-height: 30px;
+        color: #8d8d8d;
+      }
+
+      .form-wrap {
+        width: 100%;
+        height: auto;
+        float: left;
+
+        #cover_img {
+          display: none;
+        }
+
+        #title, #author, #publisher, #normal_price, #publication_date, #isbn {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid #8d8d8d;
+          background: transparent;
+        }
+
+        .used-price {
+          width: 100%;
+          height: 25px;
+          border: none;
+          border-bottom: 1px solid #8d8d8d;
+          background: transparent;
+        }
+
+        .category {
+          width: 100%;
+        }
+
+        .etc {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid #8d8d8d;
+          background: transparent;
+        }
+      }
+
+      #registerBtn {
+        width: 100%;
+        margin: 30px 0;
+        padding: 7px 30px;
+        border: none;
+        border-radius: 5px;
+        color: #fafafa;
+        background: #5FCEC0;
+      }
+    }
+  }
+}
+
+.major {
+  width: 100%;
+  height: 65px;
+  background: #5FCEC0;
+  color: #fafafa;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0 3%;
+  box-shadow: 3px 3px 5px #8c8c8c;
+  z-index: 2;
+  position: relative;
+
+  .left-space {
+    width: 50%;
+    height: 65px;
+    line-height: 65px;
+    text-align: left;
+    float: left;
+
+    a {
+      font-weight: 200;
+      display: inline-block;
+      color: #fafafa;
+    }
+  }
+
+  .right-space {
+    width: 50%;
+    height: 65px;
+    line-height: 65px;
+    text-align: right;
+    float: left;
+
+    a {
+      font-weight: 200;
+      display: inline-block;
+      color: #fafafa;
+    }
+  }
+}
+
+.book-container {
+  width: 100%;
+  height: auto;
+  background: #f1f1f1;
+  position: relative;
+  z-index: 1;
+  float: left;
+
+  .book-wrap {
+    width: 90%;
+    margin: 20px 5%;
+    padding: 10px;
+    background: #fff;
+    float: left;
+
+    .book-img {
+      width: 14%;
+      height: auto;
+      float: left;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .book-info {
+      width: 86%;
+      padding: 10px 0 10px 10px;
+      margin: 0;
+      list-style: none;
+      float: left;
+
+      .book-list-title {
+        font-size: 13px;
+        margin: 2px 0;
+
+        span {
+          margin-right: 5px;
+
+          a {
+            color: #bdbdbd;
+          }
+        }
+      }
+
+      .book-list-price {
+        height: 20px;
+        line-height: 20px;
+        font-size: 13px;
+        color: #5d5d5d;
+
+        span {
+          font-weight: bold;
+          font-size: 14px;
+          color: #FF5E00;
+          padding-bottom: 10px;
+        }
+      }
+
+      .book-list-info {
+        height: 20px;
+        line-height: 20px;
+        font-size: 13px;
+
+        span {
+          color: #ddd;
+          margin: 0 3px;
+        }
+      }
+
+      .look-detail {
+        display: inline-block;
+        font-size: 15px;
+        font-family: 'Nanumbarunpen';
+        margin-top: 7px;
+        padding: 5px 25px;
+        background: #135589;
+        color: #fafafa;
+        border-radius: 6px;
+      }
+
+      .look-detail:hover {
+        text-decoration: none;
+        background: skyblue;
+      }
+
+      form {
+        display: inline-block;
+
+        .wish-list {
+          background: none;
+          font-size: 15px;
+          font-family: 'Nanumbarunpen';
+          margin-top: 7px;
+          padding: 5px 25px;
+          border: 1px solid #135589;
+          color: #135589;
+          border-radius: 6px;
+        }
+
+        .wish-list:hover {
+          text-decoration: none;
+          background: skyblue;
+        }
+      }
+    }
+  }
+}
+
+/*  */
+.book-detail {
+  width: 80%;
+  height: auto;
+  margin: 5% 10%;
+
+  img {
+    width: 35%;
+    float: left;
+    padding: 5px;
+    border: 1px double #ddd;
+  }
+
+  ul {
+    width: 65%;
+    float: left;
+    list-style: none;
+
+    .category {
+      color: #bdbdbd;
+      margin-top: 10px;
+    }
+
+    .title {
+      font-size: 19px;
+      height: 35px;
+      line-height: 35px;
+    }
+
+    .author {
+      margin-bottom: 5px;
+
+      span {
+        padding: 0 10px;
+      }
+    }
+
+    .price {
+      color: #444444;
+      font-size: 15px;
+      height: 20px;
+      line-height: 20px;
+
+      .arrow {
+        margin: 0 10px;
+      }
+
+      .used-price {
+        font-size: 16px;
+        color: #f03c97;
+      }
+    }
+
+    .isbn {
+      margin-top: 5px;
+      margin-bottom: 20px;
+      color: #757081;
+      font-size: 13px;
+    }
+
+    .btns {
+      font-size: 17px;
+      padding-top: 30px;
+      border-top: 2px solid #ddd;
+      font-family: 'Nanumbarunpen';
+
+      .wish-list-btn {
+        padding: 8px 5%;
+        margin-right: 5px;
+        border-radius: 3px;
+        color: #fafafa;
+        background: #c82370;
+        text-decoration: none;
+      }
+
+      .buy-btn {
+        padding: 8px 5%;
+        border-radius: 3px;
+        color: #fafafa;
+        background: #cd394d;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.book-status {
+  width: 100%;
+  height: auto;
+  float: left;
+
+  ul {
+    list-style: none;
+    margin: 50px 0 0 0;
+    padding: 0 0 0 1.5%;
+
+    p {
+      font-size: 16px;
+      color: #444444;
+      font-family: 'Nanumbarunpen';
+      padding-left: 10px;
+    }
+
+    li {
+      width: 48%;
+      margin: 5px 0.5%;
+      display: inline-block;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.comment {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  float: left;
+
+  p {
+    width: 100%;
+    font-size: 18px;
+    color: #444444;
+    font-family: 'Nanumbarunpen';
+    padding-left: 2.5%;
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .create-comment {
+    width: 95%;
+    height: 120px;
+    margin: 0 2.5% 30px 2.5%;
+    padding: 10px;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+
+    .select {
+      width: 100%;
+      height: auto;
+      margin-bottom: 5px;
+    }
+
+    .textarea {
+      width: 90%;
+      height: 60px;
+      margin-right: 1%;
+      float: left;
+    }
+
+    button {
+      width: 9%;
+      height: 60px;
+      float: left;
+      color: #fafafa;
+      background: #08708a;
+      border: none;
+      border-radius: 5px;
+    }
+  }
+
+  .comment-list {
+    border-top: 2px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .comment-content {
+    width: 90%;
+    margin: 2.5% 5% 100px 5%;
+
+    ul {
+      width: 100%;
+      height: auto;
+      float: left;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      li {
+        font-size: 14px;
+
+
+        .date {
+          padding: 0 10px;
+          color: #bdbdbd;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
