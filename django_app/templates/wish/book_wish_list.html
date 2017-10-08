@@ -20,3 +20,38 @@
   </article>
   {% endfor %}
 </section>
+
+<div class="pagenator">
+  {% if lists.has_previous %}
+  <a href="{{ request.path }}?page=1" class="pageNum" data-value="1">처음</a>
+  <a href="{{ request.path }}?page={{ lists.previous_page_number }}" class="pageNum" data-value="{{ lists.previous_page_number }}">{{ lists.previous_page_number }}</a>
+  {% endif %}
+  <a class="current">{{ lists.number }}</a>
+  {% if lists.has_next %}
+  <a href="{{ request.path }}?page={{ lists.next_page_number }}" class="pageNum" data-value="{{ lists.next_page_number }}">{{ lists.next_page_number }}</a>
+  <a href="{{ request.path }}?page={{ lists.paginator.num_pages }}" class="pageNum" data-value="{{ lists.paginator.num_pages }}">끝</a>
+  {% endif %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+  // 페이지네이션
+  $(".pageNum").click(function(e){
+    var page_num = e.target.dataset.value;
+    changePage(page_num);
+  });
+
+  function changePage(page_num){
+    $.ajax({
+      type: "GET",
+      url: "{% url 'book:book_wish_list' %}" + "?page=" + page_num,
+      success: function (response) {
+        $("#wishScreen").html(response);
+      },
+      error: function (request, status, error) {
+        $("#wishScreen").html(error);
+      }
+    });
+    event.preventDefault();
+  }
+</script>
