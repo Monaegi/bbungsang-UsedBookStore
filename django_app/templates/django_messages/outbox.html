@@ -42,6 +42,17 @@
       </tbody>
       {% endif %}
     </table>
+    <div class="pagenator">
+      {% if message_list.has_previous %}
+      <a href="{{ request.path }}?page=1" class="pageNum" data-value="1">처음</a>
+      <a href="{{ request.path }}?page={{ message_list.previous_page_number }}" class="pageNum" data-value="{{ message_list.previous_page_number }}">{{ message_list.previous_page_number }}</a>
+      {% endif %}
+      <a class="current">{{ message_list.number }}</a>
+      {% if message_list.has_next %}
+      <a href="{{ request.path }}?page={{ message_list.next_page_number }}" class="pageNum" data-value="{{ message_list.next_page_number }}">{{ message_list.next_page_number }}</a>
+      <a href="{{ request.path }}?page={{ message_list.paginator.num_pages }}" class="pageNum" data-value="{{ message_list.paginator.num_pages }}">끝</a>
+      {% endif %}
+    </div>
     <a class="sub-box" href="{% url 'messages_inbox' %}">받은 쪽지함</a>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -57,6 +68,27 @@
       $.ajax({
         type: "GET",
         url: "http://localhost:8000/messages/delete/" + message_id,
+        success: function (response) {
+          $("#messageScreen").html(response);
+        },
+        error: function (request, status, error) {
+          $("#messageScreen").html(error);
+        }
+      });
+      event.preventDefault();
+    }
+
+    // 페이지네이션
+    $(".pageNum").click(function(e){
+      var page_num = e.target.dataset.value;
+      changePage(page_num);
+      e.preventDefault();
+    });
+
+    function changePage(page_num){
+      $.ajax({
+        type: "GET",
+        url: "{% url 'book:outbox' %}" + "?page=" + page_num,
         success: function (response) {
           $("#messageScreen").html(response);
         },
@@ -91,7 +123,7 @@
     $(".sub-box").click(function(e){
       $.ajax({
         type: "GET",
-        url: "{% url 'messages_inbox' %}",
+        url: "{% url 'book:inbox' %}",
         success: function (response) {
           $("#messageScreen").html(response);
         },

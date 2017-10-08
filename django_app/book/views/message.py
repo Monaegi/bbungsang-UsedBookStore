@@ -61,3 +61,20 @@ def inbox(request, template_name='django_messages/inbox.html'):
     return render(request, template_name, {
         'message_list': message_list,
     })
+
+
+def outbox(request, template_name='django_messages/outbox.html'):
+    all_message_lists = Message.objects.outbox_for(request.user)
+    p = Paginator(all_message_lists, 7)
+    page_num = request.GET.get('page')
+
+    try:
+        message_list = p.page(page_num)
+    except PageNotAnInteger:
+        message_list = p.page(1)
+    except EmptyPage:
+        message_list = p.page(p.num_pages)
+
+    return render(request, template_name, {
+        'message_list': message_list,
+    })
