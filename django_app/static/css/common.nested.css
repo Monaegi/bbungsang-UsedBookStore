@@ -59,3 +59,51 @@ ul ol li {
       border: none;
       right: 0;
       top: 4px; } }
+
+.regi-desc {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  font-family: 'Nanumbarunpen';
+  font-size: 15px; }
+  .regi-desc span {
+    padding: 3px 3px;
+    margin: 0 3px;
+    border-radius: 3px;
+    background: #f2f2f2;
+    color: #2096ba; }
+  .regi-desc li {
+    height: 25px; }
+
+.send-email-token {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  text-align: center; }
+  .send-email-token button {
+    border: none;
+    border-radius: 7px;
+    background: skyblue;
+    color: #135589;
+    height: 45px;
+    width: 180px; }
+    .send-email-token button:hover {
+      background: #f4e8c1; }
+
+.regi-seller {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  text-align: center; }
+  .regi-seller input {
+    width: 280px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid #ddd; }
+  .regi-seller button {
+    border: none;
+    border-radius: 3px;
+    background: skyblue;
+    color: #135589;
+    height: 35px;
+    width: 120px; }

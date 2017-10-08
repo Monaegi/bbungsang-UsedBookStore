@@ -22,6 +22,7 @@ STATICFILES_STORAGE = 'config.storages.StaticStorage'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
+MEDIA_ROOT = os.path.join(ROOT_DIR, '.media')
 
 # debug 모드, allowed hosts
 DEBUG = True

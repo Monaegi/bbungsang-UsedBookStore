@@ -2,41 +2,52 @@
 {% block content %}
 
 <section class="major">
-  <article class="left-space">Page 11 of 55</article>
-  <article class="right-space">{{ books.count }} results found</article>
+  <article class="left-space">Page {{ books.number }} of {{ books.paginator.num_pages }}</article>
+  <article class="right-space">{{ all_books.count }} results found</article>
 </section>
 <div class="book-container">
-    {% for book in books %}
-    <section class="book-wrap">
-        <article class="book-img">
-          <a href="{% url 'book:sell_book_detail' book.pk %}">
-            <img src="{{ book.book_info.cover_img }}">
-          </a>
-        </article>
-        <ul class="book-info">
-            <li class="book-list-title">
-              <span><a href="#">[{{ book.book_info.category }}]</a></span>
-              {{ book.book_info.title }}
-            </li>
-            <li class="book-list-price">
-              정상가: {{ book.book_info.normal_price }}원 ➡
-              <span>중고가: {{ book.used_price }}원</span>
-            </li>
-            <li class="book-list-info">
-              리뷰 <a href="#">0</a>건 <span>|</span>
-              판매자: {{ book.seller.user.nickname }} <span>|</span>
-              작성일:
-            </li>
-            <li>
-              <a class="look-detail" href="{% url 'book:sell_book_detail' book.pk %}">자세히 보기</a>
-              <form action="{%url 'book:book_wish_detail' book.pk %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="wish-list">위시리스트 담기</button>
-              </form>
-            </li>
-        </ul>
-    </section>
-    {% endfor %}
+  {% for book in books %}
+  <section class="book-wrap">
+    <article class="book-img">
+      <a href="{% url 'book:sell_book_detail' book.pk %}">
+        <img src="{{ book.book_info.cover_img }}">
+      </a>
+    </article>
+    <ul class="book-info">
+      <li class="book-list-title">
+        <span><a href="#">[{{ book.book_info.category }}]</a></span>
+        {{ book.book_info.title }}
+      </li>
+      <li class="book-list-price">
+        정상가: {{ book.book_info.normal_price }}원 ➡
+        <span>중고가: {{ book.used_price }}원</span>
+      </li>
+      <li class="book-list-info">
+        리뷰 <a href="#">0</a>건 <span>|</span>
+        판매자: {{ book.seller.user.nickname }} <span>|</span>
+        작성일:
+      </li>
+      <li>
+        <a class="look-detail" href="{% url 'book:sell_book_detail' book.pk %}">자세히 보기</a>
+        <form action="{%url 'book:book_wish_detail' book.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="wish-list">위시리스트 담기</button>
+        </form>
+      </li>
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+<div class="pagenator">
+  {% if books.has_previous %}
+  <a href="{{ request.path }}?page=1">처음</a>
+  <a href="{{ request.path }}?page={{ books.previous_page_number }}">이전</a>
+  {% endif %}
+  <a>{{ books.number }}</a>
+  {% if books.has_next %}
+  <a href="{{ request.path }}?page={{ books.next_page_number }}">다음</a>
+  <a href="{{ request.path }}?page={{ books.paginator.num_pages }}">끝</a>
+  {% endif %}
 </div>
 
 {% endblock %}

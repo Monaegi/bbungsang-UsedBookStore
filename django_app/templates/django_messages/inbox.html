@@ -42,6 +42,17 @@
       </tbody>
       {% endif %}
     </table>
+    <div class="pagenator">
+      {% if message_list.has_previous %}
+      <a href="{{ request.path }}?page=1">처음</a>
+      <a href="{{ request.path }}?page={{ message_list.previous_page_number }}">{{ message_list.previous_page_number }}</a>
+      {% endif %}
+      <a class="current">{{ message_list.number }}</a>
+      {% if message_list.has_next %}
+      <a href="{{ request.path }}?page={{ message_list.next_page_number }}">{{ message_list.next_page_number }}</a>
+      <a href="{{ request.path }}?page={{ message_list.paginator.num_pages }}">끝</a>
+      {% endif %}
+    </div>
     <a class="sub-box" href="{% url 'messages_outbox' %}">보낸 쪽지함</a>
     <a href="" class="new-message">새 쪽지쓰기</a>
 

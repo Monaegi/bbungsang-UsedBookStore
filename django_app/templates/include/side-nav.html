@@ -113,19 +113,21 @@
   // 쪽지함
   $("#messageBtn").click(function(e){
     var data_value = e.target.dataset.value;
+    console.log(data_value);
     dataCall(data_value);
   });
 
   // 위시리스트
   $("#wishBtn").click(function(e){
     var data_value = e.target.dataset.value;
+    console.log(data_value);
     dataCall(data_value);
   });
 
   function dataCall(data_value){
     var url = "";
     if (data_value == "1") {
-      url = "{% url 'messages_inbox' %}";
+      url = "{% url 'book:inbox' %}";
     } else {
       url = "{% url 'book:book_wish_list' %}"
     }
@@ -134,14 +136,14 @@
       type: "GET",
       url: url,
       success: function (response) {
-        if (url === "{% url 'messages_inbox' %}") {
+        if (url === "{% url 'book:inbox' %}") {
           $("#messageScreen").html(response);
         } else {
           $("#wishScreen").html(response);
         }
       },
       error: function (request, status, error) {
-        $("#result").html(error);
+        $("#messageScreen").html(error);
       }
     });
   }

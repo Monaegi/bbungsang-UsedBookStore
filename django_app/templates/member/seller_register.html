@@ -1,15 +1,26 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
+<section class="major">
+  <article class="left-space">판매자 등록하기</article>
+  <article class="right-space"></article>
+</section>
+<ul class="regi-desc">
+  <li>판매자 등록을 위해 이메일 인증 과정을 거쳐야 합니다.</li>
+  <li>하단 버튼을 클릭하면 <span>{{ user.username }}</span>으로 이메일 인증 번호가 발송됩니다.</li>
+  <li>발급 받은 이메일 인증 번호와 일치하는 값을 입력하면 <span>{{ user.nickname }}</span>님은 일반 등급에서 책지기 등급이 됩니다.</li>
+  <li>책지기 등급에서 판매할 책 등록하기가 가능합니다.</li>
+  <li>한 번만 클릭해주세요. 다소 시간이 소요될 수 있습니다.</li>
+</ul>
 
 {% if user.email_token %}
-  <form action="" method="POST">
+  <form action="" method="POST" class="regi-seller">
     {% csrf_token %}
     <input type="text" name="email_token">
     <button type="submit">판매자 등록하기</button>
   </form>
 {% else %}
-  <form action="{% url 'member:send_email' user.pk %}" method="POST">
+  <form action="{% url 'member:send_email' user.pk %}" method="POST" class="send-email-token">
     {% csrf_token %}
     <button type="submit">이메일 인증 번호 발송</button>
   </form>

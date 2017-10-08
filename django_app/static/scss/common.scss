@@ -74,3 +74,66 @@ ul ol li {
     }
   }
 }
+
+.regi-desc {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  font-family: 'Nanumbarunpen';
+  font-size: 15px;
+
+  span {
+    padding: 3px 3px;
+    margin: 0 3px;
+    border-radius: 3px;
+    background: #f2f2f2;
+    color: #2096ba;
+  }
+
+  li {
+    height: 25px;
+  }
+}
+
+.send-email-token {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  text-align: center;
+
+  button {
+    border: none;
+    border-radius: 7px;
+    background: skyblue;
+    color: #135589;
+    height: 45px;
+    width: 180px;
+
+    &:hover {
+      background: #f4e8c1;
+    }
+  }
+}
+
+.regi-seller {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  text-align: center;
+
+  input {
+    width: 280px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+  }
+
+  button {
+    border: none;
+    border-radius: 3px;
+    background: skyblue;
+    color: #135589;
+    height: 35px;
+    width: 120px;
+  }
+}
