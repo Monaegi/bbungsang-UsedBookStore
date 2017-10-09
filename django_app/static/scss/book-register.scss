@@ -11,7 +11,7 @@
     height: auto;
     padding: 20px 0;
     margin-bottom: 20px;
-    background: url("/static/images/book-bg1.jpeg");
+    background: url("https://s3.ap-northeast-2.amazonaws.com/usedbookstore-bucket/static/images/book-bg1.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
@@ -54,7 +54,7 @@
     height: auto;
     padding: 20px 0;
     margin-bottom: 20px;
-    background: url("/static/images/book-bg2.jpg");
+    background: url("https://s3.ap-northeast-2.amazonaws.com/usedbookstore-bucket/static/images/book-bg2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;

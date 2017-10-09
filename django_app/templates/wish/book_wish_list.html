@@ -3,22 +3,28 @@
 <link rel="stylesheet" href="{% static 'css/wish-list.css' %}">
 <p class="wish-title">위시리스트</p>
 <section class="wish-wrap">
-  {% for list in lists %}
-  <article>
-    <div class="cover-img">
-      <img src="{{ list.book.book_info.cover_img }}">
-    </div>
-    <ul class="wish-lists">
-      <li>
-        <a href="{% url 'book:sell_book_detail' list.book.book_info.pk %}">
-          {{ list.book.book_info.title|striptags }}
-        </a>
-      </li>
-      <li>[중고가] {{ list.book.used_price }}원</li>
-      <li><a class="buyBtn">바로구매</a></li>
-    </ul>
-  </article>
-  {% endfor %}
+  {% if lists %}
+    {% for list in lists %}
+    <article>
+      <div class="cover-img">
+        <img src="{{ list.book.book_info.cover_img }}">
+      </div>
+      <ul class="wish-lists">
+        <li>
+          <a href="{% url 'book:sell_book_detail' list.book.book_info.pk %}">
+            {{ list.book.book_info.title|striptags }}
+          </a>
+        </li>
+        <li>[중고가] {{ list.book.used_price }}원</li>
+        <li><a class="buyBtn">바로구매</a></li>
+      </ul>
+    </article>
+    {% endfor %}
+  {% else %}
+    <article style="color: #fafafa; margin-bottom: 20px; text-align: center; font-family: 'Nanumbarunpen';">
+      No wishlists
+    </article>
+  {% endif %}
 </section>
 
 <div class="pagenator">

@@ -1,5 +1,5 @@
 body {
-  background: url("/static/images/dryflower.png");
+  background: url("https://s3.ap-northeast-2.amazonaws.com/usedbookstore-bucket/static/images/dryflower.png");
   background-size: cover;
   background-repeat: no-repeat; }
   body .container {

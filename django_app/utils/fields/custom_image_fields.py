@@ -15,5 +15,5 @@ class CustomImageField(ImageField):
     attr_class = CustomImageFieldFile
 
     def __init__(self, *args, **kwargs):
-        self.static_image_path = kwargs.pop('default_static_image', '/images/no_image.png')
+        self.static_image_path = 'images/no_image.png'
         super().__init__(*args, **kwargs)

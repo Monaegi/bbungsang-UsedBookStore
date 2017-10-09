@@ -22,5 +22,5 @@ class EmailToken(models.Model):
     )
 
     token = models.CharField(
-        max_length=24,
+        max_length=35,
     )
