@@ -25,5 +25,5 @@ ALLOWED_HOSTS = config_secret_deploy['django']['allowed_hosts']
 # Database
 DATABASES = config_secret_deploy['django']['databases']
 
-SITE_URL = 'http://localhost:8000'
+SITE_URL = 'usedbookstore-dev.ap-northeast-2.elasticbeanstalk.com'
 KAKAO_REDIRECT_URI = SITE_URL + '/member/login/kakao'
