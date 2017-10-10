@@ -6,7 +6,7 @@
 
 .wish-wrap article:nth-last-child(1) { border-bottom: 1px solid #fafafa; }
 
-.wish-wrap article .cover-img { width: 15%; margin: 0; float: left; }
+.wish-wrap article .cover-img { width: 15%; margin: 0 5% 0 0; float: left; }
 
 .wish-wrap article .cover-img img { width: 100%; }
 
