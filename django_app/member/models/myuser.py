@@ -79,7 +79,7 @@ class MyUser(AbstractUser):
     my_photo = CustomImageField()
 
     nickname = models.CharField(
-        max_length=36,
+        max_length=54,
         blank=True,
     )
 
