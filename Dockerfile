@@ -1,4 +1,4 @@
-FROM            bbungsang/usedbookstore_ubuntu
+FROM            bbungsang/usedbookstore
 MAINTAINER      bbungsang@gmail.com
 
 ENV             LANG C.UTF-8
