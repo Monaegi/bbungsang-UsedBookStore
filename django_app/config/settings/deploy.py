@@ -18,6 +18,12 @@ STATICFILES_STORAGE = 'config.storages.StaticStorage'
 STATICFILES_LOCATION = 'static'
 MEDIAFILES_LOCATION = 'media'
 
+# Static URLs
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # debug 모드, allowed hosts
 DEBUG = True
 ALLOWED_HOSTS = config_secret_deploy['django']['allowed_hosts']
