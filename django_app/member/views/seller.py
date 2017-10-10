@@ -13,11 +13,13 @@ def send_email(request, user_pk):
         email_token = user.email_token_generator(user.pk)
 
         mail_subject = '판매자 인증 이메일입니다.'
-        mail_content = '판매자 등록페이지에 {} 와 일치하는 인증 번호를 입력하시면 인증이 완료됩니다.' \
-                       '해당 페이지로 이동하기 : http://localhost:8000/member/seller/{}/'.format(
-            email_token,
-            user.pk,
-        )
+        mail_content = """
+                        판매자 등록페이지에 {} 와 일치하는 인증 번호를 입력하시면 인증이 완료됩니다.
+                        해당 페이지로 이동하기 ☟☟☟ 
+                        http://localhost:8000/member/seller/{}/ """.format(
+                            email_token,
+                            user.pk,
+                        )
         send_mail(
             mail_subject,
             mail_content,
