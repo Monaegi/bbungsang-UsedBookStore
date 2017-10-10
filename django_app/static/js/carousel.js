@@ -22,13 +22,13 @@
       var sliderFirst = el.children('li').slice(0, options.visible);
       var tmp = '';
       sliderFirst.each(function(){
-        tmp = tmp + '<li>' + $(this).html() + '</li>';
+        tmp = tmp + '<li class="slider-ele">' + $(this).html() + '</li>';
       });
       sliderFirst = tmp;
       var sliderLast = el.children('li').slice(-options.visible);
       tmp = '';
       sliderLast.each(function(){
-        tmp = tmp + '<li>' + $(this).html() + '</li>';
+        tmp = tmp + '<li class="slider-ele">' + $(this).html() + '</li>';
       });
       sliderLast = tmp;
 

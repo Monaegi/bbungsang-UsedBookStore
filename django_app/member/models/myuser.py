@@ -21,12 +21,15 @@ class MyUserManager(DefaultUserManager):
         if username == '':
             pass
 
-        user, user_created = self.get_or_create(
-            username=username,
-            user_type=self.model.USER_TYPE_FACEBOOK,
-            my_photo=my_photo['data']['url'],
-            nickname=nickname,
-        )
+        if username and self.model.objects.filter(username=username):
+            user = self.model.objects.get(username=username)
+        else:
+            user = self.model.objects.create(
+                username=username,
+                user_type=self.model.USER_TYPE_FACEBOOK,
+                my_photo=my_photo['data']['url'],
+                nickname=nickname,
+            )
 
         return user
 
@@ -41,12 +44,17 @@ class MyUserManager(DefaultUserManager):
         if username == '':
             pass
 
-        user, user_created = self.get_or_create(
-            username=username,
-            user_type=self.model.USER_TYPE_KAKAO,
-            my_photo=my_photo['profile_image'],
-            nickname=nickname,
-        )
+        if username and self.model.objects.filter(username=username):
+            user = self.model.objects.get(username=username)
+
+        else:
+            user = self.model.objects.create(
+                username=username,
+                user_type=self.model.USER_TYPE_KAKAO,
+                my_photo=my_photo['profile_image'],
+                nickname=nickname,
+            )
+
         return user
 
 

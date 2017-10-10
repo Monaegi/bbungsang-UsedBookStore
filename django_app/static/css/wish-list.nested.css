@@ -27,7 +27,6 @@
       color: #fafafa;
       width: 80%;
       padding: 0 2.5%;
-      float: left;
       font-size: 12px;
       list-style: none; }
       .wish-wrap article ul.wish-lists li:nth-child(1) {
@@ -53,9 +52,8 @@
 
 .pagenator {
   width: 100%;
-  margin-bottom: 25px;
-  text-align: center;
-  float: left; }
+  height: 35px;
+  text-align: center; }
   .pagenator a {
     text-decoration: none;
     display: inline-block;

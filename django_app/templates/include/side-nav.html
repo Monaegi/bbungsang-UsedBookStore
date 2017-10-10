@@ -106,14 +106,15 @@
   }
 
   // 쪽지함
-  $("#messageBtn").click(function(e){
-    var data_value = e.target.dataset.value;
+  $("#messageBtn").click(function(){
+    var data_value = $(".messageBtn")[0].dataset.value;
     dataCall(data_value);
   });
 
   // 위시리스트
   $("#wishBtn").click(function(e){
     var data_value = e.target.dataset.value;
+    console.log(data_value);
     dataCall(data_value);
   });
 
