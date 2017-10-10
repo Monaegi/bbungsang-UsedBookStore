@@ -95,7 +95,7 @@
 .pagenator a:hover { cursor: pointer; text-decoration: none; background: #fafafa; }
 
 /*  */
-.book-detail { width: 80%; height: auto; margin: 5% 10%; }
+.book-detail { width: 80%; height: auto; margin: 5% 10%; float: left; }
 
 .book-detail img { width: 35%; float: left; padding: 5px; border: 1px double #ddd; }
 
@@ -103,11 +103,11 @@
 
 .book-detail ul .category { color: #bdbdbd; margin-top: 10px; }
 
-.book-detail ul .title { font-size: 19px; height: 35px; line-height: 35px; }
+.book-detail ul .title { font-size: 19px; height: auto; }
 
 .book-detail ul .author { margin-bottom: 5px; }
 
-.book-detail ul .author span { padding: 0 10px; }
+.book-detail ul .author span { padding: 0 3px; }
 
 .book-detail ul .price { color: #444444; font-size: 15px; height: 20px; line-height: 20px; }
 

@@ -335,6 +335,7 @@
   width: 80%;
   height: auto;
   margin: 5% 10%;
+  float: left;
 }
 
 .book-detail img {
@@ -357,8 +358,7 @@
 
 .book-detail ul .title {
   font-size: 19px;
-  height: 35px;
-  line-height: 35px;
+  height: auto;
 }
 
 .book-detail ul .author {
@@ -366,7 +366,7 @@
 }
 
 .book-detail ul .author span {
-  padding: 0 10px;
+  padding: 0 3px;
 }
 
 .book-detail ul .price {

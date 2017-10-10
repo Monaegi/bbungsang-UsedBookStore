@@ -190,6 +190,7 @@ ENV/
 # secret files
 .config_secret/
 
+.static_root/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

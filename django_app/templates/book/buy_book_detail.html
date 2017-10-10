@@ -2,14 +2,31 @@
 
 {% block content %}
 <section class="major">
-  <article class="left-space">Page 11 of 55</article>
-  <article class="right-space">77 results found</article>
+  <article class="left-space">책 상세보기</article>
+  <article class="right-space">{{ book.book_info.title|truncatechars:30 }}</article>
 </section>
-<div class="book-detail">
+<section class="book-detail">
   <img src="{{ book.book_info.cover_img }}" alt="">
   <ul>
-      <li>{{ book.book_info.title }}</li>
-      <li>{{ book.book_info.author }}</li>
+      <li class="category">
+        [{{ book.book_info.category }}]
+      </li>
+      <li class="title">
+        {{ book.book_info.title }}
+      </li>
+      <li class="author">
+        <a href="#">{{ book.book_info.author }}</a> (지은이) <span>|</span>
+        <a href="#">{{ book.book_info.publisher }}</a> <span>|</span>
+        {{ book.book_info.publication_date }}
+      </li>
+      <li class="price">
+        정가 : {{ book.book_info.normal_price }}원
+        <span class="arrow"> ➡ </span>
+        <span class="used-price"> 중고가 : {{ book.used_price }}원 </span>
+      </li>
+      <li class="isbn">
+        ISBN : {{ book.book_info.isbn }}
+      </li>
   </ul>
-</div>
+</section>
 {% endblock %}

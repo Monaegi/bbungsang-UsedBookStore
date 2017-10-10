@@ -69,8 +69,8 @@ def buy_book_list(request, ):
 def buy_book_detail(request, buy_pk):
     """ 사려는 책 디테일 """
 
-    book = BuyBookRegister.objects.get(pk=buy_pk)
+    buy_book = BuyBookRegister.objects.get(pk=buy_pk)
     context = {
-        'book': book,
+        'book': buy_book,
     }
     return render(request, 'book/buy_book_detail.html', context)

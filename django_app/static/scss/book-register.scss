@@ -336,6 +336,7 @@
   width: 80%;
   height: auto;
   margin: 5% 10%;
+  float: left;
 
   img {
     width: 35%;
@@ -356,15 +357,14 @@
 
     .title {
       font-size: 19px;
-      height: 35px;
-      line-height: 35px;
+      height: auto;
     }
 
     .author {
       margin-bottom: 5px;
 
       span {
-        padding: 0 10px;
+        padding: 0 3px;
       }
     }
 

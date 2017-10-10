@@ -28,5 +28,4 @@ urlpatterns = [
     url(r'^messages/reply/(?P<message_id>\d+)$', views.create_reply, name='create_reply'),
     url(r'^messages/inbox/$', views.inbox, name='inbox'),
     url(r'^messages/outbox/$', views.outbox, name='outbox'),
-
 ]

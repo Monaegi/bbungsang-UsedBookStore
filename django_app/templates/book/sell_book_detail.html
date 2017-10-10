@@ -3,8 +3,8 @@
 
 {% block content %}
 <section class="major">
-  <article class="left-space">Page 11 of 55</article>
-  <article class="right-space">77 results found</article>
+  <article class="left-space">책 상세보기</article>
+  <article class="right-space">{{ book.book_info.title|truncatechars:30 }}</article>
 </section>
 <section class="book-detail">
   <img src="{{ book.book_info.cover_img }}" alt="">
@@ -16,8 +16,8 @@
         {{ book.book_info.title }}
       </li>
       <li class="author">
-        <a href="#">{{ book.book_info.author }}</a> (지은이) <span> | </span>
-        <a href="#">{{ book.book_info.publisher }}</a> <span> | </span>
+        <a href="#">{{ book.book_info.author }}</a> (지은이) <span>|</span>
+        <a href="#">{{ book.book_info.publisher }}</a> <span>|</span>
         {{ book.book_info.publication_date }}
       </li>
       <li class="price">
