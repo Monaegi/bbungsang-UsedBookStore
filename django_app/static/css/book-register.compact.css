@@ -117,6 +117,12 @@
 
 .book-detail ul .isbn { margin-top: 5px; margin-bottom: 20px; color: #757081; font-size: 13px; }
 
+.book-detail ul .requirements { border: 1px solid skyblue; }
+
+.book-detail ul .requirements .r-title { padding: 5px; color: skyblue; font-size: 16px; font-weight: bold; font-family: 'Nanumbarunpen'; border-bottom: 1px solid skyblue; }
+
+.book-detail ul .requirements .r-content { padding: 2px; color: #818181; font-family: 'Nanumbarunpen'; }
+
 .book-detail ul .btns { font-size: 17px; padding-top: 30px; border-top: 2px solid #ddd; font-family: 'Nanumbarunpen'; }
 
 .book-detail ul .btns .wish-list-btn { padding: 8px 5%; margin-right: 5px; border-radius: 3px; color: #fafafa; background: #c82370; text-decoration: none; }

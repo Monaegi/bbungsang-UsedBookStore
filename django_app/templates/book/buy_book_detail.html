@@ -27,6 +27,10 @@
       <li class="isbn">
         ISBN : {{ book.book_info.isbn }}
       </li>
+      <li class="requirements">
+        <p class="r-title">구매자의 기타 요구사항</p>
+        <p class="r-content">{{ book.etc_requirements }}</p>
+      </li>
   </ul>
 </section>
 {% endblock %}

@@ -278,6 +278,19 @@
       margin-bottom: 20px;
       color: #757081;
       font-size: 13px; }
+    .book-detail ul .requirements {
+      border: 1px solid skyblue; }
+      .book-detail ul .requirements .r-title {
+        padding: 5px;
+        color: skyblue;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Nanumbarunpen';
+        border-bottom: 1px solid skyblue; }
+      .book-detail ul .requirements .r-content {
+        padding: 2px;
+        color: #818181;
+        font-family: 'Nanumbarunpen'; }
     .book-detail ul .btns {
       font-size: 17px;
       padding-top: 30px;
