@@ -46,7 +46,7 @@
 
     $.ajax({
       type: "GET",
-      url: "http://localhost:8000/books/messages/reply/" + message_id,
+      url: "http://usedbookstore-dev.ap-northeast-2.elasticbeanstalk.com/books/messages/reply/" + message_id,
       success: function (response) {
         $("#messageScreen").html(response);
       },
