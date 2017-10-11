@@ -9,10 +9,17 @@
   <article class="user-photo">
     <img src="{{ user_info.my_photo.url }}">
   </article>
+  {% if not user %}
   <article class="to-user">
     <a class="news" href="">소식받기</a>
     <a class="send-message" href="">쪽지보내기</a>
   </article>
+  {% else %}
+  <article class="to-user">
+    <a class="news" href="">회원 정보 수정하기</a>
+    <a class="send-message" href="">회원 탈퇴하기</a>
+  </article>
+  {% endif %}
   <article class="user-info">
     <table>
       <tr>

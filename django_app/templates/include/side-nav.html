@@ -12,7 +12,7 @@
         {% endif %}
       </li>
       <li class="my-page">
-          <a href="#" class="nickname">{{ user.nickname }}</a>
+          <a href="{% url 'member:user_info' user.nickname %}" class="nickname">{{ user.nickname }}</a>
         <p class="status">
           {% if user.my_seller %}
           책지기
