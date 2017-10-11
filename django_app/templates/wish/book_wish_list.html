@@ -11,7 +11,7 @@
       </div>
       <ul class="wish-lists">
         <li>
-          <a href="{% url 'book:sell_book_detail' list.book.book_info.pk %}">
+          <a href="{% url 'book:sell_book_detail' list.book.pk %}">
             {{ list.book.book_info.title|striptags }}
           </a>
         </li>
@@ -27,7 +27,7 @@
   {% endif %}
 </section>
 
-<div class="pagenator">
+<div class="paginator">
   {% if lists.has_previous %}
   <a href="{{ request.path }}?page=1" class="pageNum" data-value="1">처음</a>
   <a href="{{ request.path }}?page={{ lists.previous_page_number }}" class="pageNum" data-value="{{ lists.previous_page_number }}">{{ lists.previous_page_number }}</a>

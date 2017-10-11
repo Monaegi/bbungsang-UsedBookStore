@@ -1,0 +1,32 @@
+/* User Info */
+.user-wrap { width: 75%; margin: 5% 12.5%; padding: 2.5% 0; height: auto; float: left; background: #f1f1f1; }
+
+.user-wrap .user-photo { width: 20%; margin: 0 40%; padding: 2.5%; float: left; }
+
+.user-wrap .user-photo img { width: 100%; border-radius: 100%; }
+
+.user-wrap .to-user { width: 100%; height: auto; padding: 10px 0; text-align: center; float: left; }
+
+.user-wrap .to-user .news { display: inline-block; width: 50%; color: #5FCEC0; border: 1px solid #5FCEC0; padding: 10px; float: left; }
+
+.user-wrap .to-user .send-message { display: inline-block; width: 50%; color: #fafafa; background: #5FCEC0; padding: 11px; float: left; }
+
+.user-wrap .user-info { width: 100%; height: auto; float: left; }
+
+.user-wrap .user-info table { width: 100%; padding: 0; margin: 0; background: pink; height: auto; }
+
+.user-wrap .user-info table tr { margin: 0; padding: 0; }
+
+.user-wrap .user-info table tr td { text-align: center; font-size: 18px; height: 40px; border-bottom: 5px solid #f1f1f1; background: #fafafa; }
+
+.user-wrap .user-info table tr td:nth-child(1) { width: 35%; color: #8d8d8d; }
+
+.user-wrap .register-history { width: 100%; height: auto; background: #fafafa; border-bottom: 20px solid #f1f1f1; float: left; }
+
+.user-wrap .register-history p { padding: 10px; margin: 0; font-family: 'Nanumbarunpen'; font-size: 18px; }
+
+.user-wrap .register-history ul { padding: 0; margin: 0; list-style: none; }
+
+.user-wrap .register-history ul li { display: inline-block; width: 22.5%; margin: 1%; }
+
+.user-wrap .register-history ul li img { width: 100%; height: 191px; }

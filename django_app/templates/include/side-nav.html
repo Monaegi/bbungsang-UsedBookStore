@@ -47,16 +47,16 @@
       </li>
     </ul>
 
-    <a class="bar-element" href="{% url 'book:buy_book_register' %}">사는 책 등록하기</a>
+    <a class="bar-element" href="{% url 'book:buy_book_register' %}">구매 희망 도서 등록하기</a>
     {% if user.my_seller %}
-    <a class="bar-element" href="{% url 'book:sell_book_register' %}">파는 책 등록하기</a>
+    <a class="bar-element" href="{% url 'book:sell_book_register' %}">판매 도서 등록하기</a>
     {% else %}
     <a class="bar-element" href="{% url 'member:seller_register' user.pk %}">판매자 등록하기</a>
     {% endif %}
   {% endif %}
 
-  <a class="bar-element" href="{% url 'book:buy_book_list' %}">사는 책 목록</a>
-  <a class="bar-element" href="{% url 'book:sell_book_list' %}">파는 책 목록</a>
+  <a class="bar-element" href="{% url 'book:buy_book_list' %}">구매 희망 도서 목록</a>
+  <a class="bar-element" href="{% url 'book:sell_book_list' %}">판매 도서 목록</a>
 
   {% if not user.is_authenticated %}
     <a class="signupBtn" href="#">Sign Up</a>

@@ -159,6 +159,22 @@
   background: #5FCEC0;
 }
 
+.subject {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #f1f1f1;
+  color: #8d8d8d;
+  font-family: 'Nanumbarunpen';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.subject .subject-ele {
+  width: 90%;
+  margin: 0 5%;
+}
+
 .major {
   width: 100%;
   height: 65px;
@@ -211,7 +227,7 @@
 
 .book-container .book-wrap {
   width: 90%;
-  margin: 20px 5%;
+  margin: 0 5% 20px 5%;
   padding: 10px;
   background: #fff;
   float: left;
@@ -309,25 +325,27 @@
   background: skyblue;
 }
 
-.pagenator {
+.common-pagenator {
   width: 100%;
-  margin: 20px 0;
+  height: 65px;
+  background: #f1f1f1;
   text-align: center;
   float: left;
 }
 
-.pagenator a {
+.common-pagenator a {
   display: inline-block;
   margin: 0 3px;
   padding: 5px 7px;
-  background: #f1f1f1;
+  background: skyblue;
   border: 1px solid #ddd;
+  background: #fafafa;
 }
 
-.pagenator a:hover {
+.common-pagenator a:hover {
   cursor: pointer;
   text-decoration: none;
-  background: #fafafa;
+  background: #ddd;
 }
 
 /*  */

@@ -81,6 +81,7 @@ class MyUser(AbstractUser):
     nickname = models.CharField(
         max_length=54,
         blank=True,
+        unique=True,
     )
 
     phone = models.CharField(

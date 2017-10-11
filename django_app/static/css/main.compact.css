@@ -61,14 +61,14 @@
   .main-bg #header .logo-wrap .logo { color: #fafafa; font-size: 28px; font-family: 'Amatica SC'; font-weight: bold; top: 7px; margin-left: 5px; float: left; }
   .main-bg #header .logo-wrap .logo:hover { text-decoration: none; color: #ddd; }
   .main-bg #header .regibook { width: 17.5%; line-height: 46px; text-align: center; transition: 0.2s; float: left; }
-  .main-bg #header .regibook a { display: inline-block; font-size: 15px; padding-top: 2px; text-decoration: none; color: #fafafa; font-family: 'Nanumbarunpen'; }
+  .main-bg #header .regibook a { display: inline-block; font-size: 13px; padding-top: 2px; text-decoration: none; color: #fafafa; font-family: 'Nanumbarunpen'; }
   .main-bg #header .regibook:hover { background: rgba(0, 0, 0, 0.1); border-bottom: 3px solid #5FCEC0; }
   .main-bg #header .regibook:hover a { color: #5FCEC0; }
   .main-bg #header .regibook .guidetext { height: 35px; line-height: 35px; background-color: #555; color: #fff; font-size: 13px; font-family: 'Nanumbarunpen'; text-align: center; border-radius: 6px; padding: 0 15px; position: absolute; z-index: 3; margin-top: 55px; margin-left: -120px; }
   .main-bg #header .regibook .guidetext::after { content: ""; position: absolute; bottom: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: transparent transparent #555 transparent; }
   .main-bg #header .sidebar-toggle-box { width: 6.5%; float: left; }
   .main-bg #header .sidebar-toggle-box .fa-bars { text-align: center; cursor: pointer; display: inline-block; font-size: 20px; color: #fafafa; width: 100%; line-height: 44px; border-top: 1px solid #fafafa; border-left: 1px solid #fafafa; border-right: 1px solid #fafafa; padding: 2px 7px; }
-  .main-bg #header .sidebar-toggle-box .fa-bars:hover { color: #ddd; background: rgba(0, 0, 0, 0.2); }
+  .main-bg #header .sidebar-toggle-box .fa-bars:hover { color: rgba(95, 206, 192, 0.8); background: rgba(0, 0, 0, 0.2); }
   .main-bg .slider-wrap { position: relative; margin: 0 auto; width: 95%; height: auto; text-align: center; list-style: none; }
   .main-bg .slider-wrap .slider { position: relative; width: 90%; margin: 5% auto; }
   .main-bg .slider-wrap .slider ul { margin: 0; padding: 0; list-style: none; }

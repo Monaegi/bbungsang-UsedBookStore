@@ -5,6 +5,11 @@
   <article class="left-space">Page {{ books.number }} of {{ books.paginator.num_pages }}</article>
   <article class="right-space">{{ all_books.count }} results found</article>
 </section>
+<section class="subject">
+  <article class="subject-ele">
+    구매 희망 도서목록
+  </article>
+</section>
 <div class="book-container">
   {% for book in books %}
   <section class="book-wrap">
@@ -23,7 +28,7 @@
       </li>
       <li class="book-list-info">
         리뷰 <a href="#">0</a>건 <span>|</span>
-        구매자: {{ book.buyer.nickname }} <span>|</span>
+        구매자: <a href="{% url 'member:user_info' book.buyer.nickname %}">{{ book.buyer.nickname }}</a> <span>|</span>
         작성일:
       </li>
       <li>
@@ -33,7 +38,7 @@
   </section>
   {% endfor %}
 </div>
-<div class="pagenator">
+<div class="common-pagenator">
   {% if books.has_previous %}
   <a href="{{ request.path }}?page=1">처음</a>
   <a href="{{ request.path }}?page={{ books.previous_page_number }}">이전</a>

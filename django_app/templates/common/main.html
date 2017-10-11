@@ -26,14 +26,14 @@
         <a href="{% url 'book:main' %}" class="logo">BongDal<a>
       </article>
       <article class="regibook">
-        <a href="{% url 'book:buy_book_register' %}">살 책 등록하기</a>
+        <a href="{% url 'book:buy_book_register' %}">구매 희망 도서 등록하기</a>
       </article>
       <article class="regibook">
         {% if not user.my_seller %}
         <a href="{% url 'member:seller_register' user.pk %}">판매자 등록하기</a>
         <span class="guidetext">판매자 등록을 해주세요 :)</span>
         {% else %}
-        <a href="{% url 'book:sell_book_register' %}">팔 책 등록하기</a>
+        <a href="{% url 'book:sell_book_register' %}">판매 도서 등록하기</a>
         {% endif %}
       </article>
       <article class="sidebar-toggle-box">

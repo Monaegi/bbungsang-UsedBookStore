@@ -288,7 +288,7 @@
         float: left; }
         .main-bg #header .regibook a {
           display: inline-block;
-          font-size: 15px;
+          font-size: 13px;
           padding-top: 2px;
           text-decoration: none;
           color: #fafafa;
@@ -337,7 +337,7 @@
           border-right: 1px solid #fafafa;
           padding: 2px 7px; }
         .main-bg #header .sidebar-toggle-box .fa-bars:hover {
-          color: #ddd;
+          color: rgba(95, 206, 192, 0.8);
           background: rgba(0, 0, 0, 0.2); }
     .main-bg .slider-wrap {
       position: relative;

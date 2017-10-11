@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as django_login, logout as django_logout, get_user_model
 
+from book.models import SellBookRegister, BuyBookRegister
 from member.forms import LoginForm
 from utils.apis import get_facebook_access_token, facebook_debug_token, facebook_get_user_info, \
     get_kakao_access_token, error_message_and_redirect_referer, GetAccessTokenException, \
@@ -88,3 +89,32 @@ def kakao_login(request):
         print(e.message)
         return error_message_and_redirect_referer(request)
 
+
+def sigunup(request, ):
+    pass
+
+
+def user_info(request, slug):
+    """ 판매자, 구매자 정보 조회 """
+
+    user = MyUser.objects.get(nickname=slug)
+    sell_books = SellBookRegister.objects.filter(seller=user.my_seller)[:4]
+    buy_books = BuyBookRegister.objects.filter(buyer=user)[:4]
+
+    context = {
+        'sell_books': sell_books,
+        'buy_books': buy_books,
+        'user_info': user,
+    }
+    return render(request, 'member/user_info.html', context)
+
+
+def mypage(request, ):
+    """ 회원 정보 조회, 수정 """
+
+    pass
+
+
+def withdrawal(request, ):
+    """ 회원 탈퇴 """
+    pass

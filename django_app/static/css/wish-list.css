@@ -72,13 +72,15 @@
   border: 1px solid skyblue;
 }
 
-.pagenator {
+.paginator {
+  margin-top: 15px;
   width: 100%;
   height: 35px;
+  float: left;
   text-align: center;
 }
 
-.pagenator a {
+.paginator a {
   text-decoration: none;
   display: inline-block;
   padding: 3px 7px;
@@ -88,7 +90,12 @@
   background: transparent;
 }
 
-.pagenator .current {
+.paginator a:hover {
+  color: #8d8d8d;
+  background: #fafafa;
+}
+
+.paginator .current {
   color: #8d8d8d;
   background: #f1f1f1;
 }
