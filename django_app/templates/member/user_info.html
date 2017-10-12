@@ -6,9 +6,13 @@
 
 <section class="user-wrap">
   <article class="user-photo">
+    {% if user_info.user_type == 'f' or user_info.user_type == 'k' %}
+    <img src="{{ user_info.my_photo }}">
+    {% else %}
     <img src="{{ user_info.my_photo.url }}">
+    {% endif %}
   </article>
-  {% if not user %}
+  {% if user != user_info %}
   <article class="to-user">
     <a class="news" href="">소식받기</a>
     <a class="send-message" href="">쪽지보내기</a>
@@ -28,42 +32,48 @@
       <tr>
         <td>판매자 여부</td>
         {% if user_info.my_seller %}
-        <td>판매자 등급인 책지기입니다 :)</td>
+        <td><font color="skyblue">True</font></td>
         {% else %}
-        <td>판매자가 아닙니다.</td>
+        <td><font color="pink">False</font></td>
         {% endif %}
       </tr>
     </table>
   </article>
-  {% if sell_books %}
+  {% if not sell_books and not buy_books %}
   <article class="register-history">
-    <p>{{ user_info.nickname }}님이 등록한 판매 도서 목록</p>
-    <ul>
-      {% for sell_book in sell_books %}
-      <li class="">
-        <img src="{{ sell_book.book_info.cover_img }}">
-      </li>
-      {% endfor %}
-    </ul>
-    <div id="btn-wrap" class="btn-wrap">
-      <a href="" class="button">더보기</a>
-    </div>
+    <p>{{ user_info.nickname }}님께서 등록한 책이 존재하지 않습니다.</p>
   </article>
-  {% endif %}
+  {% else %}
+    {% if sell_books %}
+    <article class="register-history">
+      <p>{{ user_info.nickname }}님이 등록한 판매 도서 목록</p>
+      <ul>
+        {% for sell_book in sell_books %}
+        <li class="">
+          <img src="{{ sell_book.book_info.cover_img }}">
+        </li>
+        {% endfor %}
+      </ul>
+      <div id="btn-wrap" class="btn-wrap">
+        <a href="" class="button">더보기</a>
+      </div>
+    </article>
+    {% endif %}
 
-  {% if buy_books %}
-  <article class="register-history">
-    <p>{{ user_info.nickname }}님이 등록한 구매 희망 도서 목록</p>
-    <ul>
-      {% for buy_book in buy_books %}
-      <li class="">
-        <img src="{{ buy_book.book_info.cover_img }}">
-      </li>
-      {% endfor %}
-    </ul>
-    <div id="btn-wrap" class="btn-wrap">
-      <a href="" class="button">더보기</a>
-    </div>
-  </article>
+    {% if buy_books %}
+    <article class="register-history">
+      <p>{{ user_info.nickname }}님이 등록한 구매 희망 도서 목록</p>
+      <ul>
+        {% for buy_book in buy_books %}
+        <li class="">
+          <img src="{{ buy_book.book_info.cover_img }}">
+        </li>
+        {% endfor %}
+      </ul>
+      <div id="btn-wrap" class="btn-wrap">
+        <a href="" class="button">더보기</a>
+      </div>
+    </article>
+    {% endif %}
   {% endif %}
 {% endblock %}

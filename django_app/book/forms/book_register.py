@@ -7,7 +7,6 @@ MyUser = get_user_model()
 
 
 class BuyBookRegisterForm(forms.ModelForm):
-
     class Meta:
         model = Book
         fields = [
@@ -30,7 +29,6 @@ class BuyBookRegisterForm(forms.ModelForm):
             }
         ),
     )
-
     title = forms.CharField(
         label='책 제목',
         label_suffix='',
@@ -42,7 +40,6 @@ class BuyBookRegisterForm(forms.ModelForm):
             }
         ),
     )
-
     author = forms.CharField(
         label='저자',
         label_suffix='',
@@ -53,7 +50,6 @@ class BuyBookRegisterForm(forms.ModelForm):
             }
         ),
     )
-
     publisher = forms.CharField(
         label='출판사',
         label_suffix='',
@@ -64,7 +60,6 @@ class BuyBookRegisterForm(forms.ModelForm):
             }
         )
     )
-
     normal_price = forms.CharField(
         label='정상가',
         label_suffix='',
@@ -75,7 +70,6 @@ class BuyBookRegisterForm(forms.ModelForm):
             }
         ),
     )
-
     publication_date = forms.CharField(
         label='발행일',
         label_suffix='',
@@ -86,7 +80,6 @@ class BuyBookRegisterForm(forms.ModelForm):
             }
         ),
     )
-
     isbn = forms.CharField(
         label_suffix='',
         label='ISBN',
@@ -97,7 +90,6 @@ class BuyBookRegisterForm(forms.ModelForm):
             }
         ),
     )
-
     BOOK_TYPE_LANG = '프로그래밍언어'
     BOOK_TYPE_OS = '운영체제'
     BOOK_TYPE_ALGORITHM = '자료구조/알고리즘'
@@ -119,7 +111,6 @@ class BuyBookRegisterForm(forms.ModelForm):
         label='카테고리',
         choices=BOOK_TYPE_CHOICES,
     )
-
     used_price = forms.CharField(
         label_suffix='',
         label='중고가',
@@ -130,7 +121,6 @@ class BuyBookRegisterForm(forms.ModelForm):
             }
         ),
     )
-
     etc_requirements = forms.CharField(
         label_suffix='',
         label='기타 요구사항',
@@ -143,7 +133,6 @@ class BuyBookRegisterForm(forms.ModelForm):
     )
 
     def save(self, **kwargs):
-
         cover_img = self.cleaned_data.get('cover_img', '')
         title = self.cleaned_data.get('title', '')
         author = self.cleaned_data.get('author', '')
@@ -176,14 +165,11 @@ class BuyBookRegisterForm(forms.ModelForm):
             book_info=book_info,
             used_price=used_price,
             etc_requirements=etc_requirements
-
         )
-
         return instance
 
 
 class SellBookRegisterForm(forms.Form):
-
     class Meta:
         model = Book
         fields = [
@@ -195,11 +181,8 @@ class SellBookRegisterForm(forms.Form):
             'publication_date',
             'isbn',
             'category',
-
-            # 'used_price',
             # 'book_status',
         ]
-
     cover_img = forms.CharField(
         label='',
         widget=forms.TextInput(
@@ -209,7 +192,6 @@ class SellBookRegisterForm(forms.Form):
             }
         ),
     )
-
     title = forms.CharField(
         label='책 제목',
         label_suffix='',
@@ -220,7 +202,6 @@ class SellBookRegisterForm(forms.Form):
             }
         ),
     )
-
     author = forms.CharField(
         label='저자',
         label_suffix='',
@@ -231,7 +212,6 @@ class SellBookRegisterForm(forms.Form):
             }
         ),
     )
-
     publisher = forms.CharField(
         label='출판사',
         label_suffix='',
@@ -242,7 +222,6 @@ class SellBookRegisterForm(forms.Form):
             }
         )
     )
-
     normal_price = forms.CharField(
         label='정상가',
         label_suffix='',
@@ -253,7 +232,6 @@ class SellBookRegisterForm(forms.Form):
             }
         ),
     )
-
     publication_date = forms.CharField(
         label='발행일',
         label_suffix='',
@@ -264,7 +242,6 @@ class SellBookRegisterForm(forms.Form):
             }
         ),
     )
-
     isbn = forms.CharField(
         label_suffix='',
         label='ISBN',
@@ -297,7 +274,6 @@ class SellBookRegisterForm(forms.Form):
         label='카테고리',
         choices=BOOK_TYPE_CHOICES,
     )
-
     used_price = forms.CharField(
         label_suffix='',
         label='중고가',
@@ -345,7 +321,6 @@ class SellBookRegisterForm(forms.Form):
     # )
 
     def save(self, **kwargs):
-
         cover_img = self.cleaned_data.get('cover_img', '')
         title = self.cleaned_data.get('title', '')
         author = self.cleaned_data.get('author', '')
@@ -383,5 +358,4 @@ class SellBookRegisterForm(forms.Form):
             # book_status2=book_status2,
             # book_status3=book_status3,
         )
-
         return instance

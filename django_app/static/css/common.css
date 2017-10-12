@@ -15,7 +15,7 @@ ul ol li {
   src: url("/static/font/NanumBarunpen.eot") format("eot");
 }
 
-@media (min-width: 768px) {
+@media (min-width: 996px) {
   .input-wrap {
     margin: 0 auto;
     width: 600px;
@@ -43,7 +43,7 @@ ul ol li {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 995px) {
   .input-wrap {
     margin: 0 auto;
     width: 80%;

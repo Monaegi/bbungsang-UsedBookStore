@@ -77,7 +77,6 @@
 
   function checkValue() {
     var obj = eval("(" + $('input:checkbox:checked').val() + ")");
-    console.log(obj);
     document.getElementById('cover_img').value = obj.image;
     document.getElementById('set_img').src = obj.image;
     var title = (obj.title).replace(/[</b>]/g, "");
