@@ -38,6 +38,7 @@ class BuyBookRegisterForm(forms.ModelForm):
             attrs={
                 'id': 'title',
                 'readonly': 'readonly',
+                'value': '',
             }
         ),
     )
