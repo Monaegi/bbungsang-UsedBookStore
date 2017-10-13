@@ -1,93 +1,130 @@
 /* User Info */
 .user-wrap {
-  width: 75%;
-  margin: 5% 12.5%;
-  padding: 2.5% 0;
+  width: 100%;
   height: auto;
   float: left;
   background: #f1f1f1;
 }
 
-.user-wrap .user-photo {
-  width: 20%;
-  margin: 0 40%;
-  padding: 2.5%;
+.user-wrap .user-line {
+  width: 100%;
+  height: 60px;
+  color: #fafafa;
+  font-size: 23px;
+  font-family: 'Nanumbarunpen';
+  box-shadow: 3px 3px 5px #8c8c8c;
+  background: #5FCEC0;
+  margin-bottom: 50px;
+}
+
+.user-wrap .user-line .user-nickname {
+  width: 50%;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 5%;
   float: left;
 }
 
-.user-wrap .user-photo img {
-  width: 100%;
+.user-wrap .user-line .like-or-unlike {
+  width: 50%;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 2.5%;
+  text-align: right;
+  float: left;
+}
+
+.user-wrap .user-line .like-or-unlike img {
+  width: 35px;
+}
+
+.user-wrap .user-line .guidetext {
+  height: 40px;
+  line-height: 40px;
+  background-color: #fafafa;
+  color: #2096ba;
+  font-size: 13px;
+  font-family: 'Nanumbarunpen';
+  text-align: center;
+  border-radius: 10px;
+  padding: 0 15px;
+  position: absolute;
+  z-index: 3;
+  margin-top: 10px;
+  margin-left: -175px;
+}
+
+.user-wrap .user-line .guidetext::after {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 100%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #fafafa;
+}
+
+.user-wrap .user-photo {
+  width: 30%;
+  margin: 0 5%;
+  float: left;
+}
+
+.user-wrap .user-photo .profile-img {
+  margin: 0 15%;
+  width: 70%;
   border-radius: 100%;
 }
 
-.user-wrap .to-user {
-  width: 100%;
+.user-wrap .additional-info {
+  width: 55%;
+  margin-right: 2.5%;
+  margin-bottom: 65px;
   height: auto;
-  padding: 10px 0;
-  text-align: center;
   float: left;
 }
 
-.user-wrap .to-user .news {
+.user-wrap .additional-info ul {
+  width: 100%;
+  margin: 25px 0;
+  padding: 0 10%;
+}
+
+.user-wrap .additional-info ul li {
+  width: 27.5%;
+  margin: 0 2.5%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
   display: inline-block;
-  width: 50%;
-  color: #5FCEC0;
+}
+
+.user-wrap .additional-info ul li p {
+  margin: 0;
+  padding: 0 0 0 5px;
+  font-size: 17px;
+  font-weight: 100;
+}
+
+.user-wrap .additional-info .send-message {
+  width: 80%;
+  margin: 0 10%;
+  height: 45px;
   border: 1px solid #5FCEC0;
-  padding: 10px;
-  float: left;
-}
-
-.user-wrap .to-user .send-message {
-  display: inline-block;
-  width: 50%;
-  color: #fafafa;
-  background: #5FCEC0;
-  padding: 11px;
-  float: left;
-}
-
-.user-wrap .user-info {
-  width: 100%;
-  height: auto;
-  float: left;
-}
-
-.user-wrap .user-info table {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: pink;
-  height: auto;
-}
-
-.user-wrap .user-info table tr {
-  margin: 0;
-  padding: 0;
-}
-
-.user-wrap .user-info table tr td {
-  text-align: center;
-  font-size: 18px;
-  height: 40px;
-  border-bottom: 5px solid #f1f1f1;
-  background: #fafafa;
-}
-
-.user-wrap .user-info table tr td:nth-child(1) {
-  width: 35%;
-  color: #8d8d8d;
+  color: #5FCEC0;
+  background: #f1f1f1;
 }
 
 .user-wrap .register-history {
   width: 100%;
   height: auto;
   background: #fafafa;
-  border-bottom: 20px solid #f1f1f1;
+  border-top: 10px solid #f1f1f1;
   float: left;
 }
 
 .user-wrap .register-history p {
-  padding: 10px;
+  padding: 20px;
   margin: 0;
   font-family: 'Nanumbarunpen';
   font-size: 18px;

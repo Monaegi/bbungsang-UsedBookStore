@@ -5,40 +5,51 @@
 <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
 
 <section class="user-wrap">
+  <article class="user-line">
+    <article class="user-nickname">
+      {{ user_info.nickname }}
+    </article>
+    <article class="like-or-unlike">
+      {% if user != user_info %}
+        {% if news %}
+        <span class="guidetext">소식을 받고 있는 중입니다 :)</span>
+        <a class="news" href="{% url 'member:cancel_news' user_info.pk %}">
+          <img src="/static/images/like_minus.png">
+        </a>
+        {% else %}
+        <span class="guidetext">소식을 받아볼 수 있습니다 :)</span>
+        <a class="news" href="{% url 'member:news' user_info.pk %}">
+          <img src="/static/images/like_plus.png">
+        </a>
+        {% endif %}
+      {% endif %}
+    </article>
+  </article>
   <article class="user-photo">
     {% if user_info.user_type == 'f' or user_info.user_type == 'k' %}
-    <img src="{{ user_info.my_photo }}">
+    <img class="profile-img" src="{{ user_info.my_photo }}">
     {% else %}
-    <img src="{{ user_info.my_photo.url }}">
+    <img class="profile-img" src="{{ user_info.my_photo.url }}">
     {% endif %}
   </article>
-  {% if user != user_info %}
-  <article class="to-user">
-    <a class="news" href="">소식받기</a>
-    <a class="send-message" href="">쪽지보내기</a>
+  <article class="additional-info">
+    <ul>
+      <li>
+        {{ register_count }}
+        <p>게시물</p>
+      </li>
+      <li>
+        {{ follower_count }}
+        <p>팔로워</p>
+      </li>
+      <li>
+        {{ following_count }}
+        <p>팔로잉</p>
+      </li>
+    </ul>
+    <button class="send-message">쪽지 보내기</button>
   </article>
-  {% else %}
-  <article class="to-user">
-    <a class="news" href="">회원 정보 수정하기</a>
-    <a class="send-message" href="">회원 탈퇴하기</a>
-  </article>
-  {% endif %}
-  <article class="user-info">
-    <table>
-      <tr>
-        <td>닉네임</td>
-        <td>{{ user_info.nickname }}</td>
-      </tr>
-      <tr>
-        <td>판매자 여부</td>
-        {% if user_info.my_seller %}
-        <td><font color="skyblue">True</font></td>
-        {% else %}
-        <td><font color="pink">False</font></td>
-        {% endif %}
-      </tr>
-    </table>
-  </article>
+
   {% if not sell_books and not buy_books %}
   <article class="register-history">
     <p>{{ user_info.nickname }}님께서 등록한 책이 존재하지 않습니다.</p>

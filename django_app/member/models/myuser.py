@@ -1,6 +1,7 @@
 import string
 import random
 
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager as DefaultUserManager
 
@@ -98,6 +99,11 @@ class MyUser(AbstractUser):
     wish_list = models.ManyToManyField(
         'book.SellBookRegister',
         through='member.BookWishList',
+    )
+
+    follow = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        through='member.News'
     )
 
     objects = MyUserManager()

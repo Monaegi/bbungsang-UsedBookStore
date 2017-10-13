@@ -3,6 +3,7 @@ from django.contrib.auth import login as django_login, logout as django_logout, 
 
 from book.models import SellBookRegister, BuyBookRegister
 from member.forms import LoginForm
+from member.models.wish import News
 from utils.apis import get_facebook_access_token, facebook_debug_token, facebook_get_user_info, \
     get_kakao_access_token, error_message_and_redirect_referer, GetAccessTokenException, \
     DebugTokenException, get_kakao_user_info
@@ -98,13 +99,25 @@ def user_info(request, slug):
     """ 판매자, 구매자 정보 조회 """
 
     user = MyUser.objects.get(nickname=slug)
-    sell_books = SellBookRegister.objects.filter(seller=user.my_seller)[:4]
-    buy_books = BuyBookRegister.objects.filter(buyer=user)[:4]
+    sell_books = SellBookRegister.objects.filter(seller=user.my_seller)
+    buy_books = BuyBookRegister.objects.filter(buyer=user)
+    news = News.objects.filter(
+        my_follow=request.user,
+        follow_other=user,
+    )
+
+    register_count = sell_books.count() + buy_books.count()
+    follower_count = News.objects.filter(my_follow=user).count()
+    following_count = News.objects.filter(follow_other=user).count()
 
     context = {
         'sell_books': sell_books,
         'buy_books': buy_books,
         'user_info': user,
+        'news': news,
+        'register_count': register_count,
+        'follower_count': follower_count,
+        'following_count': following_count,
     }
     return render(request, 'member/user_info.html', context)
 

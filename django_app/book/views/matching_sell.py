@@ -7,6 +7,7 @@ from book.forms.book_register import SellBookRegisterForm
 from book.forms.comment import CommentForm
 from book.forms.searchs import NaverBooksSearchForm
 from book.models import SellBookRegister, Book, BuyBookRegister, Comment
+from member.models.wish import News
 
 MyUser = get_user_model()
 
@@ -33,7 +34,20 @@ def sell_book_register(request, ):
 
                 if compose_form.is_valid():
                     compose_form.save(sender=sender)
-                    return redirect('book:sell_book_detail', sell_pk=sell_book.pk)
+
+            news = News.objects.filter(follow_other_id=request.user.id)
+            if news:
+                for other in news:
+                    data = {
+                        'recipient': other.my_follow.username,
+                        'subject': '{}님께서 새로운 글을 등록했습니다.'.format(request.user.username, ),
+                        'body': 'test',
+                    }
+                    compose_form = ComposeForm(data)
+                    sender = request.user
+
+                    if compose_form.is_valid():
+                        compose_form.save(sender=sender)
 
             return redirect('book:sell_book_detail', sell_pk=sell_book.pk)
 

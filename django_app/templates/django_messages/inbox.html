@@ -109,7 +109,7 @@
     function viewMessage(message_id){
       $.ajax({
         type: "GET",
-        url: "http://usedbookstore-dev.ap-northeast-2.elasticbeanstalk.com/messages/view/" + message_id,
+        url: "http://localhost:8000/messages/view/" + message_id,
         success: function (response) {
           $("#messageScreen").html(response);
         },

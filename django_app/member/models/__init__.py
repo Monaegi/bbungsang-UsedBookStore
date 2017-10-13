@@ -1,3 +1,3 @@
 from .myuser import MyUser
 from .seller import Seller
-from .wishlist import BookWishList
+from .wish import BookWishList

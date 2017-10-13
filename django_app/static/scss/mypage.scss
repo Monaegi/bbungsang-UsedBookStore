@@ -1,79 +1,116 @@
 /* User Info */
 .user-wrap {
- width: 75%;
- margin: 5% 12.5%;
- padding: 2.5% 0;
- height: auto;
- float: left;
- background: #f1f1f1;
+  width: 100%;
+  height: auto;
+  float: left;
+  background: #f1f1f1;
 
-  .user-photo {
-    width: 20%;
-    margin: 0 40%;
-    padding: 2.5%;
-    float: left;
+  .user-line {
+    width: 100%;
+    height: 60px;
+    color: #fafafa;
+    font-size: 23px;
+    font-family: 'Nanumbarunpen';
+    box-shadow: 3px 3px 5px #8c8c8c;
+    background: #5FCEC0;
+    margin-bottom: 50px;
 
-    img {
-     width: 100%;
-     border-radius: 100%;
+    .user-nickname {
+      width: 50%;
+      height: 60px;
+      line-height: 60px;
+      padding: 0 5%;
+      float: left;
+    }
+
+    .like-or-unlike {
+      width: 50%;
+      height: 60px;
+      line-height: 60px;
+      padding: 0 2.5%;
+      text-align: right;
+      float: left;
+
+      img {
+        width: 35px;
+      }
+    }
+
+    .guidetext {
+      height: 40px;
+      line-height: 40px;
+      background-color: #fafafa;
+      color: #2096ba;
+      font-size: 13px;
+      font-family: 'Nanumbarunpen';
+      text-align: center;
+      border-radius: 10px;
+      padding: 0 15px;
+      position: absolute;
+      z-index: 3;
+      margin-top: 10px;
+      margin-left: -175px;
+    }
+
+    .guidetext::after {
+      content: "";
+      position: absolute;
+      top: 40%;
+      left: 100%;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent #fafafa;
     }
   }
 
-  .to-user {
-    width: 100%;
-    height: auto;
-    padding: 10px 0;
-    text-align: center;
+  .user-photo {
+    width: 30%;
+    margin: 0 5%;
     float: left;
 
-    .news {
-      display: inline-block;
-      width: 50%;
-      color: #5FCEC0;
-      border: 1px solid #5FCEC0;
-      padding: 10px;
-      float: left;
+    .profile-img {
+      margin: 0 15%;
+      width: 70%;
+      border-radius: 100%;
+    }
+  }
+
+  .additional-info {
+    width: 55%;
+    margin-right: 2.5%;
+    margin-bottom: 65px;
+    height: auto;
+    float: left;
+
+    ul {
+      width: 100%;
+      margin: 25px 0;
+      padding: 0 10%;
+
+      li {
+        width: 27.5%;
+        margin: 0 2.5%;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        display: inline-block;
+
+        p {
+          margin: 0;
+          padding: 0 0 0 5px;
+          font-size: 17px;
+          font-weight: 100;
+        }
+      }
     }
 
     .send-message {
-      display: inline-block;
-      width: 50%;
-      color: #fafafa;
-      background: #5FCEC0;
-      padding: 11px;
-      float: left;
-    }
-  }
-
-  .user-info {
-    width: 100%;
-    height: auto;
-    float: left;
-
-    table {
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      background: pink;
-      height: auto;
-
-      tr {
-        margin: 0;
-        padding: 0;
-
-        td {
-          text-align: center;
-          font-size: 18px;
-          height: 40px;
-          border-bottom: 5px solid #f1f1f1;
-          background: #fafafa;
-        }
-
-        td:nth-child(1) {
-          width: 35%;
-          color: #8d8d8d;
-        }
-      }
+      width: 80%;
+      margin: 0 10%;
+      height: 45px;
+      border: 1px solid #5FCEC0;
+      color: #5FCEC0;
+      background: #f1f1f1;
     }
   }
 
@@ -81,11 +118,11 @@
     width: 100%;
     height: auto;
     background: #fafafa;
-    border-bottom: 20px solid #f1f1f1;
+    border-top: 10px solid #f1f1f1;
     float: left;
 
     p {
-      padding: 10px;
+      padding: 20px;
       margin: 0;
       font-family: 'Nanumbarunpen';
       font-size: 18px;
