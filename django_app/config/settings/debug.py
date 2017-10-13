@@ -8,8 +8,8 @@ WSGI_APPLICATION = 'config.wsgi.debug.application'
 # Static URLs
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
 
 DEBUG = True
 ALLOWED_HOSTS = config_secret_debug['django']['allowed_hosts']

@@ -1,0 +1,7 @@
+.pure-js-carousel-container {
+  overflow: hidden;
+}
+
+.pure-js-carousel-item {
+  float: left;
+}
