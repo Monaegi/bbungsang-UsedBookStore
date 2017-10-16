@@ -3,10 +3,10 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect
 from django_messages.forms import ComposeForm
 
-from book.forms.book_register import BuyBookRegisterForm
-from book.forms.searchs import NaverBooksSearchForm
+from book.forms import BuyBookRegisterForm
+from book.forms import NaverBooksSearchForm
 from book.models import BuyBookRegister, SellBookRegister, Book
-from member.models.wish import News
+from member.models import News
 
 MyUser = get_user_model()
 
