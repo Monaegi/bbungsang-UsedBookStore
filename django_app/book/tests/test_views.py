@@ -59,13 +59,37 @@ class BuyBookViewTest(Setup_Class):
         response = self.client.get(self.list_url, follow=True)
         # print(response.content.decode('utf-8'))
         self.assertEqual(response.status_code, 200)
-        for test_isbn in response.context['all_books']:
-            self.assertEqual(test_isbn.book_info.isbn, "8997390910 9788997390915")
+        for test_equal in response.context['all_books']:
+            self.assertEqual(test_equal.buyer.username, "test@test.com")
+            self.assertEqual(test_equal.buyer.nickname, "test")
+            self.assertEqual(test_equal.book_info.cover_img, "http://bookthumb.phinf.naver.net/cover/102/909/10290989.jpg?type=m1&udate=20170721")
+            self.assertEqual(test_equal.book_info.title, "Do it! 점프 투 파이썬 (이미 50만 명이 '점프 투 파이썬'으로 시작했다!)")
+            self.assertEqual(test_equal.book_info.author, "박응용")
+            self.assertEqual(test_equal.book_info.publisher, "이지스퍼블리싱")
+            self.assertEqual(test_equal.book_info.normal_price, "18800")
+            self.assertEqual(test_equal.book_info.publication_date, "20160303")
+            self.assertEqual(test_equal.book_info.isbn, "8997390910 9788997390915")
+            self.assertEqual(test_equal.book_info.category, "프로그래밍언어")
+            self.assertEqual(test_equal.used_price, "10000")
+            self.assertEqual(test_equal.etc_requirements, "테스트")
 
     def test_buy_book_detail(self):
         response = self.client.get(self.read_update_delete_url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['book'].book_info.isbn, "8997390910 9788997390915")
+        self.assertEqual(response.context['book'].buyer.username, "test@test.com")
+        self.assertEqual(response.context['book'].buyer.nickname, "test")
+        self.assertEqual(response.context['book'].book_info.cover_img,
+                         "http://bookthumb.phinf.naver.net/cover/102/909/10290989.jpg?type=m1&udate=20170721")
+        self.assertEqual(response.context['book'].book_info.title, "Do it! 점프 투 파이썬 (이미 50만 명이 '점프 투 파이썬'으로 시작했다!)")
+        self.assertEqual(response.context['book'].book_info.author, "박응용")
+        self.assertEqual(response.context['book'].book_info.publisher, "이지스퍼블리싱")
+        self.assertEqual(response.context['book'].book_info.normal_price, "18800")
+        self.assertEqual(response.context['book'].book_info.publication_date, "20160303")
+        self.assertEqual(response.context['book'].book_info.isbn, "8997390910 9788997390915")
+        self.assertEqual(response.context['book'].book_info.category, "프로그래밍언어")
+        self.assertEqual(response.context['book'].used_price, "10000")
+        self.assertEqual(response.context['book'].etc_requirements, "테스트")
 
     def test_buy_book_update(self):
         pass
