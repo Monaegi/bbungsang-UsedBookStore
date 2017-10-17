@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect
 from django_messages.forms import ComposeForm
@@ -11,6 +12,7 @@ from member.models import News
 MyUser = get_user_model()
 
 
+@login_required
 def buy_book_register(request, ):
     """ 사려는 책 등록하기 """
 
