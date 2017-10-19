@@ -33,14 +33,5 @@ def list_search_result_sorted():
 class TestNaverBookAPI(unittest.TestCase):
     @mock.patch.object(ExternalAPI, "import_naver_book_api")
     def test_search_result_sort(self, import_naver_book_api):
-        print(import_naver_book_api)
-        import_naver_book_api.return_value = ['Python', 'Java', 'C', 'Ruby', 'Golang']
-        # results = list_search_result_sorted()
-        # results = import_naver_book_api
-        print(import_naver_book_api.return_value)
-
-        # self.assertEqual(
-        #     results,
-        #     ['Python', 'Java', 'C', 'Ruby', 'Golang']
-        # )
+        pass
 

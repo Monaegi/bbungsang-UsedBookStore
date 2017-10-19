@@ -31,14 +31,11 @@ class SellBookRegister(models.Model):
         Book,
         related_name='sell_book_info'
     )
-
     seller = models.ForeignKey(
         'member.Seller',
         related_name='seller_info'
     )
-
     used_price = models.CharField(max_length=50, )
-
     description = models.TextField(blank=True)
 
 
@@ -48,3 +45,4 @@ class BookStatus(models.Model):
     sell_book_status = models.ForeignKey(
         SellBookRegister,
     )
+    photo = models.ImageField(null=True)
