@@ -44,5 +44,6 @@ class BookStatus(models.Model):
 
     sell_book_status = models.ForeignKey(
         SellBookRegister,
+        related_name='book_status',
     )
     photo = models.ImageField(null=True)

@@ -181,8 +181,8 @@ class SellBookRegisterForm(forms.Form):
             'publication_date',
             'isbn',
             'category',
-            # 'book_status',
         ]
+
     cover_img = forms.CharField(
         label='',
         widget=forms.TextInput(
@@ -284,41 +284,26 @@ class SellBookRegisterForm(forms.Form):
             }
         ),
     )
-
-    # book_status1 = forms.ImageField(
-    #     label_suffix='',
-    #     label='책 상태',
-    #     widget=forms.FileInput(
-    #         attrs={
-    #             'id': 'book_status1',
-    #             'class': 'book_status1'
-    #         }
-    #     ),
-    # )
-    #
-    # book_status2 = forms.ImageField(
-    #     required=False,
-    #     label_suffix='',
-    #     label='책 상태',
-    #     widget=forms.FileInput(
-    #         attrs={
-    #             'id': 'book_status2',
-    #             'class': 'book_status2'
-    #         }
-    #     ),
-    # )
-    #
-    # book_status3 = forms.ImageField(
-    #     required=False,
-    #     label_suffix='',
-    #     label='책 상태',
-    #     widget=forms.FileInput(
-    #         attrs={
-    #             'id': 'book_status3',
-    #             'class': 'book_status3'
-    #         }
-    #     ),
-    # )
+    description = forms.CharField(
+        label_suffix='',
+        label='남기는 말',
+        widget=forms.TextInput(
+            attrs={
+                'id': 'description',
+                # 'class': 'description',
+            }
+        )
+    )
+    sell_book_status = forms.FileField(
+        label_suffix='',
+        label='책 상태(최대 4개까지 업로드 가능합니다.)',
+        widget=forms.FileInput(
+            attrs={
+                'id': 'sell_book_status',
+                'multiple': True,
+            }
+        )
+    )
 
     def save(self, **kwargs):
         cover_img = self.cleaned_data.get('cover_img', '')
@@ -330,9 +315,7 @@ class SellBookRegisterForm(forms.Form):
         isbn = self.cleaned_data.get('isbn', '')
         category = self.cleaned_data.get('category', '')
         used_price = self.cleaned_data.get('used_price', '')
-        # book_status1 = self.cleaned_data.get('book_status1', '')
-        # book_status2 = self.cleaned_data.get('book_status2', '')
-        # book_status3 = self.cleaned_data.get('book_status3', '')
+        description = self.cleaned_data.get('description', '')
 
         seller = kwargs.pop('seller', None)
 
@@ -354,8 +337,6 @@ class SellBookRegisterForm(forms.Form):
             seller=seller,
             book_info=book_info,
             used_price=used_price,
-            # book_status1=book_status1,
-            # book_status2=book_status2,
-            # book_status3=book_status3,
+            description=description,
         )
         return instance

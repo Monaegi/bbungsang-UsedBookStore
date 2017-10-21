@@ -20,7 +20,7 @@
     <button id="myBtn" class="my-btn">책 검색하기</button>
   </section>
   <section class="input-form">
-    <form class="book-form" action="" method="POST">
+    <form class="book-form" action="" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
         <article class="img-wrap">
             <img src="" id="set_img">
@@ -33,4 +33,16 @@
   {% include 'include/search_window.html' %}
   </section>
 </div>
+
+<script>
+//  $("#sell_book_status").on("change", function() {
+//      if($("#sell_book_status")[0].files.length > 4) {
+//          alert("파일은 최대 4개까지만 업로드 가능합니다.");
+//          return false;
+//      } else {
+//          $(".book-form").submit();
+//      }
+//  })
+</script>
+
 {% endblock %}

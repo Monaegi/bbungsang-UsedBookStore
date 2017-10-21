@@ -37,19 +37,15 @@
 <section class="book-status">
   <ul>
     <p>책 상태 이미지</p>
-    <li>
-      <img src="/static/images/animals.jpg">
-    </li>
-    <li>
-      <img src="/static/images/animals.jpg">
-    </li>
-    <li>
-      <img src="/static/images/animals.jpg">
-    </li>
-    <li>
-      <img src="/static/images/animals.jpg">
-    </li>
+    {% for book_status in book_status %}
+      <li>
+          <img src="{{ book_status.photo.url }}" alt="">
+      </li>
+    {% endfor %}
   </ul>
+</section>
+<section class="description">
+    {{ book.description }}
 </section>
 <section class="comment">
   <p>댓글 달기 <span>총 <a href="#">{{ comments.count }}</a>개</span></p>

@@ -6,7 +6,7 @@ from django_messages.forms import ComposeForm
 from book.forms import SellBookRegisterForm
 from book.forms import CommentForm
 from book.forms import NaverBooksSearchForm
-from book.models import SellBookRegister, Book, BuyBookRegister, Comment
+from book.models import SellBookRegister, Book, BuyBookRegister, Comment, BookStatus
 from member.models import News
 
 MyUser = get_user_model()
@@ -16,12 +16,18 @@ def sell_book_register(request, ):
     """ 팔려는 책 등록하기 """
 
     if request.method == 'POST':
-        form = SellBookRegisterForm(data=request.POST)
+        files = request.FILES.getlist('sell_book_status')
+        form = SellBookRegisterForm(request.POST, request.FILES)
 
         if form.is_valid():
             sell_book = form.save(seller=request.user.my_seller)
             sell_isbn = form.data.get('isbn')
             book_info = Book.objects.get(isbn=sell_isbn)
+            for f in files:
+                BookStatus.objects.create(
+                    sell_book_status=sell_book,
+                    photo=f,
+                )
 
             if BuyBookRegister.objects.filter(book_info_id=book_info.pk):
                 data = {
@@ -85,9 +91,11 @@ def sell_book_detail(request, sell_pk):
     """ 팔려는 책 디테일 """
 
     sell_book = SellBookRegister.objects.get(pk=sell_pk)
+    book_status = BookStatus.objects.filter(sell_book_status=sell_book)
     comments = Comment.objects.filter(sell_book=sell_book)
     context = {
         'book': sell_book,
+        'book_status': book_status,
         'comment_form': CommentForm(),
         'comments': comments,
     }
