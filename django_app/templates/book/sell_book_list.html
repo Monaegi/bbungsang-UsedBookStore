@@ -30,10 +30,10 @@
       <li class="book-list-info">
         리뷰 <a href="#">0</a>건 <span>|</span>
         판매자:
-        {% if not user.authenticated %}
-          {{ book.seller.user.nickname }}
-        {% else %}
+        {% if user.username %}
           <a href="{% url 'member:user_info' book.seller.user.nickname %}">{{ book.seller.user.nickname }}</a> <span>|</span>
+        {% else %}
+          {{ book.seller.user.nickname }}
         {% endif %}
         <span>|</span>
         작성일: {{ book.created }}

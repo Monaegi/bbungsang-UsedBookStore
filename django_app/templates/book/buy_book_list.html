@@ -28,7 +28,7 @@
       </li>
       <li class="book-list-info">
         구매자:
-        {% if not user.authenticated %}
+        {% if not user.username %}
           {{ book.buyer.nickname }}
         {% else %}
           <a href="{% url 'member:user_info' book.buyer.nickname %}">{{ book.buyer.nickname }}</a>
