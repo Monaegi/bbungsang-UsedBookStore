@@ -7,13 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <!-- CSS, Font -->
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
   <link rel="stylesheet" href="{% static 'css/common.css' %}">
   <link rel="stylesheet" href="{% static 'css/nav.css' %}">
-  <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-
-  <link href='https://fonts.googleapis.com/css?family=Amatica SC' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Amatica SC' rel='stylesheet'>
+
+  <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -26,14 +28,21 @@
         <a href="{% url 'book:main' %}" class="logo">BongDal<a>
       </article>
       <article class="regibook">
-        <a href="{% url 'book:buy_book_register' %}">구매 희망 도서 등록하기</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'book:buy_book_register' %}">구매 희망 도서 등록하기</a>
+        {% else %}
+          <a href="{% url 'book:main' %}">구매 희망 도서 등록하기</a>
+        {% endif %}
       </article>
       <article class="regibook">
-        {% if not user.my_seller %}
-        <a href="{% url 'member:seller_register' user.pk %}">판매자 등록하기</a>
-        <span class="guidetext">판매자 등록을 해주세요 :)</span>
+        {% if user.is_authenticated and not user.my_seller %}
+          <a href="{% url 'member:seller_register' user.pk %}">판매자 등록하기</a>
+          <span class="guidetext">판매자 등록을 해주세요 :-)</span>
+        {% elif not user.is_authenticated %}
+          <a href="{% url 'book:main' %}">판매자 등록하기</a>
+          <span class="guidetext">로그인 또는 회원가입을 해주세요!</span>
         {% else %}
-        <a href="{% url 'book:sell_book_register' %}">판매 도서 등록하기</a>
+          <a href="{% url 'book:sell_book_register' %}">판매 도서 등록하기</a>
         {% endif %}
       </article>
       <article class="sidebar-toggle-box">
@@ -61,7 +70,7 @@
       <a href="#" class="slider-arrow sa-right">&gt;</a>
 
       <div class="inner">
-        <a class="detail">자세히 보기</a>
+        <a href="{% url 'book:sell_book_list' %}" class="detail">자세히 보기</a>
         <a class="best-seller">주간 베스트 셀러</a>
       </div>
     </section>
@@ -90,8 +99,6 @@
   <div class="recommend-book">
     나를 위한 추천 도서
   </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <!-- <ul class="book-box" onmouseover="$(this).find('#book-img').hide(); $(this).find('#test').show();" onmouseout="$(this).find('#book-img').show(); $(this).find('#test').hide();"> -->
   <ul class="book-box" id="book-box">
     <li class="book-info">
       <div class="img-hover-show-box" id="img-hover-show-box">

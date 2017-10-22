@@ -191,6 +191,7 @@ ENV/
 .config_secret/
 
 .static_root/
+.media/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
