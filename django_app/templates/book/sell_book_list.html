@@ -29,8 +29,14 @@
       </li>
       <li class="book-list-info">
         리뷰 <a href="#">0</a>건 <span>|</span>
-        판매자: <a href="{% url 'member:user_info' book.seller.user.nickname %}">{{ book.seller.user.nickname }}</a> <span>|</span>
-        작성일:
+        판매자:
+        {% if not user.authenticated %}
+          {{ book.seller.user.nickname }}
+        {% else %}
+          <a href="{% url 'member:user_info' book.seller.user.nickname %}">{{ book.seller.user.nickname }}</a> <span>|</span>
+        {% endif %}
+        <span>|</span>
+        작성일: {{ book.created }}
       </li>
       <li>
         <a class="look-detail" href="{% url 'book:sell_book_detail' book.pk %}">자세히 보기</a>

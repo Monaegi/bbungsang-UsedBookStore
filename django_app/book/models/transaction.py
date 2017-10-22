@@ -1,10 +1,11 @@
 from django.conf import settings
 from django.db import models
+from django_extensions.db.models import TimeStampedModel
 
 from book.models import Book
 
 
-class BuyBookRegister(models.Model):
+class BuyBookRegister(TimeStampedModel):
     """ 사려는 책 등록 """
 
     book_info = models.ForeignKey(
@@ -21,7 +22,7 @@ class BuyBookRegister(models.Model):
     etc_requirements = models.TextField()
 
 
-class SellBookRegister(models.Model):
+class SellBookRegister(TimeStampedModel):
     """ 팔려는 책 등록 """
 
     class Meta:

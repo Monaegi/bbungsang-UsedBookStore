@@ -27,9 +27,14 @@
         희망가: {{ book.used_price }}원
       </li>
       <li class="book-list-info">
-        리뷰 <a href="#">0</a>건 <span>|</span>
-        구매자: <a href="{% url 'member:user_info' book.buyer.nickname %}">{{ book.buyer.nickname }}</a> <span>|</span>
-        작성일:
+        구매자:
+        {% if not user.authenticated %}
+          {{ book.buyer.nickname }}
+        {% else %}
+          <a href="{% url 'member:user_info' book.buyer.nickname %}">{{ book.buyer.nickname }}</a>
+        {% endif %}
+        <span>|</span>
+        작성일: {{ book.created }}
       </li>
       <li>
         <a class="look-detail" href="{% url 'book:buy_book_detail' book.pk %}">자세히 보기</a>

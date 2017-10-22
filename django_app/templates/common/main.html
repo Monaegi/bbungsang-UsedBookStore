@@ -103,14 +103,20 @@
     <li class="book-info">
       <div class="img-hover-show-box" id="img-hover-show-box">
         <img src="/static/images/book_sample3.jpg" class="book-img" id="book-img">
-        <form action="{% url 'book:book_wish_detail' bonobono.pk %}" method="POST">
-          {% csrf_token %}
-          <a id="aSubmit" onclick="this.parentNode.submit(); return false;" href="#">
+        {% if user.authenticated %}
+          <form action="{% url 'book:book_wish_detail' bonobono.pk %}" method="POST">
+            {% csrf_token %}
+            <a id="aSubmit" onclick="this.parentNode.submit(); return false;" href="#">
+              <img src="/static/images/bucket.png" class="bucket" id="bucket">
+            </a>
+          </form>
+          <a href="{% url 'book:sell_book_detail' bonobono.pk %}"><img src="/static/images/info.png" class="info" id="info"></a>
+        {% else %}
+          <a href="{% url 'book:main' %}">
             <img src="/static/images/bucket.png" class="bucket" id="bucket">
           </a>
-        </form>
-        <a href="{% url 'book:sell_book_detail' bonobono.pk %}"><img src="/static/images/info.png" class="info" id="info"></a>
-        <!-- <img src="" class="test info"> -->
+          <a href="{% url 'book:main' %}"><img src="/static/images/info.png" class="info" id="info"></a>
+        {% endif %}
       </div>
     </li>
     <li class="title">
@@ -124,14 +130,20 @@
     <li class="book-info">
       <div class="img-hover-show-box" id="img-hover-show-box">
         <img src="/static/images/book_sample3.jpg" class="book-img" id="book-img">
-        <form action="{% url 'book:book_wish_detail' bonobono.pk %}" method="POST">
-          {% csrf_token %}
-          <a id="aSubmit" onclick="this.parentNode.submit(); return false;" href="#">
+        {% if user.authenticated %}
+          <form action="{% url 'book:book_wish_detail' bonobono.pk %}" method="POST">
+            {% csrf_token %}
+            <a id="aSubmit" onclick="this.parentNode.submit(); return false;" href="#">
+              <img src="/static/images/bucket.png" class="bucket" id="bucket">
+            </a>
+          </form>
+          <a href="{% url 'book:sell_book_detail' bonobono.pk %}"><img src="/static/images/info.png" class="info" id="info"></a>
+        {% else %}
+          <a href="{% url 'book:main' %}">
             <img src="/static/images/bucket.png" class="bucket" id="bucket">
           </a>
-        </form>
-        <a href="{% url 'book:sell_book_detail' bonobono.pk %}"><img src="/static/images/info.png" class="info" id="info"></a>
-        <!-- <img src="" class="test info"> -->
+          <a href="{% url 'book:main' %}"><img src="/static/images/info.png" class="info" id="info"></a>
+        {% endif %}
       </div>
     </li>
     <li class="title">
