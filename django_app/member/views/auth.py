@@ -3,12 +3,78 @@ from django.contrib.auth import login as django_login, logout as django_logout, 
 
 from book.models import SellBookRegister, BuyBookRegister
 from member.forms import LoginForm
+from member.forms.signup import SignupForm, BasicInfoForm
 from member.models.wish import News
 from utils.apis import get_facebook_access_token, facebook_debug_token, facebook_get_user_info, \
     get_kakao_access_token, error_message_and_redirect_referer, GetAccessTokenException, \
     DebugTokenException, get_kakao_user_info
 
 MyUser = get_user_model()
+
+
+def check_basic_info(request):
+    """ 기본 정보 입력 """
+
+    nickname = request.session['nickname'][0]
+    my_photo = request.session['my_photo']
+    user_type = request.session['user_type'][0]
+
+    if request.method == "POST":
+        form = BasicInfoForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username'],
+            nickname = form.cleaned_data['nickname'],
+            my_photo = request.POST.get('my_photo')
+            request.session['username'] = username
+            request.session['nickname'] = nickname
+            request.session['my_photo'] = my_photo
+            request.session['user_type'] = user_type
+            return redirect('member:signup')
+    else:
+        form = BasicInfoForm()
+    context = {
+        'form': form,
+        'nickname': nickname,
+        'my_photo': my_photo,
+    }
+    return render(request, 'member/input_basic_info.html', context)
+
+
+def signup(request):
+    """ 회원가입 """
+
+    username = request.session['username'][0]
+    nickname = request.session['nickname'][0]
+    my_photo = request.session['my_photo']
+
+    if request.method == "POST":
+        form = SignupForm(data=request.POST)
+        if form.is_valid():
+
+            if request.POST.get('my_photo'):
+                my_photo = request.POST.get('my_photo')
+
+            user = MyUser.objects.create_user(
+                username=username,
+                password=form.cleaned_data['password1'],
+                my_photo=my_photo,
+                nickname=nickname,
+                phone=form.cleaned_data['phone'],
+                user_type=request.session['user_type'],
+            )
+            user.save()
+            if request.session['user_type'] == 'k' or request.session['user_type'] == 'f':
+                django_login(request, user)
+            return render(request, 'member/complete_signup.html')
+    else:
+        form = SignupForm()
+    context = {
+        'username': username,
+        'nickname': nickname,
+        'my_photo': my_photo,
+        'form': form,
+    }
+    return render(request, 'member/signup.html', context)
 
 
 def login(request):
@@ -52,6 +118,9 @@ def facebook_login(request):
         user_info = facebook_get_user_info(user_id=debug_result['data']['user_id'], access_token=access_token)
         user = MyUser.objects.get_or_create_facebook_user(user_info)
 
+        if user.username == '':
+            pass
+
         django_login(request, user)
         return redirect('book:main')
     except GetAccessTokenException as e:
@@ -74,10 +143,16 @@ def kakao_login(request):
 
     try:
         access_token = get_kakao_access_token(code)
-        # app_connection = app_connection(access_token)
         user_info = get_kakao_user_info(access_token)
-        print(user_info)
         user = MyUser.objects.get_or_create_kakao_user(user_info)
+        my_photo = user.my_photo
+        user.username = ''
+
+        if user.username == '':
+            request.session['nickname'] = user.nickname
+            request.session['my_photo'] = str(my_photo)
+            request.session['user_type'] = user.user_type
+            return redirect('member:check_basic_info')
 
         django_login(request, user)
         return redirect('book:main')
@@ -89,10 +164,6 @@ def kakao_login(request):
         print(e.code)
         print(e.message)
         return error_message_and_redirect_referer(request)
-
-
-def sigunup(request, ):
-    pass
 
 
 def user_info(request, slug):

@@ -1,0 +1,68 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<section class="signup-container">
+  <article class="desc-wrap">
+    <ul>
+      <li class="on">
+        <span>01</span>
+        기본정보
+      </li>
+      <li>
+        <span>02</span>
+        회원가입
+      </li>
+      <li class="lst">
+        <span>03</span>
+        가입완료
+      </li>
+    </ul>
+  </article>
+  <article class="bi-title">
+    기본 정보 입력하기
+  </article>
+  <hr />
+  <form action="" method="POST">
+    {% csrf_token %}
+    <article class="input-wrap">
+      <div class="input-window">
+        <span class="icon"><i class="im im-user-circle"></i></span>
+        {{ form.nickname }}
+        <span class="photo">
+          <img src="{{ my_photo }}">
+          <input type="text" name="my_photo" value="{{ my_photo }}" style="display: none;">
+        </span>
+      </div>
+      <div class="input-window">
+        <span class="icon"><i class="im im-mail"></i></span>
+        {{ form.username }}
+      </div>
+      {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </article>
+    <article class="checkbox">
+      <input type="checkbox" id="checkbox_id" required> 개인정보 수집 및 이용 동의(필수)
+    </article>
+    <table>
+      <tr>
+        <td>목적</td>
+        <td>항목</td>
+        <td>보유기간</td>
+      </tr>
+      <tr>
+        <td>서비스 내 이용자식별 및 회원관리</td>
+        <td>닉네임, 프로필사진, 이메일</td>
+        <td rowspan="2">회원 탈퇴 후 즉시 파기</td>
+      </tr>
+      <tr>
+        <td>이용자 검색/등록 및 활동내역 알림</td>
+        <td>닉네임, 프로필 사진</td>
+      </tr>
+    </table>
+    <button type="submit" class="startBtn">시작하기</button>
+  </form>
+</section>
+{% endblock %}

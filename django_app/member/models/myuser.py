@@ -18,10 +18,6 @@ class MyUserManager(DefaultUserManager):
             user_info['id']
         )
 
-        # username이 email 형태가 아니면 email 형태의 username을 작성하는 폼 호출
-        if username == '':
-            pass
-
         if username and self.model.objects.filter(username=username):
             user = self.model.objects.get(username=username)
         else:
@@ -41,9 +37,6 @@ class MyUserManager(DefaultUserManager):
             self.model.USER_TYPE_KAKAO,
             user_info['id'],
         )
-
-        if username == '':
-            pass
 
         if username and self.model.objects.filter(username=username):
             user = self.model.objects.get(username=username)

@@ -1,0 +1,89 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<section class="signup-container">
+  <article class="desc-wrap">
+    <ul>
+      <li>
+        <span>01</span>
+        기본정보
+      </li>
+      <li class="on">
+        <span>02</span>
+        회원가입
+      </li>
+      <li class="lst">
+        <span>03</span>
+        가입완료
+      </li>
+    </ul>
+  </article>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <article class="my_photo">
+      <div class="img-wrap">
+        {% if not my_photo %}
+          <img id="imgSet" src="/static/images/no_image.png">
+        {% else %}
+          <img id="imgSet" src="{{ my_photo }}">
+        {% endif %}
+      </div>
+      <button class="replace" type="button" onclick="fileUpload()"><span><i class="im im-photo-camera"></i></span></button>
+      <input type="file" id="imgInp" name="my_photo" value="{{ my_photo }}">
+    </article>
+    <article class="input-wrap">
+      <div class="input-window">
+        <span class="icon"><i class="im im-mail"></i></span>
+        <input type="text" placeholder="이메일" name="username" value="{{ username }}" required readonly>
+      </div>
+      <div class="input-window">
+        <span class="icon"><i class="im im-key"></i></span>
+        {{ form.password1 }}
+      </div>
+      <div class="input-window">
+        <span class="icon"><i class="im im-key"></i></span>
+        {{ form.password2 }}
+      </div>
+      <div class="input-window">
+        <span class="icon"><i class="im im-user-circle"></i></span>
+        <input type="text" placeholder="닉네임" name="nickname" value="{{ nickname }}" required readonly>
+      </div>
+      <div class="input-window">
+        <span class="icon"><i class="im im-mobile"></i></span>
+        {{ form.phone }}
+      </div>
+      {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </article>
+    <button type="submit" class="startBtn">가입하기</button>
+  </form>
+</section>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+function fileUpload() {
+  $('#imgInp').click();
+}
+
+$(function() {
+  $("#imgInp").on('change', function(){
+    readURL(this);
+  });
+});
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#imgSet').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+{% endblock %}
