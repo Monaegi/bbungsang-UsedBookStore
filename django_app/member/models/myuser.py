@@ -17,15 +17,20 @@ class MyUserManager(DefaultUserManager):
             self.model.USER_TYPE_FACEBOOK,
             user_info['id']
         )
+        slug = '{}_{}'.format(
+            self.model.USER_TYPE_FACEBOOK,
+            user_info['id']
+        )
 
-        if username and self.model.objects.filter(username=username):
-            user = self.model.objects.get(username=username)
+        if username and self.model.objects.filter(slug=slug):
+            user = self.model.objects.get(slug=slug)
         else:
             user = self.model.objects.create(
                 username=username,
                 user_type=self.model.USER_TYPE_FACEBOOK,
                 my_photo=my_photo['data']['url'],
                 nickname=nickname,
+                slug=slug,
             )
 
         return user
@@ -38,15 +43,17 @@ class MyUserManager(DefaultUserManager):
             user_info['id'],
         )
 
-        if username and self.model.objects.filter(username=username):
-            user = self.model.objects.get(username=username)
+        # username = ''
 
+        if username and self.model.objects.filter(slug=nickname):
+            user = self.model.objects.get(slug=nickname)
         else:
             user = self.model.objects.create(
                 username=username,
                 user_type=self.model.USER_TYPE_KAKAO,
                 my_photo=my_photo['profile_image'],
                 nickname=nickname,
+                slug=nickname,
             )
 
         return user
@@ -81,6 +88,12 @@ class MyUser(AbstractUser):
     phone = models.CharField(
         max_length=13,
         blank=True,
+    )
+
+    slug = models.CharField(
+        max_length=56,
+        blank=True,
+        # unique=True,
     )
 
     user_type = models.CharField(

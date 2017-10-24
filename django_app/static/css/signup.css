@@ -76,6 +76,11 @@ section.signup-container hr {
   background: #ddd;
 }
 
+section.signup-container .nothing {
+  width: 100%;
+  height: 358px;
+}
+
 section.signup-container .my_photo {
   width: 70%;
   margin: 0 15%;

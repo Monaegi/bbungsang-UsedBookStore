@@ -3,6 +3,7 @@ from django.contrib.auth import login as django_login, logout as django_logout, 
 
 from book.models import SellBookRegister, BuyBookRegister
 from member.forms import LoginForm
+from member.forms.profile import ProfileForm
 from member.forms.signup import SignupForm, BasicInfoForm
 from member.models.wish import News
 from utils.apis import get_facebook_access_token, facebook_debug_token, facebook_get_user_info, \
@@ -15,27 +16,23 @@ MyUser = get_user_model()
 def check_basic_info(request):
     """ 기본 정보 입력 """
 
-    nickname = request.session['nickname'][0]
-    my_photo = request.session['my_photo']
-    user_type = request.session['user_type'][0]
-
     if request.method == "POST":
         form = BasicInfoForm(data=request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username'],
-            nickname = form.cleaned_data['nickname'],
-            my_photo = request.POST.get('my_photo')
-            request.session['username'] = username
-            request.session['nickname'] = nickname
-            request.session['my_photo'] = my_photo
-            request.session['user_type'] = user_type
+            # context = {
+            #     'username': form.cleaned_data['username'],
+            #     'nickname': form.cleaned_data['nickname'],
+            #     'my_photo': request.POST.get('my_photo'),
+            #     'form': SignupForm(),
+            # }
+            # return render(request, 'member/signup.html', context)
+            request.session['username'] = form.cleaned_data['username']
+            request.session['nickname'] = form.cleaned_data['nickname']
             return redirect('member:signup')
     else:
         form = BasicInfoForm()
     context = {
         'form': form,
-        'nickname': nickname,
-        'my_photo': my_photo,
     }
     return render(request, 'member/input_basic_info.html', context)
 
@@ -43,38 +40,66 @@ def check_basic_info(request):
 def signup(request):
     """ 회원가입 """
 
-    username = request.session['username'][0]
-    nickname = request.session['nickname'][0]
-    my_photo = request.session['my_photo']
+    username = request.POST.get('username')
+    nickname = request.POST.get('nickname')
+    my_photo = request.POST.get('my_photo')
+    slug = request.POST.get('slug')
 
     if request.method == "POST":
-        form = SignupForm(data=request.POST)
+
+        if request.POST.get('user_type') == 'f':
+            my_photo = request.POST.get('my_photo')
+            social_photo = request.POST.get('social_photo')
+            slug = request.POST.get('slug')
+
+            if my_photo == '':
+                my_photo = social_photo
+
+            user = MyUser.objects.get(slug=slug)
+            django_login(request, user)
+
+            form = ProfileForm(
+                data={
+                    'username': request.POST.get('username'),
+                    'my_photo': my_photo,
+                    'nickname': request.POST.get('nickname'),
+                    'phone': request.POST.get('phone', ''),
+                },
+                instance=request.user
+            )
+
+            if form.is_valid():
+                form.save()
+                return redirect('book:main')
+
+        form = SignupForm(request.POST, request.FILES)
         if form.is_valid():
-
-            if request.POST.get('my_photo'):
-                my_photo = request.POST.get('my_photo')
-
             user = MyUser.objects.create_user(
-                username=username,
+                username=request.POST.get('username'),
                 password=form.cleaned_data['password1'],
-                my_photo=my_photo,
-                nickname=nickname,
-                phone=form.cleaned_data['phone'],
-                user_type=request.session['user_type'],
+                my_photo=request.FILES.get('my_photo'),
+                nickname=request.POST.get('nickname'),
+                phone=request.POST.get('phone'),
             )
             user.save()
-            if request.session['user_type'] == 'k' or request.session['user_type'] == 'f':
-                django_login(request, user)
-            return render(request, 'member/complete_signup.html')
+            return redirect('member:complete_signup')
     else:
+        # return redirect('member:check_basic_info')
         form = SignupForm()
+        username = request.session['username']
+        nickname = request.session['nickname']
     context = {
+        'form': form,
         'username': username,
         'nickname': nickname,
         'my_photo': my_photo,
-        'form': form,
+        'slug': slug,
     }
     return render(request, 'member/signup.html', context)
+
+
+def complete_signup(request):
+    return render(request, 'member/complete_signup.html')
 
 
 def login(request):
@@ -145,14 +170,15 @@ def kakao_login(request):
         access_token = get_kakao_access_token(code)
         user_info = get_kakao_user_info(access_token)
         user = MyUser.objects.get_or_create_kakao_user(user_info)
-        my_photo = user.my_photo
-        user.username = ''
 
         if user.username == '':
-            request.session['nickname'] = user.nickname
-            request.session['my_photo'] = str(my_photo)
-            request.session['user_type'] = user.user_type
-            return redirect('member:check_basic_info')
+            context = {
+                'nickname': user.nickname,
+                'my_photo': str(user.my_photo),
+                'slug': user.slug,
+                'form': BasicInfoForm(),
+            }
+            return render(request, 'member/input_basic_info.html', context)
 
         django_login(request, user)
         return redirect('book:main')

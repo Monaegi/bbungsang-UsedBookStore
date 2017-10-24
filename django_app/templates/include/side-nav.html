@@ -5,7 +5,7 @@
   {% if user.is_authenticated %}
     <ul class="my-info">
       <li class="my-photo">
-        {% if user.user_type == 'f' or user.user_type == 'k' %}
+        {% if user.slug %}
           <img src="{{ user.my_photo }}" alt="">
         {% else %}
           <img src="{{ user.my_photo.url }}">
@@ -59,7 +59,7 @@
   <a class="bar-element" href="{% url 'book:sell_book_list' %}">판매 도서 목록</a>
 
   {% if not user.is_authenticated %}
-    <a class="signupBtn" href="#">Sign Up</a>
+    <a class="signupBtn" href="{% url 'member:check_basic_info' %}">Sign Up</a>
     <a class="loginBtn" href="{% url 'member:login' %}">Log In</a>
   {% else %}
     <a class="bar-element" href="{% url 'member:logout' %}">로그아웃</a>

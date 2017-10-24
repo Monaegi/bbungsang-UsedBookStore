@@ -1,0 +1,35 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<section class="signup-container">
+  <article class="desc-wrap">
+    <ul>
+      <li>
+        <span>01</span>
+        기본정보
+      </li>
+      <li>
+        <span>02</span>
+        회원가입
+      </li>
+      <li class="on lst">
+        <span>03</span>
+        가입완료
+      </li>
+    </ul>
+  </article>
+  <article class="bi-title">
+    회원 가입을 완료했습니다.
+    <p>로그인 해주세요 :)</p>
+  </article>
+  <hr />
+  <button type="button" class="startBtn" onclick="logIn()">로그인</button>
+  <article class="nothing"></article>
+</section>
+
+<script>
+  function logIn() {
+    location.href = "{% url 'member:login' %}";
+  }
+</script>
+{% endblock %}

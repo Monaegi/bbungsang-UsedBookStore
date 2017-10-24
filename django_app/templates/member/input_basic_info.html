@@ -22,15 +22,24 @@
     기본 정보 입력하기
   </article>
   <hr />
+  {% if not my_photo %}
   <form action="" method="POST">
+  {% else %}
+  <form action="{% url 'member:signup' %}" method="POST">
+  {% endif %}
     {% csrf_token %}
     <article class="input-wrap">
       <div class="input-window">
         <span class="icon"><i class="im im-user-circle"></i></span>
         {{ form.nickname }}
         <span class="photo">
-          <img src="{{ my_photo }}">
-          <input type="text" name="my_photo" value="{{ my_photo }}" style="display: none;">
+          {% if my_photo %}
+            <img src="{{ my_photo }}">
+            <input type="text" name="slug" value="{{ slug }}" style="display: none;">
+            <input type="text" name="my_photo" value="{{ my_photo }}" style="display: none;">
+          {% else %}
+            <img src="/static/images/no_image.png">
+          {% endif %}
         </span>
       </div>
       <div class="input-window">

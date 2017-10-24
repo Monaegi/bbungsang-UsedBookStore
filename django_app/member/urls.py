@@ -11,6 +11,7 @@ urlpatterns = [
     # normal MyUser
     url(r'^check/info/$', views.check_basic_info, name='check_basic_info'),
     url(r'^signup/$', views.signup, name='signup'),
+    url(r'^complete/signup/$', views.complete_signup, name='complete_signup'),
     url(r'^login/$', views.login, name='login'),
     url(r'^login/facebook/$', views.facebook_login, name='facebook_login'),
     url(r'^login/kakao/$', views.kakao_login, name='kakao_login'),

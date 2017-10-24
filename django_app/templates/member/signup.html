@@ -18,7 +18,7 @@
       </li>
     </ul>
   </article>
-  <form action="" method="POST">
+  <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <article class="my_photo">
       <div class="img-wrap">
@@ -26,10 +26,13 @@
           <img id="imgSet" src="/static/images/no_image.png">
         {% else %}
           <img id="imgSet" src="{{ my_photo }}">
+          <input type="text" name="social_photo" value="{{ my_photo }}" style="display: none;">
+          <input type="text" name="slug" value="{{ slug }}" style="display: none;">
+          <input type="text" name="user_type" value="f" style="display: none;">
         {% endif %}
       </div>
       <button class="replace" type="button" onclick="fileUpload()"><span><i class="im im-photo-camera"></i></span></button>
-      <input type="file" id="imgInp" name="my_photo" value="{{ my_photo }}">
+      <input type="file" id="imgInp" name="my_photo">
     </article>
     <article class="input-wrap">
       <div class="input-window">
@@ -37,25 +40,32 @@
         <input type="text" placeholder="이메일" name="username" value="{{ username }}" required readonly>
       </div>
       <div class="input-window">
-        <span class="icon"><i class="im im-key"></i></span>
-        {{ form.password1 }}
-      </div>
-      <div class="input-window">
-        <span class="icon"><i class="im im-key"></i></span>
-        {{ form.password2 }}
-      </div>
-      <div class="input-window">
         <span class="icon"><i class="im im-user-circle"></i></span>
         <input type="text" placeholder="닉네임" name="nickname" value="{{ nickname }}" required readonly>
       </div>
+      {% if not my_photo %}
+        <div class="input-window">
+          <span class="icon"><i class="im im-key"></i></span>
+          {{ form.password1 }}
+        </div>
+        <div class="input-window">
+          <span class="icon"><i class="im im-key"></i></span>
+          {{ form.password2 }}
+        </div>
+        <div class="input-window">
+          <span class="icon"><i class="im im-mobile"></i></span>
+          {{ form.phone }}
+        </div>
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            {{ error }}
+          {% endfor %}
+        {% endif %}
+      {% else %}
       <div class="input-window">
         <span class="icon"><i class="im im-mobile"></i></span>
-        {{ form.phone }}
+        <input type="text" placeholder="핸드폰 번호" name="phone">
       </div>
-      {% if form.non_field_errors %}
-        {% for error in form.non_field_errors %}
-          {{ error }}
-        {% endfor %}
       {% endif %}
     </article>
     <button type="submit" class="startBtn">가입하기</button>

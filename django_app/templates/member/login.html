@@ -23,7 +23,7 @@
         </a>
       </div>
       <div class="do">
-        <a href="#">
+        <a href="{% url 'member:check_basic_info' %}">
           계정만들기
         </a>
         <a href="#">
@@ -43,7 +43,7 @@
                 {% include 'include/member_field_set.html' with form=form %}
                 <button type="submit" class="btn-mint">로그인</button>
               </form>
-              <a href="#">
+              <a href="{% url 'member:check_basic_info' %}">
                 <button class="btn-pink">회원가입</button>
               </a>
             </div>
@@ -59,7 +59,7 @@
             카카오 로그인
           </a>
           <div class="desc">
-            계정이 없나요? <a href="#">계정 만들기</a>
+            계정이 없나요? <a href="{% url 'member:check_basic_info' %}">계정 만들기</a>
             <p>비밀번호가 기억나지 않으세요? <a href="#">비밀번호 재설정</a></p>
           </div>
           <p>
