@@ -19,13 +19,6 @@ def check_basic_info(request):
     if request.method == "POST":
         form = BasicInfoForm(data=request.POST)
         if form.is_valid():
-            # context = {
-            #     'username': form.cleaned_data['username'],
-            #     'nickname': form.cleaned_data['nickname'],
-            #     'my_photo': request.POST.get('my_photo'),
-            #     'form': SignupForm(),
-            # }
-            # return render(request, 'member/signup.html', context)
             request.session['username'] = form.cleaned_data['username']
             request.session['nickname'] = form.cleaned_data['nickname']
             return redirect('member:signup')
