@@ -1,6 +1,5 @@
 from django.shortcuts import redirect
 
-
 from book.forms.comment import CommentForm
 from book.models import SellBookRegister
 
@@ -8,6 +7,7 @@ from book.models import SellBookRegister
 def create_comment(request, sell_pk):
     form = CommentForm(request.POST)
     sell_book = SellBookRegister.objects.get(pk=sell_pk)
+
     if form.is_valid():
         comment = form.save(commit=False)
         comment.user = request.user

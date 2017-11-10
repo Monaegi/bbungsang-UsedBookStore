@@ -62,11 +62,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django.contrib.sites',
 
-    # 'rest_framework',
-    # 'rest_framework.authtoken',
     'django_messages',
 
     'member',
@@ -76,17 +73,6 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 AUTH_USER_MODEL = 'member.MyUser'
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-}
-
-# AUTHENTICATION_BACKENDS = (
-#     'django.contrib.auth.backends.ModelBackend',
-#     'member.backends.TokenBackend'
-# )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

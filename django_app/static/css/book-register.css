@@ -563,3 +563,35 @@
   color: #bdbdbd;
   font-size: 13px;
 }
+
+ul.autocomplete-box {
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+  width: 83.5%;
+  margin-top: 60px;
+  position: absolute;
+}
+
+ul.autocomplete-box li {
+  list-style: none;
+  height: 60px;
+  line-height: 60px;
+  padding: 10px 10px 5px 10px;
+}
+
+ul.autocomplete-box li img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  float: left;
+}
+
+ul.autocomplete-box li .nickname {
+  border: none;
+  background: transparent;
+  font-family: 'Nanumbarunpen';
+  font-size: 18px;
+  margin: 0 15px;
+  cursor: pointer;
+}

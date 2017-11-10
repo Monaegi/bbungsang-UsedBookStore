@@ -2,6 +2,7 @@ import re
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.shortcuts import redirect
 from django_extensions.db.models import TimeStampedModel
 from django_messages.forms import ComposeForm
 
@@ -24,10 +25,6 @@ class Comment(TimeStampedModel):
     content = models.TextField()
     star_score = models.IntegerField()
 
-    def save(self, *args, **kwargs):
-        self.send_message_after_making_name_tag()
-        super().save(*args, **kwargs)
-
     def send_message_after_making_name_tag(self):
         p = re.compile(r'(@\w+)')
         tag_name_list = re.findall(p, self.content)
@@ -49,7 +46,6 @@ class Comment(TimeStampedModel):
             }
 
             compose_form = ComposeForm(data)
-
             sender = MyUser.objects.get(pk=1)
 
             if compose_form.is_valid():
@@ -57,6 +53,13 @@ class Comment(TimeStampedModel):
 
         self.content = ori_content
         return self.content
+
+    def save(self, *args, **kwargs):
+        try:
+            self.send_message_after_making_name_tag()
+        except MyUser.DoesNotExist:
+            return redirect('book:sell_book_detail', sell_pk=self.sell_book.pk)
+        super().save(*args, **kwargs)
 
 
 

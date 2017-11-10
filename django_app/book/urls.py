@@ -23,6 +23,7 @@ urlpatterns = [
 
     # 댓글
     url(r'^comment/create/(?P<sell_pk>\d+)$', views.create_comment, name='create_comment'),
+    url(r'^comment/autocomplete/(?P<keyword>\w+)$', views.autocomplete, name='autocomplete'),
 
     # 쪽지 커스텀
     url(r'^messages/reply/(?P<message_id>\d+)$', views.create_reply, name='create_reply'),

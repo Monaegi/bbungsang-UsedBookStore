@@ -50,13 +50,15 @@
 <section class="comment">
   <p>댓글 달기 <span>총 <a href="#">{{ comments.count }}</a>개</span></p>
   <article class="create-comment">
-    <form action="{% url 'book:create_comment' book.pk %}" method="POST">
+    <form action="{% url 'book:create_comment' book.pk %}" method="POST" autocomplete="off">
       {% csrf_token %}
       <div class="select">
         {{ comment_form.star_score }}
       </div>
       {{ comment_form.content }}
       <button type="submit">댓글<br>달기</button>
+      <div class="resultDiv"></div>
+      <div class="clearfix"></div>
     </form>
   </article>
   <p class="comment-list">댓글 목록</p>
@@ -80,7 +82,52 @@
   </article>
 </section>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script>
+//    $(function(){
+//        var autocomplete_text = "{{user_list}}".split(",");
+//        $("#autocomplete").autocomplete({
+//            source: autocomplete_text
+//        });
+//    })
+    $(document).ready(function() {
+      $("#autocomplete").keyup(function(e) {
+        e.preventDefault();
+        var keywords = $(this).val();
+        if(keywords != "") {
+          $.ajax({
+            url: "http://localhost:8000/books/comment/autocomplete/" + keywords,
+            // data: {keywords : keywords},
+            type: "get",
+            success: function(resp) {
+              if(resp != "") {
+                $(".resultDiv").html(resp).show();
+                var showList = document.getElementsByClassName('autocomplete-box');
+                console.log(showList);
+                showList[0].addEventListener('click', setNickname);
+              } else {
+                $(".resultDiv").html("").hide();
+              }
+            }
+          });
+        } else {
+          $(".resultDiv").html("").hide();
+        }
+        return false;
 
+      });
+      $(document).click(function() {
+        $(".resultDiv").html("").hide();
+      });
+    });
+
+    function setNickname(e) {
+      var text = e.target.textContent;
+      console.log(text);
+      document.getElementById("autocomplete").value = "@" + text + " ";
+      return false;
+    }
 </script>
 {% endblock %}

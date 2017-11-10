@@ -92,6 +92,15 @@ def sell_book_detail(request, sell_pk):
 
     sell_book = SellBookRegister.objects.get(pk=sell_pk)
     book_status = BookStatus.objects.filter(sell_book_status=sell_book)
+    # user_list = ""
+    # p = re.compile('ht{2}p:/{2}')
+    # for user in MyUser.objects.all():
+    #     m = p.search(str(user.my_photo))
+    #     if m:
+    #         user_list += "@" + user.nickname + " ," + str(user.my_photo) + ","
+    #     else:
+    #         user_list += "@" + user.nickname + " ," + user.my_photo.url + ","
+    # print(user_list)
     comments = Comment.objects.filter(sell_book=sell_book)
     context = {
         'book': sell_book,
@@ -100,3 +109,11 @@ def sell_book_detail(request, sell_pk):
         'comments': comments,
     }
     return render(request, 'book/sell_book_detail.html', context)
+
+
+def autocomplete(request, keyword):
+    users = MyUser.objects.filter(nickname__contains=keyword)
+    context = {
+        'users': users,
+    }
+    return render(request, 'include/autocomplete.html', context)

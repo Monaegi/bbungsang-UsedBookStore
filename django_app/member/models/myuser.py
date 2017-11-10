@@ -118,6 +118,3 @@ class MyUser(AbstractUser):
         token = ''.join(random.choice(chars) for _ in range(size))
         EmailToken.objects.get_or_create(user_id=user_pk, token=token)
         return token
-
-    # def get_user_token(self, user_pk):
-    #     return Token.objects.get_or_create(user_id=user_pk)

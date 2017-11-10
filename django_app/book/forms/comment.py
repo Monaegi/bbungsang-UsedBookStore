@@ -34,6 +34,7 @@ class CommentForm(forms.ModelForm):
         label='',
         widget=forms.TextInput(
             attrs={
+                'id': 'autocomplete',
                 'class': 'textarea',
             }
         )
