@@ -570,7 +570,8 @@
 ul.autocomplete-box {
   margin: 0;
   padding: 0;
-  background: #f2f2f2;
+  left: 37px;
+  background: #fafafa;
   width: 83.5%;
   margin-top: 60px;
   position: absolute;
@@ -580,6 +581,11 @@ ul.autocomplete-box {
     height: 60px;
     line-height: 60px;
     padding: 10px 10px 5px 10px;
+    border: 1px solid #f2f2f2;
+
+    &:hover {
+      background: #ddd;
+    }
 
     img {
       width: 40px;
