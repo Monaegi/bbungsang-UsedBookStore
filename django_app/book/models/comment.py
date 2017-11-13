@@ -26,7 +26,7 @@ class Comment(TimeStampedModel):
     star_score = models.IntegerField()
 
     def send_message_after_making_name_tag(self):
-        p = re.compile(r'(@\w+)')
+        p = re.compile(r'(^@\w+)')
         tag_name_list = re.findall(p, self.content)
         ori_content = self.content
 
@@ -36,7 +36,6 @@ class Comment(TimeStampedModel):
                 tag_name=tag_name,
             )
             ori_content = ori_content.replace(tag_name, change_tag)
-
             user = MyUser.objects.get(nickname=tag)
 
             data = {
@@ -44,7 +43,6 @@ class Comment(TimeStampedModel):
                 'subject': '회원님이 언급되었습니다.',
                 'body': self.content,
             }
-
             compose_form = ComposeForm(data)
             sender = MyUser.objects.get(pk=1)
 

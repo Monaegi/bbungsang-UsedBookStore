@@ -505,7 +505,7 @@
   width: 95%;
   height: 120px;
   margin: 0 2.5% 30px 2.5%;
-  padding: 10px;
+  padding: 1.5%;
   background: #f8f8f8;
   border: 1px solid #ddd;
 }
@@ -567,9 +567,9 @@
 ul.autocomplete-box {
   margin: 0;
   padding: 0;
-  left: 37px;
+  left: 4%;
   background: #fafafa;
-  width: 83.5%;
+  width: 83%;
   margin-top: 60px;
   position: absolute;
 }
@@ -578,8 +578,11 @@ ul.autocomplete-box li {
   list-style: none;
   height: 60px;
   line-height: 60px;
-  padding: 10px 10px 5px 10px;
+  padding: 10px;
   border: 1px solid #f2f2f2;
+  color: #333;
+  font-family: 'Nanumbarunpen';
+  cursor: pointer;
 }
 
 ul.autocomplete-box li:hover {
@@ -587,17 +590,9 @@ ul.autocomplete-box li:hover {
 }
 
 ul.autocomplete-box li img {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
+  margin: 0 10px;
   border-radius: 100%;
   float: left;
-}
-
-ul.autocomplete-box li .nickname {
-  border: none;
-  background: transparent;
-  font-family: 'Nanumbarunpen';
-  font-size: 18px;
-  margin: 0 15px;
-  cursor: pointer;
 }

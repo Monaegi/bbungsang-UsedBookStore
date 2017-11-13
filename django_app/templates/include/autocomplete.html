@@ -4,13 +4,13 @@
 <link rel="stylesheet" href="{% static 'css/book-register.css' %}">
 <ul class="autocomplete-box">
     {% for user in users %}
-    <li>
-        {% if user.my_photo.url|img_filter %}
-            <img src="{{ user.my_photo}}">
-        {% else %}
-            <img src="{{ user.my_photo.url}}">
-        {% endif %}
-        <a class="nickname">{{ user.nickname }}</a>
+    <li class="nickname">
+      {% if user.my_photo.url|img_filter %}
+        <img src="{{ user.my_photo}}">
+      {% else %}
+        <img src="{{ user.my_photo.url}}">
+      {% endif %}
+      {{ user.nickname }}
     </li>
     {% endfor %}
 </ul>

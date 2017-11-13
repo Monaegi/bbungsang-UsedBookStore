@@ -149,7 +149,7 @@
 
 .comment p span { font-size: 14px; }
 
-.comment .create-comment { width: 95%; height: 120px; margin: 0 2.5% 30px 2.5%; padding: 10px; background: #f8f8f8; border: 1px solid #ddd; }
+.comment .create-comment { width: 95%; height: 120px; margin: 0 2.5% 30px 2.5%; padding: 1.5%; background: #f8f8f8; border: 1px solid #ddd; }
 
 .comment .create-comment .select { width: 100%; height: auto; margin-bottom: 5px; }
 
@@ -167,12 +167,10 @@
 
 .comment .comment-content ul li .date { padding: 0 10px; color: #bdbdbd; font-size: 13px; }
 
-ul.autocomplete-box { margin: 0; padding: 0; left: 37px; background: #fafafa; width: 83.5%; margin-top: 60px; position: absolute; }
+ul.autocomplete-box { margin: 0; padding: 0; left: 4%; background: #fafafa; width: 83%; margin-top: 60px; position: absolute; }
 
-ul.autocomplete-box li { list-style: none; height: 60px; line-height: 60px; padding: 10px 10px 5px 10px; border: 1px solid #f2f2f2; }
+ul.autocomplete-box li { list-style: none; height: 60px; line-height: 60px; padding: 10px; border: 1px solid #f2f2f2; color: #333; font-family: 'Nanumbarunpen'; cursor: pointer; }
 
 ul.autocomplete-box li:hover { background: #ddd; }
 
-ul.autocomplete-box li img { width: 40px; height: 40px; border-radius: 100%; float: left; }
-
-ul.autocomplete-box li .nickname { border: none; background: transparent; font-family: 'Nanumbarunpen'; font-size: 18px; margin: 0 15px; cursor: pointer; }
+ul.autocomplete-box li img { width: 35px; height: 35px; margin: 0 10px; border-radius: 100%; float: left; }

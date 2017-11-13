@@ -57,9 +57,9 @@
       </div>
       {{ comment_form.content }}
       <button type="submit">댓글<br>달기</button>
+      <div class="resultDiv"></div>
+      <div class="clearfix"></div>
     </form>
-    <div class="resultDiv"></div>
-    <div class="clearfix"></div>
   </article>
   <p class="comment-list">댓글 목록</p>
   <article class="comment-content">
@@ -96,6 +96,7 @@
       $("#autocomplete").keyup(function(e) {
         e.preventDefault();
         var keywords = $(this).val();
+        keywords = keywords.replace("@", "");
         if(keywords != "") {
           $.ajax({
             url: "http://localhost:8000/books/comment/autocomplete/" + keywords,
@@ -124,8 +125,8 @@
     });
 
     function setNickname(e) {
-      var text = e.target.textContent;
-      console.log(text);
+      var text = e.target.outerText;
+      text = text.replace(" ", "");
       document.getElementById("autocomplete").value = "@" + text + " ";
       return false;
     }
