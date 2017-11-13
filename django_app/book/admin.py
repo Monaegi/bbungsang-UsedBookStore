@@ -1,17 +1,8 @@
 from django.contrib import admin
-from django.contrib.auth import get_user_model
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
-
 from book.models import Book, SellBookRegister
-
-MyUser = get_user_model()
-
-
-@admin.register(MyUser)
-class MyUserAdmin(admin.ModelAdmin):
-    list_display = ['pk', 'username', 'nickname', ]
 
 
 class BookAdmin(admin.ModelAdmin):
@@ -38,7 +29,5 @@ class SellBookRegisterAdmin(admin.ModelAdmin):
         return obj.seller.user.username
     get_seller_username.short_description = _('판매자')
 
-
-admin.site.unregister(MyUser, )
 admin.site.register(Book, BookAdmin)
 admin.site.register(SellBookRegister, SellBookRegisterAdmin)
