@@ -67,7 +67,7 @@
     function delMessage(message_id){
       $.ajax({
         type: "GET",
-        url: "http://localhost:8000/messages/delete/" + message_id,
+        url: "http://usedbookstore-dev.ap-northeast-2.elasticbeanstalk.com/messages/delete/" + message_id,
         success: function (response) {
           $("#messageScreen").html(response);
         },
@@ -108,7 +108,7 @@
     function viewMessage(message_id){
       $.ajax({
         type: "GET",
-        url: "http://localhost:8000/messages/view/" + message_id,
+        url: "http://usedbookstore-dev.ap-northeast-2.elasticbeanstalk.com/messages/view/" + message_id,
         success: function (response) {
           $("#messageScreen").html(response);
         },

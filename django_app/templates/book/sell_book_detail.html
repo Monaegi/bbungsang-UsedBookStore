@@ -99,7 +99,7 @@
         keywords = keywords.replace("@", "");
         if(keywords != "") {
           $.ajax({
-            url: "http://localhost:8000/books/comment/autocomplete/" + keywords,
+            url: "http://usedbookstore-dev.ap-northeast-2.elasticbeanstalk.com/books/comment/autocomplete/" + keywords,
             // data: {keywords : keywords},
             type: "get",
             success: function(resp) {
