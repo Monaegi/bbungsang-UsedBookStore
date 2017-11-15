@@ -77,7 +77,9 @@ class MyUser(AbstractUser):
 
     USERNAME_FIELD = 'username'
 
-    my_photo = CustomImageField()
+    my_photo = CustomImageField(
+        max_length=255,
+    )
 
     nickname = models.CharField(
         max_length=54,

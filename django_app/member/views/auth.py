@@ -214,7 +214,6 @@ def user_info(request, slug):
 
 def mypage(request, ):
     """ 회원 정보 조회, 수정 """
-
     pass
 
 

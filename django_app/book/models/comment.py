@@ -26,7 +26,8 @@ class Comment(TimeStampedModel):
     star_score = models.IntegerField()
 
     def send_message_after_making_name_tag(self):
-        p = re.compile(r'(^@\w+)')
+        # p = re.compile(r'(^@\w+)')
+        p = re.compile(r'(@\w+)')
         tag_name_list = re.findall(p, self.content)
         ori_content = self.content
 
