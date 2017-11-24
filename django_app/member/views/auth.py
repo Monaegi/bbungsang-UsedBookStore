@@ -39,7 +39,6 @@ def signup(request):
     slug = request.POST.get('slug')
 
     if request.method == "POST":
-
         if request.POST.get('user_type') == 'f':
             my_photo = request.POST.get('my_photo')
             social_photo = request.POST.get('social_photo')
@@ -77,7 +76,6 @@ def signup(request):
             user.save()
             return redirect('member:complete_signup')
     else:
-        # return redirect('member:check_basic_info')
         form = SignupForm()
         username = request.session['username']
         nickname = request.session['nickname']
@@ -135,6 +133,16 @@ def facebook_login(request):
         debug_result = facebook_debug_token(access_token)
         user_info = facebook_get_user_info(user_id=debug_result['data']['user_id'], access_token=access_token)
         user = MyUser.objects.get_or_create_facebook_user(user_info)
+
+        # email이 존재하지 않으면, 즉 username이 빈 문자열이면
+        if user.username == '':
+            context = {
+                'nickname': user.nickname,
+                'my_photo': str(user.my_photo),
+                'slug': user.slug,
+                'form': BasicInfoForm()
+            }
+            return render(request, 'member/input_basic_info.html', context)
 
         django_login(request, user)
         return redirect('book:main')
