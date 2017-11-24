@@ -7,19 +7,19 @@
       <a href="{{ result.link }}">{{ result.title|safe }}</a>
     </li>
     <li>
-        저자 : {{ result.author }}
+        저자 : {{ result.author|safe }}
     </li>
     <li>
         정상가 : {{ result.price }}
     </li>
     <li>
-        출판사 : {{ result.publisher }}
+        출판사 : {{ result.publisher|safe }}
     </li>
     <li>
         발행일 : {{ result.pubdate }}
     </li>
     <li>
-        isbn : {{ result.isbn }}
+        isbn : {{ result.isbn|safe }}
     </li>
   </ul>
 </section>

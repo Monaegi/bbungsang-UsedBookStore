@@ -56,7 +56,7 @@ def signup(request):
                     'username': request.POST.get('username'),
                     'my_photo': my_photo,
                     'nickname': request.POST.get('nickname'),
-                    'phone': request.POST.get('phone', ''),
+                    'phone': request.POST.get('phone', '')
                 },
                 instance=request.user
             )
@@ -72,7 +72,7 @@ def signup(request):
                 password=form.cleaned_data['password1'],
                 my_photo=request.FILES.get('my_photo'),
                 nickname=request.POST.get('nickname'),
-                phone=request.POST.get('phone'),
+                phone=request.POST.get('phone')
             )
             user.save()
             return redirect('member:complete_signup')
@@ -86,7 +86,7 @@ def signup(request):
         'username': username,
         'nickname': nickname,
         'my_photo': my_photo,
-        'slug': slug,
+        'slug': slug
     }
     return render(request, 'member/signup.html', context)
 
@@ -109,7 +109,7 @@ def login(request):
             return redirect('book:main')
         form = LoginForm()
     context = {
-        'form': form,
+        'form': form
     }
     return render(request, 'member/login.html', context)
 
@@ -135,9 +135,6 @@ def facebook_login(request):
         debug_result = facebook_debug_token(access_token)
         user_info = facebook_get_user_info(user_id=debug_result['data']['user_id'], access_token=access_token)
         user = MyUser.objects.get_or_create_facebook_user(user_info)
-
-        if user.username == '':
-            pass
 
         django_login(request, user)
         return redirect('book:main')
@@ -169,7 +166,7 @@ def kakao_login(request):
                 'nickname': user.nickname,
                 'my_photo': str(user.my_photo),
                 'slug': user.slug,
-                'form': BasicInfoForm(),
+                'form': BasicInfoForm()
             }
             return render(request, 'member/input_basic_info.html', context)
 
@@ -193,7 +190,7 @@ def user_info(request, slug):
     buy_books = BuyBookRegister.objects.filter(buyer=user)
     news = News.objects.filter(
         my_follow=request.user,
-        follow_other=user,
+        follow_other=user
     )
 
     register_count = sell_books.count() + buy_books.count()
@@ -207,7 +204,7 @@ def user_info(request, slug):
         'news': news,
         'register_count': register_count,
         'follower_count': follower_count,
-        'following_count': following_count,
+        'following_count': following_count
     }
     return render(request, 'member/user_info.html', context)
 

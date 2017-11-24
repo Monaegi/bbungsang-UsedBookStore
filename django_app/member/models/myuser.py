@@ -30,7 +30,7 @@ class MyUserManager(DefaultUserManager):
                 user_type=self.model.USER_TYPE_FACEBOOK,
                 my_photo=my_photo['data']['url'],
                 nickname=nickname,
-                slug=slug,
+                slug=slug
             )
 
         return user
@@ -40,7 +40,7 @@ class MyUserManager(DefaultUserManager):
         my_photo = user_info.get('properties', '')
         nickname = '{}_{}'.format(
             self.model.USER_TYPE_KAKAO,
-            user_info['id'],
+            user_info['id']
         )
 
         # username = ''
@@ -53,9 +53,8 @@ class MyUserManager(DefaultUserManager):
                 user_type=self.model.USER_TYPE_KAKAO,
                 my_photo=my_photo['profile_image'],
                 nickname=nickname,
-                slug=nickname,
+                slug=nickname
             )
-
         return user
 
 
@@ -68,7 +67,7 @@ class MyUser(AbstractUser):
     USER_TYPE_CHOICES = (
         (USER_TYPE_DJANGO, 'Django'),
         (USER_TYPE_FACEBOOK, 'Facebook'),
-        (USER_TYPE_KAKAO, 'Kakao'),
+        (USER_TYPE_KAKAO, 'Kakao')
     )
 
     username = models.EmailField(
@@ -78,35 +77,34 @@ class MyUser(AbstractUser):
     USERNAME_FIELD = 'username'
 
     my_photo = CustomImageField(
-        max_length=255,
+        max_length=255
     )
 
     nickname = models.CharField(
         max_length=54,
         blank=False,
-        unique=True,
+        unique=True
     )
 
     phone = models.CharField(
         max_length=13,
-        blank=True,
+        blank=True
     )
 
     slug = models.CharField(
         max_length=56,
-        blank=True,
-        # unique=True,
+        blank=True
     )
 
     user_type = models.CharField(
         max_length=1,
         choices=USER_TYPE_CHOICES,
-        default=USER_TYPE_DJANGO,
+        default=USER_TYPE_DJANGO
     )
 
     wish_list = models.ManyToManyField(
         'book.SellBookRegister',
-        through='member.BookWishList',
+        through='member.BookWishList'
     )
 
     follow = models.ManyToManyField(

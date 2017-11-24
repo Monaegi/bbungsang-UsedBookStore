@@ -6,7 +6,7 @@ from book.models import Book, SellBookRegister
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ['pk', 'get_book_image', 'title', 'author', 'publisher', 'category', ]
+    list_display = ['pk', 'get_book_image', 'title', 'author', 'publisher', 'category']
 
     def get_book_image(self, obj):
         image = obj.cover_img
@@ -14,7 +14,6 @@ class BookAdmin(admin.ModelAdmin):
             return ''
         return mark_safe('<img src={} width="80" height="110">'.format(image))
     get_book_image.short_description = _('책 이미지')
-
     list_per_page = 5
 
 

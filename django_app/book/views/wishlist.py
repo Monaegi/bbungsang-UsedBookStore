@@ -33,7 +33,6 @@ def book_wish_detail(request, book_pk):
     book = SellBookRegister.objects.get(pk=book_pk)
 
     if request.method == 'POST':
-
         for wish_list in wish_lists:
             if book == wish_list.book:
                 return HttpResponse('이미 위시리스트에 있는 상품입니다.')

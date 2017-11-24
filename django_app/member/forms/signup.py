@@ -5,7 +5,7 @@ MyUser = get_user_model()
 
 __all__ = (
     "BasicInfoForm",
-    "SignupForm",
+    "SignupForm"
 )
 
 
@@ -16,7 +16,7 @@ class BasicInfoForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'placeholder': '닉네임',
-                'required': True,
+                'required': True
             }
         )
     )
@@ -25,7 +25,7 @@ class BasicInfoForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'placeholder': '이메일',
-                'required': True,
+                'required': True
             }
         )
     )
@@ -55,7 +55,7 @@ class SignupForm(forms.Form):
         widget=forms.PasswordInput(
             attrs={
                 'placeholder': '비밀번호',
-                'required': True,
+                'required': True
             }
         )
     )
@@ -64,7 +64,7 @@ class SignupForm(forms.Form):
         widget=forms.PasswordInput(
             attrs={
                 'placeholder': '비밀번호 확인',
-                'required': True,
+                'required': True
             }
         )
     )

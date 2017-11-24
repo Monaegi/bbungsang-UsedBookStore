@@ -15,6 +15,7 @@ def delete_message(request, message_id, ):
 
 def create_reply(request, message_id, template_name='django_messages/compose.html',
                  success_url=None, subject_template=_(u"Re: %(subject)s")):
+    """  """
 
     parent = get_object_or_404(Message, id=message_id)
 

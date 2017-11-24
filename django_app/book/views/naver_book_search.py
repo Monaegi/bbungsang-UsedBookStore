@@ -6,13 +6,11 @@ from django.contrib.auth import get_user_model
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
 
-
 MyUser = get_user_model()
 
 
 def naver_search_books(request):
     q = request.GET.get('q')
-
     client_id = settings.NAVER_CLIENT_ID
     client_secret = settings.NAVER_CLIENT_SECRET
     enc_q = urllib.parse.quote(q)
@@ -26,10 +24,9 @@ def naver_search_books(request):
     if rescode == 200:
         response_body = res.read()
         results_list = json.loads(response_body.decode('utf-8'))['items']
-
         paginator = Paginator(results_list, 4)
-
         page = request.GET.get('page')
+
         try:
             results = paginator.page(page)
         except PageNotAnInteger:

@@ -20,7 +20,7 @@ class Book(models.Model):
         (BOOK_TYPE_ALGORITHM, '자료구조/알고리즘'),
         (BOOK_TYPE_NETWORK, '네트워크'),
         (BOOK_TYPE_DB, '데이터베이스'),
-        (BOOK_TYPE_ETC, 'etc(소프트웨어공학 등)'),
+        (BOOK_TYPE_ETC, 'etc(소프트웨어공학 등)')
     )
 
     cover_img = models.CharField(max_length=200, )
@@ -33,15 +33,15 @@ class Book(models.Model):
     used_price = models.CharField(max_length=25, blank=True)
     category = models.CharField(
         max_length=50,
-        choices=BOOK_TYPE_CHOICES,
+        choices=BOOK_TYPE_CHOICES
     )
 
     buyer = models.ManyToManyField(
-        settings.AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL
     )
 
     seller = models.ManyToManyField(
-        Seller,
+        Seller
     )
 
     def save(self, *args, **kwargs):
@@ -53,3 +53,11 @@ class Book(models.Model):
         ori_title = ori_title.replace("<b>", "")
         ori_title = ori_title.replace("</b>", "")
         self.title = ori_title
+        ori_author = self.author
+        ori_author = ori_author.replace("<b>", "")
+        ori_author = ori_author.replace("</b>", "")
+        self.author = ori_author
+        ori_publisher = self.publisher
+        ori_publisher = ori_publisher.replace("<b>", "")
+        ori_publisher = ori_publisher.replace("</b>", "")
+        self.publisher = ori_publisher

@@ -106,11 +106,11 @@ class BuyBookRegisterForm(forms.ModelForm):
         (BOOK_TYPE_ETC, 'etc(소프트웨어공학 등)'),
     )
 
-    category = forms.ChoiceField(
-        label_suffix='',
-        label='카테고리',
-        choices=BOOK_TYPE_CHOICES,
-    )
+    # category = forms.ChoiceField(
+    #     label_suffix='',
+    #     label='카테고리',
+    #     choices=BOOK_TYPE_CHOICES,
+    # )
     used_price = forms.CharField(
         label_suffix='',
         label='중고가',

@@ -10,17 +10,15 @@ class Seller(models.Model):
 
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
-        related_name='my_seller',
-
+        related_name='my_seller'
     )
 
 
 class EmailToken(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
-        related_name='email_token',
+        related_name='email_token'
     )
-
     token = models.CharField(
-        max_length=35,
+        max_length=35
     )

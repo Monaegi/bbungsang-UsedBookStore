@@ -12,7 +12,7 @@ class LoginForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'placeholder': 'Username',
-                'class': 'input-id',
+                'class': 'input-id'
             }
         )
     )
@@ -21,7 +21,7 @@ class LoginForm(forms.Form):
         widget=forms.PasswordInput(
             attrs={
             'placeholder': 'Password',
-            'class': 'input-password',
+            'class': 'input-password'
             }
         )
     )
@@ -33,7 +33,7 @@ class LoginForm(forms.Form):
 
         user = authenticate(
             username=username,
-            password=password,
+            password=password
         )
         if user is not None:
             self.cleaned_data['user'] = user

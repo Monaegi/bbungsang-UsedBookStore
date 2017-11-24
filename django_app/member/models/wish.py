@@ -10,12 +10,11 @@ class BookWishList(TimeStampedModel):
 
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
+        on_delete=models.CASCADE
     )
-
     book = models.ForeignKey(
         SellBookRegister,
-        on_delete=models.CASCADE,
+        on_delete=models.CASCADE
     )
 
 
@@ -24,11 +23,10 @@ class News(TimeStampedModel):
 
     my_follow = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
+        on_delete=models.CASCADE
     )
-
     follow_other = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name='following',
+        related_name='following'
     )
