@@ -1,3 +1,5 @@
+{% load profile %}
+
 <!-- 사이드 메뉴바 -->
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -5,10 +7,10 @@
   {% if user.is_authenticated %}
     <ul class="my-info">
       <li class="my-photo">
-        {% if user.slug %}
-          <img src="{{ user.my_photo }}" alt="">
+        {% if user.my_photo.url|img_filter %}
+          <img src="{{ user.my_photo}}">
         {% else %}
-          <img src="{{ user.my_photo.url }}">
+          <img src="{{ user.my_photo.url}}">
         {% endif %}
       </li>
       <li class="my-page">

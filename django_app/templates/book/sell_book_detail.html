@@ -92,6 +92,8 @@
 //            source: autocomplete_text
 //        });
 //    })
+
+    // 사용자 태그 자동 완성
     $(document).ready(function() {
       $("#autocomplete").keyup(function(e) {
         e.preventDefault();
@@ -99,8 +101,7 @@
         keywords = keywords.replace("@", "");
         if(keywords != "") {
           $.ajax({
-            // url: "http://usedbookstore-dev.ap-northeast-2.elasticbeanstalk.com/books/comment/autocomplete/" + keywords,
-            url: "http://localhost:8000/books/comment/autocomplete/" + keywords,
+            url: "http://usedbookstore-dev.ap-northeast-2.elasticbeanstalk.com/books/comment/autocomplete/" + keywords,
             type: "get",
             success: function(resp) {
               if(resp != "") {
