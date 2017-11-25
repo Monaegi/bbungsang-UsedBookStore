@@ -11,39 +11,38 @@ from utils.fields import CustomImageField
 
 class MyUserManager(DefaultUserManager):
     def get_or_create_facebook_user(self, user_info):
-        username = user_info.get('email', '')
+        """ Facebook Custom UserManager """
+
+        # username = user_info.get('email', '')
         my_photo = user_info.get('picture', '')
         nickname = '{}_{}'.format(
             self.model.USER_TYPE_FACEBOOK,
             user_info['id']
         )
-        slug = '{}_{}'.format(
-            self.model.USER_TYPE_FACEBOOK,
-            user_info['id']
-        )
 
-        if username and self.model.objects.filter(slug=slug):
-            user = self.model.objects.get(slug=slug)
+        username = ''
+
+        if username and self.model.objects.filter(slug=nickname):
+            user = self.model.objects.get(slug=nickname)
         else:
             user = self.model.objects.create(
                 username=username,
                 user_type=self.model.USER_TYPE_FACEBOOK,
                 my_photo=my_photo['data']['url'],
                 nickname=nickname,
-                slug=slug
+                slug=nickname
             )
-
         return user
 
     def get_or_create_kakao_user(self, user_info):
+        """ Kakao Custom UserManager """
+
         username = user_info.get('kaccount_email', '')
         my_photo = user_info.get('properties', '')
         nickname = '{}_{}'.format(
             self.model.USER_TYPE_KAKAO,
             user_info['id']
         )
-
-        # username = ''
 
         if username and self.model.objects.filter(slug=nickname):
             user = self.model.objects.get(slug=nickname)
