@@ -3,7 +3,7 @@ requests==2.9.1
 Django==1.11.3
 pytz==2017.2
 psycopg2<2.8
-Pillow==4.2.1
+Pillow==8.3.2
 boto3==1.4.4
 django-extensions==1.8.1
 django-storages==1.6.3
